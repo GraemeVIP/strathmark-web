@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { caseStudies } from "@/lib/case-studies-data";
 import { Footer } from "@/app/components/sections/Footer";
 import { Navigation } from "@/app/components/Navigation";
@@ -56,166 +56,292 @@ export default async function CaseStudyDetail({ params }: PageProps) {
   }
 
   const relatedStudies = getRelatedStudies(study.slug, study.industry);
+  const studyIndex = caseStudies.findIndex((s) => s.slug === slug);
 
   return (
     <main className="min-h-screen bg-strath-navy text-slate-200 selection:bg-gold selection:text-strath-navy flex flex-col">
       <Navigation />
 
-      <header className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-strath-navy to-[#0a101d] px-6 pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute left-[12%] top-0 h-72 w-72 rounded-full bg-gold/8 blur-[120px]" />
-          <div className="absolute right-[8%] top-1/3 h-64 w-64 rounded-full bg-strath-blue/10 blur-[120px]" />
+      {/* ─── Hero ──────────────────────────────────────────────────────── */}
+      <header className="relative overflow-hidden border-b border-white/5 px-6 pt-32 pb-0 md:pt-40">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-[8%] top-0 h-80 w-80 rounded-full bg-gold/7 blur-[130px]" />
+          <div className="absolute right-[5%] top-1/3 h-64 w-64 rounded-full bg-blue-900/15 blur-[110px]" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-          <Link
-            href="/case-studies"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.22em] text-slate-500 transition-colors hover:text-gold"
-          >
-            <ArrowLeft size={14} /> Return to case studies
-          </Link>
+        <div className="relative max-w-7xl mx-auto">
+          <div className="flex items-center justify-between">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.26em] text-slate-500 transition-colors hover:text-gold"
+            >
+              <ArrowLeft size={13} /> All case studies
+            </Link>
+            <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-slate-600">
+              {String(studyIndex + 1).padStart(2, "0")} / {String(caseStudies.length).padStart(2, "0")}
+            </span>
+          </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div className="mt-10 grid grid-cols-1 gap-10 pb-16 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:pb-0">
             <div>
-              <div className="flex flex-wrap gap-3 text-[10px] font-mono uppercase tracking-[0.24em]">
-                <span className="border border-gold/20 bg-gold/10 px-3 py-1 text-gold">{study.industry}</span>
-                <span className="border border-white/10 bg-white/5 px-3 py-1 text-slate-300">{study.region}</span>
-                <span className="border border-white/10 bg-white/5 px-3 py-1 text-slate-300">{study.engagementType}</span>
+              <div className="flex flex-wrap gap-2.5 text-[10px] font-mono uppercase tracking-[0.26em]">
+                <span className="border border-gold/20 bg-gold/10 px-3 py-1 text-gold">
+                  {study.industry}
+                </span>
+                <span className="border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                  {study.region}
+                </span>
+                <span className="border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                  {study.engagementType}
+                </span>
               </div>
 
-              <h1 className="mt-8 font-serif text-4xl font-bold leading-tight text-white md:text-6xl">
+              <h1 className="mt-8 font-serif text-5xl font-bold leading-[1.06] text-white md:text-7xl">
                 {study.client}
               </h1>
-              <p className="mt-6 max-w-3xl text-xl font-light leading-relaxed text-slate-300">
+
+              <p className="mt-6 max-w-2xl text-xl font-light leading-relaxed text-slate-300">
                 {study.headline}
-              </p>
-              <p className="mt-6 max-w-3xl text-sm font-light leading-relaxed text-slate-500">
-                {study.businessContext}
               </p>
             </div>
 
-            <div className="border border-white/10 bg-white/[0.03] p-6 md:p-8">
-              <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">Engagement snapshot</p>
-              <dl className="mt-6 space-y-5">
-                <div>
-                  <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">Timeframe</dt>
-                  <dd className="mt-2 text-white">{study.timeframe}</dd>
-                </div>
-                <div>
-                  <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">Mandate</dt>
-                  <dd className="mt-2 text-sm font-light leading-relaxed text-slate-300">{study.mandate}</dd>
-                </div>
-                <div>
-                  <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">Services</dt>
-                  <dd className="mt-3 flex flex-wrap gap-2">
-                    {study.services.map((service) => (
-                      <span key={service} className="border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300">
-                        {service}
-                      </span>
-                    ))}
-                  </dd>
-                </div>
-              </dl>
+            {/* Engagement sidebar */}
+            <div className="relative lg:self-end">
+              <div className="border border-white/10 bg-white/[0.03] p-7 lg:mb-0">
+                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                  Engagement snapshot
+                </p>
+                <dl className="mt-6 space-y-5">
+                  <div>
+                    <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">
+                      Timeframe
+                    </dt>
+                    <dd className="mt-2 text-sm text-white">{study.timeframe}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">
+                      Mandate
+                    </dt>
+                    <dd className="mt-2 text-sm font-light leading-relaxed text-slate-300">
+                      {study.mandate}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">
+                      Services
+                    </dt>
+                    <dd className="mt-3 flex flex-wrap gap-2">
+                      {study.services.map((service) => (
+                        <span
+                          key={service}
+                          className="border border-white/10 bg-white/5 px-2.5 py-1.5 text-[9px] font-mono uppercase tracking-[0.18em] text-slate-300"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Context bar — full bleed */}
+        <div className="mt-0 border-t border-white/5 bg-white/[0.015]">
+          <div className="max-w-7xl mx-auto px-0 py-5">
+            <p className="text-sm font-light leading-relaxed text-slate-500 md:text-base">
+              {study.businessContext}
+            </p>
           </div>
         </div>
       </header>
 
       <article className="w-full flex-1 px-6 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
-          <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {study.metrics.map((metric) => (
-              <div key={metric.label} className="border border-white/10 bg-white/[0.03] p-6 md:p-7">
-                <p className="font-serif text-4xl font-bold text-white">{metric.value}</p>
-                <p className="mt-3 text-[10px] font-mono uppercase tracking-[0.22em] text-gold">{metric.label}</p>
-                <p className="mt-3 text-sm font-light leading-relaxed text-slate-400">{metric.context}</p>
+        <div className="max-w-7xl mx-auto">
+
+          {/* ─── Metrics ─────────────────────────────────────────── */}
+          <section aria-label="Key metrics">
+            <p className="mb-8 text-[10px] font-mono uppercase tracking-[0.28em] text-gold">
+              Measured outcomes
+            </p>
+            <div className="grid grid-cols-1 gap-px border border-white/8 bg-white/8 md:grid-cols-3">
+              {study.metrics.map((metric, i) => (
+                <div
+                  key={metric.label}
+                  className="relative bg-strath-navy p-8 md:p-10"
+                >
+                  {i === 0 && (
+                    <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-full bg-gold/6 blur-[80px]" />
+                  )}
+                  <p className="relative font-serif text-5xl font-bold text-white md:text-6xl">
+                    {metric.value}
+                  </p>
+                  <p className="relative mt-4 text-[10px] font-mono uppercase tracking-[0.22em] text-gold">
+                    {metric.label}
+                  </p>
+                  <p className="relative mt-3 text-sm font-light leading-relaxed text-slate-400">
+                    {metric.context}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ─── Main content: challenge / approach / outcomes ─── */}
+          <section className="mt-16 md:mt-20" aria-label="Case study detail">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
+
+              {/* Challenge */}
+              <div className="flex flex-col gap-8">
+                <div className="border border-white/10 bg-white/[0.02] p-8 md:p-10">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                    The challenge
+                  </p>
+                  <div className="mt-7 space-y-5">
+                    {study.challenge.map((item) => (
+                      <div key={item} className="flex gap-4">
+                        <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gold/60" />
+                        <p className="text-sm font-light leading-relaxed text-slate-300">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border border-white/10 bg-[#0b1220] p-8 md:p-10">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                    What changed
+                  </p>
+                  <div className="mt-7 space-y-4">
+                    {study.outcomes.map((item) => (
+                      <div key={item} className="flex gap-4">
+                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-gold/70" />
+                        <p className="text-sm font-light leading-relaxed text-slate-300">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* Strategic workstreams */}
+              <div className="border border-white/10 bg-white/[0.025] p-8 md:p-10">
+                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                  Strategic workstreams
+                </p>
+                <div className="mt-8 space-y-0">
+                  {study.interventions.map((item, index) => (
+                    <div
+                      key={item}
+                      className="flex gap-6 border-b border-white/5 py-7 first:pt-0 last:border-b-0 last:pb-0"
+                    >
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-gold/25 bg-gold/8 font-mono text-sm font-bold text-gold">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+                      <p className="pt-1.5 text-sm font-light leading-relaxed text-slate-300">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ─── Why this matters ─────────────────────────────── */}
+          <section className="mt-12 border border-gold/15 bg-gradient-to-br from-gold/5 to-transparent p-8 md:mt-16 md:p-12">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <div>
+                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                  Principle behind the work
+                </p>
+                <h2 className="mt-5 font-serif text-3xl font-bold leading-tight text-white md:text-4xl">
+                  Structural clarity before tactical activity.
+                </h2>
+              </div>
+              <div className="space-y-4 lg:pt-1">
+                <p className="text-sm font-light leading-relaxed text-slate-300">
+                  This engagement reflects how Strathmark approaches every brief: diagnose before acting, connect decisions to commercial consequences, and remove the structural friction that makes demand harder to win and convert.
+                </p>
+                <p className="text-sm font-light leading-relaxed text-slate-400">
+                  Dashboards can be made to look good in ways that don't reflect actual performance. The work documented here was oriented toward the harder goal: making real improvements to the things that affect revenue.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* ─── Services used ────────────────────────────────── */}
+          <section className="mt-10 flex flex-wrap items-center gap-4 border-t border-white/5 pt-10">
+            <p className="text-[10px] font-mono uppercase tracking-[0.26em] text-slate-600">
+              Services used
+            </p>
+            {study.services.map((service) => (
+              <span
+                key={service}
+                className="border border-white/10 px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-400"
+              >
+                {service}
+              </span>
             ))}
           </section>
 
-          <section className="mt-16 grid grid-cols-1 gap-8 xl:grid-cols-[0.95fr_1.05fr]">
-            <div className="space-y-8">
-              <div className="border border-white/10 bg-white/[0.02] p-8">
-                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">The challenge</p>
-                <div className="mt-6 space-y-4">
-                  {study.challenge.map((item) => (
-                    <p key={item} className="text-sm font-light leading-relaxed text-slate-300">
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border border-white/10 bg-[#0c1322] p-8">
-                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">What changed</p>
-                <div className="mt-6 space-y-4">
-                  {study.outcomes.map((item) => (
-                    <p key={item} className="text-sm font-light leading-relaxed text-slate-300">
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="border border-white/10 bg-white/[0.03] p-8 md:p-10">
-              <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">Strategic workstreams</p>
-              <div className="mt-8 space-y-6">
-                {study.interventions.map((item, index) => (
-                  <div key={item} className="flex gap-5 border-b border-white/5 pb-6 last:border-b-0 last:pb-0">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/10 text-sm font-mono text-gold">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-                    <p className="pt-1 text-sm font-light leading-relaxed text-slate-300">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-16 border border-gold/20 bg-gold/5 p-8 md:p-10">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div>
-                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">Why this engagement matters</p>
-                <h2 className="mt-4 font-serif text-3xl font-bold text-white">Commercial clarity beats channel noise.</h2>
-              </div>
-              <p className="text-sm font-light leading-relaxed text-slate-300">
-                This study is representative of how Strathmark approaches digital advisory: diagnose first, tie decisions to commercial consequences, and fix the structural blockers before adding more activity on top. It is not about making dashboards look busier. It is about making demand easier to win and easier to convert.
-              </p>
-            </div>
-          </section>
-
+          {/* ─── Related studies ──────────────────────────────── */}
           {relatedStudies.length > 0 && (
             <section className="mt-20 border-t border-white/5 pt-16">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">Related work</p>
-                  <h2 className="mt-4 font-serif text-3xl font-bold text-white">More case studies</h2>
+                  <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-gold">
+                    Related work
+                  </p>
+                  <h2 className="mt-4 font-serif text-3xl font-bold text-white">
+                    More case studies
+                  </h2>
                 </div>
                 <Link
                   href="/case-studies"
                   className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-gold transition-all hover:gap-3"
                 >
-                  View all case studies <ArrowRight size={14} />
+                  View all <ArrowRight size={14} />
                 </Link>
               </div>
 
               <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
                 {relatedStudies.map((related) => (
-                  <Link href={`/case-studies/${related.slug}`} key={related.slug} className="group block">
+                  <Link
+                    href={`/case-studies/${related.slug}`}
+                    key={related.slug}
+                    className="group block"
+                  >
                     <article className="flex h-full flex-col border border-white/10 bg-white/[0.02] p-6 transition-colors group-hover:border-gold/30">
-                      <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-slate-500">{related.industry}</p>
+                      <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em]">
+                        <span className="text-gold">{related.industry}</span>
+                        <span className="text-slate-700">/</span>
+                        <span className="text-slate-500">{related.region}</span>
+                      </div>
                       <h3 className="mt-4 font-serif text-2xl font-bold leading-tight text-white transition-colors group-hover:text-gold">
                         {related.client}
                       </h3>
-                      <p className="mt-4 text-sm font-light leading-relaxed text-slate-400">{related.excerpt}</p>
+                      <p className="mt-3 flex-1 text-sm font-light leading-relaxed text-slate-400">
+                        {related.excerpt}
+                      </p>
                       <div className="mt-6 space-y-3 border-t border-white/10 pt-6">
                         {related.metrics.slice(0, 2).map((metric) => (
-                          <div key={metric.label} className="flex items-center justify-between gap-4">
-                            <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</span>
-                            <span className="font-serif text-2xl font-bold text-white">{metric.value}</span>
+                          <div
+                            key={metric.label}
+                            className="flex items-baseline justify-between gap-3"
+                          >
+                            <span className="text-[9px] font-mono uppercase tracking-[0.18em] text-slate-500">
+                              {metric.label}
+                            </span>
+                            <span className="font-serif text-2xl font-bold text-white">
+                              {metric.value}
+                            </span>
                           </div>
                         ))}
+                      </div>
+                      <div className="mt-5 pt-1">
+                        <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-gold transition-all group-hover:gap-3">
+                          Read <ArrowRight size={12} />
+                        </span>
                       </div>
                     </article>
                   </Link>
@@ -224,14 +350,20 @@ export default async function CaseStudyDetail({ params }: PageProps) {
             </section>
           )}
 
-          <section className="mt-20 border border-white/10 bg-white/[0.02] p-8 text-center md:p-12">
-            <h2 className="font-serif text-3xl font-bold text-white">Need a second opinion on digital performance?</h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm font-light leading-relaxed text-slate-400">
-              If spend is rising, visibility is flattening, or the site feels harder to govern than it should, the issue is usually structural before it is tactical.
+          {/* ─── CTA ──────────────────────────────────────────── */}
+          <section className="mt-16 border border-white/10 bg-white/[0.02] p-8 text-center md:mt-20 md:p-14">
+            <p className="text-[10px] font-mono uppercase tracking-[0.28em] text-gold">
+              Start a conversation
+            </p>
+            <h2 className="mt-5 font-serif text-3xl font-bold text-white md:text-4xl">
+              Recognise any of this?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-sm font-light leading-relaxed text-slate-400">
+              If spend is rising, visibility is flattening, or the site feels harder to govern than it should, the problem is usually structural before it's tactical. A diagnostic review is the fastest way to understand what's actually in the way.
             </p>
             <SectionLink
               href="/#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-strath-navy transition-colors hover:bg-white"
+              className="mt-8 inline-flex items-center gap-2 bg-gold px-7 py-4 text-sm font-bold uppercase tracking-[0.18em] text-strath-navy transition-colors hover:bg-white"
             >
               Request a review <ArrowRight size={16} />
             </SectionLink>
