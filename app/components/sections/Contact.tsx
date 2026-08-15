@@ -435,7 +435,7 @@ export function Contact() {
                 />
               </div>
               <div className="grid gap-6 md:grid-cols-2">
-                <InputField label="Website (optional)" name="website" placeholder="company.co.uk" autoComplete="url" error={errors.website} />
+                <InputField label="Website (optional)" name="website" placeholder="company.com" autoComplete="url" error={errors.website} />
                 <InputField label="Country (optional)" name="country" placeholder="United States, United Kingdom…" autoComplete="country-name" error={errors.country} />
               </div>
               <InputField label="How did you hear about Strathmark? (optional)" name="heardFrom" placeholder="Search, referral, LinkedIn…" autoComplete="off" error={errors.heardFrom} />
