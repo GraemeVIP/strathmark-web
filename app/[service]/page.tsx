@@ -88,10 +88,7 @@ export default async function ServicePage({ params }: PageProps) {
       name: SITE_NAME,
       url: SITE_URL,
     },
-    areaServed: {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
+    areaServed: "International",
   };
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",

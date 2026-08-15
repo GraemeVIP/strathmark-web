@@ -7,12 +7,12 @@ import { Footer } from "@/app/components/sections/Footer";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Strathmark | Digital Marketing Consultant Edinburgh",
-  description: "Meet the principal-led Edinburgh digital marketing consultancy connecting strategy, branding, web, SEO, paid media, measurement and practical AI.",
+  title: "About Strathmark | Independent Digital Marketing Consultant",
+  description: "Meet the principal-led Edinburgh digital marketing consultancy working internationally across strategy, branding, web, SEO, paid media and practical AI.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: "About Strathmark Consulting",
-    description: "Independent, principal-led digital marketing expertise for established UK businesses.",
+    description: "Independent, principal-led digital marketing expertise for businesses in the UK, US and internationally.",
     url: `${SITE_URL}/about`,
     siteName: SITE_NAME,
     locale: "en_GB",
@@ -33,7 +33,7 @@ export default function AboutPage() {
             Senior Digital Marketing Expertise Across the Whole Customer Journey
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-9">
-            Independent advice, direct senior involvement and joined-up implementation for UK businesses that need their marketing to work as one commercial system.
+            Independent advice, direct senior involvement and joined-up implementation for businesses in the UK, US and internationally.
           </p>
         </div>
       </header>

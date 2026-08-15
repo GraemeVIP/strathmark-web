@@ -20,10 +20,10 @@ export function Hero() {
         <div className="xl:col-span-7">
           <p className="section-kicker">Independent digital marketing consultancy</p>
           <h1 className="mt-6 max-w-5xl text-[clamp(2.7rem,5.6vw,5.45rem)] font-semibold leading-[0.94] tracking-[-0.045em] text-white">
-            Digital Marketing Consultancy for UK Businesses <span className="text-gold">Built to Work as One System</span>
+            Digital Marketing Consultancy <span className="text-gold">Built to Work as One System</span>
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl md:leading-9">
-            Bring strategy, branding, websites, SEO, Google Ads, Meta Ads and practical AI together. Strathmark helps established businesses generate better enquiries, remove wasted effort and make growth easier to manage.
+            Bring strategy, branding, websites, SEO, Google Ads, Meta Ads and practical AI together. Strathmark helps businesses in the UK, US and internationally generate better enquiries, remove wasted effort and make growth easier to manage.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

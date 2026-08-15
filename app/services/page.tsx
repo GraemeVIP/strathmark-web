@@ -7,11 +7,11 @@ import { Footer } from "@/app/components/sections/Footer";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services for UK Businesses | Strathmark",
-  description: "Digital marketing services for UK businesses: branding, web design, SEO, Google Ads, Meta Ads, agency audits, AI consulting and workflow automation.",
+  title: "Digital Marketing Services | SEO, PPC, Web, Brand & AI",
+  description: "International digital marketing services spanning branding, web design, SEO, Google Ads, Meta Ads, agency audits, AI consulting and workflow automation.",
   alternates: { canonical: `${SITE_URL}/services` },
   openGraph: {
-    title: "Digital Marketing Services for UK Businesses | Strathmark",
+    title: "Digital Marketing Services Built to Work as One System",
     description: "Connect brand, web, search, paid media, measurement and practical AI under one senior-led plan.",
     url: `${SITE_URL}/services`,
     siteName: SITE_NAME,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Services for UK Businesses | Strathmark",
+    title: "Digital Marketing Services Built to Work as One System",
     description: "Branding, web design, SEO, paid media, AI consulting and workflow automation under one plan.",
     images: [SHARE_IMAGE_PATH],
   },
@@ -98,7 +98,7 @@ export default function ServicesPage() {
           <div className="xl:col-span-8">
             <p className="section-kicker">Connected digital expertise</p>
             <h1 className="mt-7 max-w-5xl text-[clamp(3rem,6.5vw,6rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-white">
-              Digital Marketing Services for UK Businesses
+              Digital Marketing Services Built to Work as One System
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-9">
               Use one service to fix a clear constraint or connect the full customer journey. Strategy, branding, web, SEO, paid media, measurement and practical AI are kept under one commercial plan.

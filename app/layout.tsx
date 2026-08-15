@@ -31,11 +31,11 @@ const playfair = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Digital Marketing Consultancy UK | SEO, PPC, Web & AI",
-  description: "Independent digital marketing consultancy for UK businesses. SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
+  title: "Digital Marketing Consultancy | SEO, PPC, Web & AI",
+  description: "Independent digital marketing consultancy working internationally. SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
   openGraph: {
-    title: "Digital Marketing Consultancy for UK Businesses | Strathmark",
-    description: "Connect strategy, branding, websites, SEO, paid media, measurement and practical AI under one accountable senior-led plan.",
+    title: "Digital Marketing Consultancy Built to Work as One System",
+    description: "International digital marketing consultancy connecting strategy, branding, websites, SEO, paid media, measurement and practical AI.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_GB",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Consultancy for UK Businesses | Strathmark",
+    title: "Digital Marketing Consultancy Built to Work as One System",
     description: "SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
     images: [SHARE_IMAGE_PATH],
   },
@@ -121,9 +121,9 @@ export default function RootLayout({
                     addressRegion: "Scotland",
                     addressCountry: "GB",
                   },
-                  description: "Independent digital marketing consultancy connecting strategy, branding, websites, SEO, paid media, measurement and practical AI for established UK businesses.",
+                  description: "Edinburgh-based digital marketing consultancy working internationally across strategy, branding, websites, SEO, paid media, measurement and practical AI.",
                   priceRange: "£££",
-                  areaServed: { "@type": "Country", name: "United Kingdom" },
+                  areaServed: "International",
                   knowsAbout: [
                     "Digital marketing strategy",
                     "Search engine optimisation",

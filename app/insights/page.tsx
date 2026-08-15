@@ -11,7 +11,7 @@ import { InsightsFilter, type InsightsFilterNote } from "./InsightsFilter";
 
 export const metadata: Metadata = {
   title: "AI and Digital Marketing Insights | Strathmark",
-  description: "Practical insights on AI adoption, SEO, paid media, websites, agency management and commercial measurement for UK business leaders.",
+  description: "Practical insights on AI adoption, SEO, paid media, websites, agency management and commercial measurement for business leaders.",
   openGraph: {
     title: "AI and Digital Marketing Insights | Strathmark",
     description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",

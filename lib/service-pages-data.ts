@@ -35,10 +35,10 @@ export const servicePages = [
     slug: "ai-consulting-services",
     serviceValue: "ai-consulting",
     eyebrow: "AI consulting services",
-    title: "AI Consulting Services for UK Businesses | Strathmark",
+    title: "AI Consulting Services Built Around Business Value | Strathmark",
     description:
-      "Practical AI consulting services for UK businesses. Find valuable use cases, implement controlled workflows and build adoption around measurable business outcomes.",
-    h1: "AI Consulting Services for UK Businesses",
+      "Practical AI consulting services that find valuable use cases, implement controlled workflows and build adoption around measurable business outcomes.",
+    h1: "AI Consulting Services Built Around Business Value",
     intro:
       "Move from scattered experiments to useful, governed AI. Strathmark helps established businesses identify the right opportunities, build the operating case and implement bounded improvements that people can actually use.",
     promise:
@@ -81,7 +81,7 @@ export const servicePages = [
       { title: "Decide", copy: "Compare results with the baseline and agree whether to deploy, revise or stop." },
     ],
     fit: [
-      "An established UK business with a real workflow, customer or knowledge constraint",
+      "An established business with a real workflow, customer or knowledge constraint",
       "A named leader who can provide access, context and timely decisions",
       "A willingness to start with one valuable problem and measure the result",
     ],
@@ -114,9 +114,9 @@ export const servicePages = [
     slug: "ai-strategy-consulting",
     serviceValue: "ai-strategy",
     eyebrow: "AI strategy consulting",
-    title: "AI Strategy Consulting for UK Businesses | Strathmark",
+    title: "AI Strategy Consulting for Business Growth | Strathmark",
     description:
-      "AI strategy consulting for UK leadership teams. Prioritise use cases, assess risk and turn AI ambition into a costed, governed implementation roadmap.",
+      "AI strategy consulting for leadership teams. Prioritise use cases, assess risk and turn AI ambition into a costed, governed implementation roadmap.",
     h1: "AI Strategy Consulting Built Around Business Value",
     intro:
       "A useful AI strategy is a sequence of operating decisions, not a technology wish list. Strathmark connects commercial goals, workflow reality, data readiness and governance into a roadmap leadership can fund and teams can execute.",
@@ -172,9 +172,9 @@ export const servicePages = [
     slug: "workflow-automation",
     serviceValue: "workflow-automation",
     eyebrow: "AI workflow automation",
-    title: "AI Workflow Automation for UK Businesses | Strathmark",
+    title: "AI Workflow Automation Services | Strathmark",
     description:
-      "AI workflow automation for UK businesses. Reduce repeated work, connect systems and introduce practical automation with human review and measurable controls.",
+      "AI workflow automation services that reduce repeated work, connect systems and introduce practical automation with human review and measurable controls.",
     h1: "AI Workflow Automation That Improves Real Work",
     intro:
       "Automate the friction around valuable work without automating away judgement. Strathmark maps the current process, removes unnecessary steps and uses AI or conventional automation only where it improves the result.",
@@ -230,9 +230,9 @@ export const servicePages = [
     slug: "website-design",
     serviceValue: "website-design",
     eyebrow: "Website design and development",
-    title: "Website Design for UK Businesses | Strathmark",
+    title: "Website Design for Growing Businesses | Strathmark",
     description:
-      "Conversion-focused website design for UK businesses. Strategy, UX, development, SEO foundations and measurement in one commercially accountable engagement.",
+      "Conversion-focused website design for growing businesses. Strategy, UX, development, SEO foundations and measurement in one commercially accountable engagement.",
     h1: "Website Design Built to Win Better Enquiries",
     intro:
       "Your website should make the company easier to understand, trust and choose. Strathmark combines positioning, conversion design, development, technical SEO and measurement so the finished site supports the commercial job it was built to do.",
@@ -288,9 +288,9 @@ export const servicePages = [
     slug: "seo-services",
     serviceValue: "seo-content",
     eyebrow: "SEO services",
-    title: "SEO Services for UK Businesses | Strathmark",
+    title: "SEO Services Focused on Qualified Demand | Strathmark",
     description:
-      "Commercial SEO services for UK businesses. Technical SEO, content strategy, on-page optimisation and measurement focused on qualified demand, not vanity traffic.",
+      "Commercial SEO services combining technical SEO, content strategy, on-page optimisation and measurement focused on qualified demand, not vanity traffic.",
     h1: "SEO Services Focused on Qualified Demand",
     intro:
       "Search should connect the problems your best customers are researching with pages that help them choose. Strathmark fixes technical barriers, aligns content with intent and measures whether visibility is becoming useful commercial demand.",
@@ -347,9 +347,9 @@ export const servicePages = [
     slug: "paid-media",
     serviceValue: "paid-media",
     eyebrow: "Paid media management",
-    title: "Paid Media Management for UK Businesses | Strathmark",
+    title: "Paid Media Management With Commercial Accountability | Strathmark",
     description:
-      "Paid media management and independent advertising audits for UK businesses. Clear measurement, controlled testing and commercial accountability across campaigns.",
+      "Paid media management and independent advertising audits with clear measurement, controlled testing and commercial accountability across campaigns.",
     h1: "Paid Media Management With Commercial Accountability",
     intro:
       "Paid media should create evidence about demand and acquire customers at an acceptable cost. Strathmark audits the account, fixes the measurement and runs controlled tests around the audience, offer and landing experience.",
@@ -405,10 +405,10 @@ export const servicePages = [
     slug: "google-ads-management",
     serviceValue: "google-ads",
     eyebrow: "Google Ads management and PPC",
-    title: "Google Ads Management and PPC Services UK | Strathmark",
+    title: "Google Ads Management and PPC Services | Strathmark",
     description:
-      "Google Ads management for UK businesses. Improve PPC structure, tracking, landing pages and lead quality with transparent, commercially accountable campaigns.",
-    h1: "Google Ads Management for UK Businesses",
+      "Google Ads management that improves PPC structure, tracking, landing pages and lead quality through transparent, commercially accountable campaigns.",
+    h1: "Google Ads Management Focused on Better Leads",
     intro:
       "Turn paid search into a controlled source of qualified demand. Strathmark connects keywords, campaign structure, ad messaging, landing pages and sales evidence so every decision has a commercial reason behind it.",
     promise:
@@ -451,7 +451,7 @@ export const servicePages = [
       { title: "Allocate", copy: "Increase, revise or stop spend according to qualified evidence rather than platform pressure." },
     ],
     fit: [
-      "A UK business with a clear offer, sufficient search demand and capacity to handle enquiries",
+      "A business with a clear offer, sufficient search demand and capacity to handle enquiries",
       "A team prepared to connect Google Ads activity with lead or sales outcomes",
       "A business that wants direct account access and a clear explanation of every material decision",
     ],
@@ -484,10 +484,10 @@ export const servicePages = [
     slug: "meta-ads-management",
     serviceValue: "meta-ads",
     eyebrow: "Meta Ads management",
-    title: "Meta Ads Management UK | Facebook & Instagram Ads",
+    title: "Meta Ads Management | Facebook & Instagram Ads",
     description:
-      "Meta Ads management for UK businesses. Connect audience strategy, creative testing, landing pages and lead quality across Facebook and Instagram campaigns.",
-    h1: "Meta Ads Management for UK Businesses",
+      "Meta Ads management connecting audience strategy, creative testing, landing pages and lead quality across Facebook and Instagram campaigns.",
+    h1: "Meta Ads Management Focused on Better Leads",
     intro:
       "Use Facebook and Instagram advertising to create and capture demand without confusing reach with growth. Strathmark connects the audience, offer, creative, landing experience and follow-up into one measurable testing system.",
     promise:
@@ -563,10 +563,10 @@ export const servicePages = [
     slug: "branding-services",
     serviceValue: "branding",
     eyebrow: "Brand strategy and identity",
-    title: "Branding Services for UK Businesses | Strathmark",
+    title: "Branding Services That Make Businesses Easier to Choose | Strathmark",
     description:
-      "Branding services for UK businesses. Clarify positioning, messaging, visual identity and practical brand systems that improve marketing and commercial consistency.",
-    h1: "Branding Services for UK Businesses",
+      "Branding services that clarify positioning, messaging, visual identity and practical brand systems to improve marketing and commercial consistency.",
+    h1: "Branding Services That Make Businesses Easier to Choose",
     intro:
       "Make the business easier to recognise, understand and choose. Strathmark connects market positioning, verbal identity, visual direction and real customer touchpoints so the brand improves commercial decisions rather than ending as a presentation deck.",
     promise:
@@ -644,7 +644,7 @@ export const servicePages = [
     eyebrow: "Marketing agency audit",
     title: "Marketing Agency Audit and Oversight | Strathmark",
     description:
-      "Independent marketing agency audits for UK businesses. Review strategy, spend, access, execution and reporting before renewing, replacing or expanding an agency.",
+      "Independent marketing agency audits that review strategy, spend, access, execution and reporting before renewing, replacing or expanding an agency.",
     h1: "An Independent Marketing Agency Audit",
     intro:
       "Find out whether the current marketing setup is solving the right problem, using the right evidence and earning the next investment. Strathmark reviews the work without a hidden incentive to take over every channel.",

@@ -63,10 +63,10 @@ export function Footer() {
               <span className="font-serif text-2xl tracking-[0.12em] text-white">STRATHMARK</span>
             </Link>
             <p className="mt-6 max-w-sm text-base leading-7 text-slate-300">
-              Independent digital marketing consultancy connecting strategy, brand, websites, SEO, paid media, measurement and practical AI for established UK businesses.
+              Edinburgh-based digital marketing consultancy working internationally across strategy, brand, websites, SEO, paid media, measurement and practical AI.
             </p>
             <p className="mt-6 font-mono text-[15px] font-semibold uppercase tracking-[0.1em] text-slate-300">
-              Edinburgh · Working across the UK
+              Edinburgh · Working internationally
             </p>
           </div>
 

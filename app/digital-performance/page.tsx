@@ -7,11 +7,11 @@ import { caseStudies } from "@/lib/case-studies-data";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Performance Review UK | Strathmark",
-  description: "Independent digital marketing performance review for UK businesses. Find what websites, SEO, paid media, measurement and agencies should improve next.",
+  title: "Digital Marketing Performance Review | Strathmark",
+  description: "Independent digital marketing performance review for international businesses. Find what websites, SEO, paid media, measurement and agencies should improve next.",
   alternates: { canonical: `${SITE_URL}/digital-performance` },
   openGraph: {
-    title: "Digital Marketing Performance Review UK | Strathmark",
+    title: "Digital Marketing Performance Review | Strathmark",
     description: "An independent review of websites, search, paid media, measurement and agency performance.",
     url: `${SITE_URL}/digital-performance`,
     siteName: SITE_NAME,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Performance Review UK | Strathmark",
+    title: "Digital Marketing Performance Review | Strathmark",
     description: "An independent review of websites, search, paid media, measurement and agency performance.",
     images: [SHARE_IMAGE_PATH],
   },
@@ -66,7 +66,7 @@ export default function DigitalPerformancePage() {
     description: metadata.description,
     url: `${SITE_URL}/digital-performance`,
     provider: { "@type": "ProfessionalService", name: SITE_NAME, url: SITE_URL },
-    areaServed: { "@type": "Country", name: "United Kingdom" },
+    areaServed: "International",
   };
 
   return (
@@ -81,7 +81,7 @@ export default function DigitalPerformancePage() {
           <div className="xl:col-span-8">
             <p className="section-kicker">Independent digital performance review</p>
             <h1 className="mt-7 max-w-5xl text-[clamp(3rem,6.5vw,6rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-white">
-              Digital Marketing Performance Review for UK Businesses
+              Digital Marketing Performance Review
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-9">
               Improve the website, search, paid media and agency system under one independent commercial view. Diagnose the constraint first, then fix the work that will make demand easier to win and convert.
