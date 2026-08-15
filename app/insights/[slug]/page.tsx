@@ -42,8 +42,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [
         {
           url: note?.shareImage || SHARE_IMAGE_PATH,
-          width: 1200,
-          height: 630,
           alt: note ? `${note.title} — Strathmark editorial illustration` : SITE_NAME,
         },
       ],
@@ -237,15 +235,16 @@ export default async function NotePage({ params }: PageProps) {
                 <div className="mt-5 flex items-center gap-5">
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-gold/55">
                     <Image
-                      src="/founder.png"
+                      src="/optimized/founder.webp"
                       alt={note.author}
-                      fill
-                      className="object-cover object-center"
+                      width={80}
+                      height={107}
+                      className="h-full w-full object-cover object-center"
                       sizes="80px"
                     />
                   </div>
                   <div>
-                    <SectionLink href="/#about" className="text-xl font-semibold text-ink transition-colors hover:text-[#74521f]">
+                    <SectionLink href="/about" className="text-xl font-semibold text-ink transition-colors hover:text-[#74521f]">
                       {note.author}
                     </SectionLink>
                     <p className="mt-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#74521f]">Principal Consultant</p>
@@ -341,16 +340,16 @@ export default async function NotePage({ params }: PageProps) {
                 <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold">Independent perspective</p>
-                    <h2 className="mt-4 text-3xl font-semibold tracking-[-0.02em]">Need a second opinion?</h2>
+                    <h2 className="mt-4 text-3xl font-semibold tracking-[-0.02em]">Turn the analysis into a better decision.</h2>
                     <p className="mt-3 text-base leading-7 text-slate-300">
-                      I review infrastructure and spend for select clients.
+                      Explore the <Link href="/digital-performance" className="font-semibold text-gold underline underline-offset-4 hover:text-white">digital performance service</Link> or see the evidence in the <Link href="/case-studies" className="font-semibold text-gold underline underline-offset-4 hover:text-white">case studies</Link>.
                     </p>
                   </div>
                   <SectionLink
-                    href="/#contact"
+                    href="/?service=digital-performance#contact"
                     className="group inline-flex min-h-14 items-center justify-center gap-3 bg-gold px-7 text-sm font-bold uppercase tracking-[0.13em] text-ink transition-colors hover:bg-white"
                   >
-                    Request analysis
+                    Request an independent review
                     <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
                   </SectionLink>
                 </div>

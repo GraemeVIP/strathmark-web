@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import type { ClientVisitorEvent } from "@/lib/visitor-analytics/schema";
 import {
   ANALYTICS_CONSENT_EVENT,
   ANALYTICS_CONSENT_KEY,
+  getAnalyticsConsentSnapshot,
+  subscribeAnalyticsConsent,
 } from "@/lib/analytics-consent";
 
 const SESSION_STORAGE_KEY = "strathmark_visitor_analytics_session_id";
@@ -285,9 +287,14 @@ export function FirstPartyVisitorTracker() {
   const pathname = usePathname() ?? "/";
   const searchParams = useSearchParams();
   const search = searchParams.toString();
+  const consent = useSyncExternalStore(
+    subscribeAnalyticsConsent,
+    getAnalyticsConsentSnapshot,
+    () => "loading"
+  );
 
   useEffect(() => {
-    if (!shouldTrackPath(pathname)) {
+    if (consent !== "analytics" || !shouldTrackPath(pathname)) {
       return;
     }
 
@@ -461,7 +468,7 @@ export function FirstPartyVisitorTracker() {
       document.removeEventListener("keydown", markInteraction, true);
       sendExitEvent();
     };
-  }, [pathname, search]);
+  }, [consent, pathname, search]);
 
   return null;
 }

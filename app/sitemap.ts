@@ -2,11 +2,12 @@ import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies-data";
 import { notes } from "@/lib/notes-data";
 import { getNoteSeoData } from "@/lib/notes-seo-data";
+import { serviceSlugs } from "@/lib/service-pages-data";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const LAST_MODIFIED = new Date("2026-07-18T00:00:00.000Z");
+const LAST_MODIFIED = new Date("2026-08-15T00:00:00.000Z");
 const INSIGHTS_LAST_MODIFIED = new Date("2026-07-17T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,6 +23,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/services`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/about`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${SITE_URL}/briefings/industrial-ai-systems-integrator`,
@@ -56,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  const serviceRoutes: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
+    url: `${SITE_URL}/${slug}`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
   const insightRoutes: MetadataRoute.Sitemap = notes.map((note) => ({
     url: `${SITE_URL}/insights/${note.slug}`,
     lastModified: new Date(getNoteSeoData(note.slug).lastModified),
@@ -63,5 +83,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...insightRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...insightRoutes];
 }

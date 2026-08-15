@@ -34,7 +34,7 @@ export function InsightsFilter({ categories, notes }: InsightsFilterProps) {
           type="button"
           onClick={() => setActive(null)}
           aria-pressed={active === null}
-          className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
+          className={`min-h-11 px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
             active === null
               ? "bg-gold text-strath-navy border-gold"
               : "bg-transparent text-slate-400 border-white/10 hover:border-gold/40 hover:text-white"
@@ -48,7 +48,7 @@ export function InsightsFilter({ categories, notes }: InsightsFilterProps) {
             type="button"
             onClick={() => setActive(cat)}
             aria-pressed={active === cat}
-            className={`px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
+            className={`min-h-11 px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
               active === cat
                 ? "bg-gold text-strath-navy border-gold"
                 : "bg-transparent text-slate-400 border-white/10 hover:border-gold/40 hover:text-white"

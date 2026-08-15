@@ -1,12 +1,43 @@
-import { ArrowRight, Check, Compass, FlaskConical, Network, ShieldCheck, UsersRound } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BrainCircuit, Check, MousePointerClick, Search, ShieldCheck } from "lucide-react";
 import { SectionLink } from "@/app/components/ui/SectionLink";
 
-const SERVICES = [
-  { icon: Compass, number: "01", title: "AI Opportunity and Exposure Review", label: "The entry point", copy: "A fixed-fee leadership review that identifies the most valuable workflows, the real constraints and the risks that must be controlled before investment.", details: ["Leadership and workflow interviews", "Opportunity and exposure map", "Prioritised 90-day roadmap"], price: "From £3,500" },
-  { icon: Network, number: "02", title: "Workflow and Knowledge Diagnostic", label: "Find the leverage", copy: "Trace how work, decisions and technical knowledge move through the business, then identify where structured reuse can improve speed and consistency.", details: ["Workflow decomposition", "Knowledge dependency map", "Data readiness and access review"] },
-  { icon: FlaskConical, number: "03", title: "Controlled AI Pilot", label: "Prove it safely", copy: "Test one bounded, non-safety-critical workflow against the current process, with human review and success measures agreed before the work starts.", details: ["Shadow workflow", "Quality and time baseline", "Deploy, revise or stop decision"] },
-  { icon: ShieldCheck, number: "04", title: "Independent AI Oversight", label: "Stay in control", copy: "Independent support for vendor selection, governance, evaluation and rollout so leadership retains control of risk, value and technical authority.", details: ["Vendor and architecture challenge", "Governance and evaluation", "Leadership reporting"] },
-  { icon: UsersRound, number: "05", title: "Knowledge and Succession", label: "Protect enterprise value", copy: "Turn expert judgement, project history and failure lessons into governed, searchable organisational assets without pretending that a document replaces experience.", details: ["Expert knowledge capture", "Decision and failure records", "Ownership and review model"] },
+const PILLARS = [
+  {
+    eyebrow: "01 · Be found",
+    title: "Search and paid demand",
+    copy: "Capture existing demand, test new audiences and connect every pound of acquisition spend to a clearer commercial question.",
+    icon: Search,
+    links: [
+      ["/seo-services", "SEO services and content"],
+      ["/google-ads-management", "Google Ads and PPC"],
+      ["/meta-ads-management", "Meta Ads management"],
+      ["/paid-media", "Paid media strategy"],
+    ],
+  },
+  {
+    eyebrow: "02 · Be chosen",
+    title: "Brand and conversion",
+    copy: "Make the business easier to understand, trust and choose with a stronger position, identity, website and conversion journey.",
+    icon: MousePointerClick,
+    links: [
+      ["/website-design", "Website design and development"],
+      ["/branding-services", "Brand strategy and identity"],
+      ["/digital-performance", "Conversion and digital performance"],
+    ],
+  },
+  {
+    eyebrow: "03 · Work smarter",
+    title: "AI, automation and control",
+    copy: "Use practical AI, better workflows and independent oversight to remove repeated work and make better-informed growth decisions.",
+    icon: BrainCircuit,
+    links: [
+      ["/ai-consulting-services", "AI consulting and implementation"],
+      ["/ai-strategy-consulting", "AI strategy and readiness"],
+      ["/workflow-automation", "Workflow automation"],
+      ["/marketing-agency-audit", "Agency audit and oversight"],
+    ],
+  },
 ] as const;
 
 export function Services() {
@@ -14,26 +45,67 @@ export function Services() {
     <section className="w-full bg-strath-navy py-20 md:py-28" id="services">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8"><p className="section-kicker">Advisory services</p><h2 className="mt-6 max-w-4xl text-[clamp(2.7rem,5vw,4.9rem)] font-semibold leading-[1.01] tracking-[-0.03em] text-white">A controlled route from opportunity to operating advantage.</h2></div>
-          <p className="text-lg leading-8 text-slate-300 lg:col-span-4">Start with evidence. Prioritise one bounded opportunity. Prove its value. Scale only when the controls and operating ownership are ready.</p>
+          <div className="lg:col-span-8">
+            <p className="section-kicker">Digital marketing services</p>
+            <h2 className="mt-6 max-w-5xl text-[clamp(2.7rem,5vw,4.9rem)] font-semibold leading-[1.01] tracking-[-0.035em] text-white">
+              Specialist services. One connected growth system.
+            </h2>
+          </div>
+          <p className="text-lg leading-8 text-slate-300 lg:col-span-4">
+            Fix one channel or connect the whole journey. Every engagement starts with the commercial constraint and uses the right mix of expertise to solve it.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-px border border-white/10 bg-white/10 lg:grid-cols-2">
-          {SERVICES.map((service, index) => { const Icon = service.icon; const featured = index === 0; return (
-            <article key={service.title} className={featured ? "relative bg-[#12263b] p-8 lg:col-span-2 lg:grid lg:grid-cols-12 lg:gap-12 md:p-10" : "bg-[#0d1c2c] p-8 md:p-10"}>
-              <div className={featured ? "lg:col-span-7" : ""}>
-                <div className="flex items-center justify-between"><span className="grid h-12 w-12 place-items-center border border-gold/40 bg-gold/10 text-gold"><Icon aria-hidden="true" size={22} /></span><span className="font-mono text-xs font-semibold text-gold">{service.number}</span></div>
-                <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-gold">{service.label}</p>
-                <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">{service.title}</h3>
-                <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">{service.copy}</p>
-              </div>
-              <div className={featured ? "mt-8 border-t border-white/10 pt-7 lg:col-span-5 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0" : "mt-8 border-t border-white/10 pt-6"}>
-                <ul className="space-y-3 text-sm text-slate-300">{service.details.map(item => <li key={item} className="flex items-start gap-3"><Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-gold" />{item}</li>)}</ul>
-                {"price" in service ? <p className="mt-7 text-xl font-semibold text-white">{service.price}</p> : null}
-                <SectionLink href="/#contact" className="group mt-7 inline-flex min-h-11 items-center gap-3 text-xs font-bold uppercase tracking-[0.15em] text-gold transition-colors hover:text-white">Discuss this service <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" /></SectionLink>
-              </div>
-            </article>
-          );})}
+        <div className="mt-12 grid gap-5 xl:grid-cols-3">
+          {PILLARS.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <article key={pillar.title} className="relative overflow-hidden border border-white/12 bg-[#0d1c2c] p-7 md:p-9">
+                <div className="absolute right-0 top-0 h-44 w-44 bg-gold/[0.07] blur-[70px]" aria-hidden="true" />
+                <div className="relative flex h-full flex-col">
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-12 w-12 place-items-center border border-gold/40 bg-gold/10 text-gold">
+                      <Icon aria-hidden="true" size={22} />
+                    </span>
+                  </div>
+                  <p className="mt-8 font-mono text-[15px] font-semibold uppercase tracking-[0.12em] text-gold">{pillar.eyebrow}</p>
+                  <h3 className="mt-3 text-4xl font-semibold leading-tight text-white">{pillar.title}</h3>
+                  <p className="mt-5 text-base leading-8 text-slate-300">{pillar.copy}</p>
+                  <ul className="mt-7 divide-y divide-white/10 border-y border-white/10 xl:mt-auto">
+                    {pillar.links.map(([href, label]) => (
+                      <li key={href}>
+                        <Link href={href} className="group flex min-h-14 items-center justify-between gap-4 py-3 text-base font-semibold text-white transition-colors hover:text-gold">
+                          <span className="flex items-center gap-3"><Check aria-hidden="true" size={16} className="text-gold" />{label}</span>
+                          <ArrowRight aria-hidden="true" size={16} className="shrink-0 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-5 grid gap-6 border border-gold/30 bg-gold/10 p-7 md:grid-cols-[auto_1fr_auto] md:items-center md:p-9">
+          <span className="grid h-12 w-12 place-items-center bg-gold text-ink">
+            <ShieldCheck aria-hidden="true" size={22} />
+          </span>
+          <div>
+            <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.12em] text-gold">Recommended entry point</p>
+            <h3 className="mt-2 text-2xl font-semibold text-white">Digital Growth Review</h3>
+            <p className="mt-2 max-w-3xl text-base leading-7 text-slate-300">
+              A focused review of your offer, website, search, paid media, measurement and operational constraints. You receive a prioritised route forward, even when the right answer is to fix one thing before adding more spend.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+            <SectionLink href="/?service=digital-growth-review#contact" className="group inline-flex min-h-14 items-center justify-center gap-3 bg-gold px-7 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white">
+              Request the review <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
+            </SectionLink>
+            <Link href="/services" className="inline-flex min-h-11 items-center justify-center text-[15px] font-semibold text-gold transition-colors hover:text-white">
+              View every service
+            </Link>
+          </div>
         </div>
       </div>
     </section>

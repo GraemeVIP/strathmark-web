@@ -10,18 +10,18 @@ import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 import { InsightsFilter, type InsightsFilterNote } from "./InsightsFilter";
 
 export const metadata: Metadata = {
-  title: "Intelligence Log — Digital Strategy Insights | Strathmark Consulting",
-  description: "Strategic field notes on SEO, paid media, agency management, and digital infrastructure. Written for marketing leaders and commercial decision-makers.",
+  title: "AI and Digital Marketing Insights | Strathmark",
+  description: "Practical insights on AI adoption, SEO, paid media, websites, agency management and commercial measurement for UK business leaders.",
   openGraph: {
-    title: "Intelligence Log — Digital Strategy Insights | Strathmark Consulting",
-    description: "Strategic field notes on SEO, paid media, agency management, and digital infrastructure.",
+    title: "AI and Digital Marketing Insights | Strathmark",
+    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
     url: `${SITE_URL}/insights`,
     images: [SHARE_IMAGE_PATH],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Intelligence Log — Digital Strategy Insights | Strathmark Consulting",
-    description: "Strategic field notes on SEO, paid media, agency management, and digital infrastructure.",
+    title: "AI and Digital Marketing Insights | Strathmark",
+    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
     images: [SHARE_IMAGE_PATH],
   },
   alternates: {
@@ -55,8 +55,8 @@ export default function InsightsIndex() {
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Strathmark Intelligence Log",
-    description: "Strategic field notes on SEO, paid media, agency management, and digital infrastructure.",
+    name: "Strathmark AI and Digital Marketing Insights",
+    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
     url: `${SITE_URL}/insights`,
     isPartOf: {
       "@type": "WebSite",
@@ -85,9 +85,9 @@ export default function InsightsIndex() {
       {/* Hero */}
       <section className="pt-32 pb-16 px-6 border-b border-white/5">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Intelligence Log</h1>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">AI, SEO and Digital Marketing Insights</h1>
           <p className="text-xl text-slate-400 max-w-2xl font-light">
-            Strategic field notes on SEO, paid media, agency management, and digital infrastructure. Written for marketing leaders who care about outcomes, not activity.
+            Practical analysis on AI adoption, websites, SEO, paid media, agency management and commercial measurement for leaders who care about outcomes, not activity.
           </p>
         </div>
       </section>

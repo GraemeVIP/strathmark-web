@@ -2,11 +2,21 @@
 
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { useSyncExternalStore } from "react";
+import { getAnalyticsConsentSnapshot, subscribeAnalyticsConsent } from "@/lib/analytics-consent";
 
 const GA_MEASUREMENT_ID = "G-6W1G9FJ5TV";
 const CLARITY_PROJECT_ID = "wce5rr4juk";
 
 export function Analytics() {
+  const consent = useSyncExternalStore(
+    subscribeAnalyticsConsent,
+    getAnalyticsConsentSnapshot,
+    () => "loading"
+  );
+
+  if (consent !== "analytics") return null;
+
   return (
     <>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />

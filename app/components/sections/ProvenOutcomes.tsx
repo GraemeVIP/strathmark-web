@@ -5,93 +5,50 @@ import { caseStudies } from "@/lib/case-studies-data";
 export function ProvenOutcomes() {
   const featuredStudies = caseStudies.filter((study) => study.featured).slice(0, 3);
 
-  if (featuredStudies.length === 0) {
-    return null;
-  }
+  if (featuredStudies.length === 0) return null;
 
   return (
-    <section className="w-full max-w-7xl px-6 py-16 md:py-24 mx-auto border-t border-white/5" id="outcomes">
-      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <div className="max-w-3xl">
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-gold">Established digital practice</span>
-          <h2 className="mt-6 text-3xl md:text-4xl font-serif font-bold text-white">
-            A record of diagnosing complex commercial and technical systems.
-          </h2>
-          <p className="mt-4 text-slate-400 text-lg font-light leading-relaxed">
-            These are digital performance engagements, not AI delivery claims. They demonstrate the analytical, technical and commercial discipline that underpins Strathmark’s approach to transformation.
-          </p>
+    <section className="w-full bg-[#07111d] py-20 md:py-28" id="outcomes">
+      <div className="section-shell">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <p className="section-kicker">Evidence from digital performance work</p>
+            <h2 className="mt-6 max-w-5xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em] text-white">
+              Complex systems become useful when the diagnosis is commercial.
+            </h2>
+          </div>
+          <div className="lg:col-span-4">
+            <p className="text-base leading-7 text-slate-300">
+              These engagements demonstrate digital strategy, technical and commercial problem-solving. They are not presented as AI implementation results.
+            </p>
+            <Link href="/case-studies" className="group mt-5 inline-flex min-h-11 items-center gap-3 text-[15px] font-bold uppercase tracking-[0.1em] text-gold transition-colors hover:text-white">
+              View all case studies <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
-        <Link href="/case-studies" className="text-gold inline-flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest text-xs font-mono">
-          View All Case Studies <ArrowRight size={14} />
-        </Link>
-      </div>
 
-      <div className="mt-10 md:mt-12 grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-6 md:gap-8">
-        <Link href={`/case-studies/${featuredStudies[0].slug}`} className="group block">
-          <article className="relative overflow-hidden border border-white/10 bg-white/[0.03] p-8 md:p-10 h-full transition-colors group-hover:border-gold/35">
-            <div className="absolute right-0 top-0 h-44 w-44 rounded-full bg-gold/8 blur-[90px]" />
-            <div className="relative">
-              <div className="flex flex-wrap gap-3 text-[10px] font-mono uppercase tracking-[0.24em]">
-                <span className="border border-gold/20 bg-gold/10 px-3 py-1 text-gold">{featuredStudies[0].industry}</span>
-                <span className="text-slate-500">{featuredStudies[0].region}</span>
-              </div>
-
-              <h3 className="mt-6 text-3xl font-serif font-bold text-white leading-tight group-hover:text-gold transition-colors">
-                {featuredStudies[0].client}
-              </h3>
-              <p className="mt-5 text-lg text-slate-300 font-light leading-relaxed">
-                {featuredStudies[0].headline}
-              </p>
-
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-white/10 pt-8">
-                {featuredStudies[0].metrics.map((metric) => (
-                  <div key={metric.label}>
-                    <div className="text-3xl font-serif font-bold text-white">{metric.value}</div>
-                    <div className="mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</div>
-                    <div className="mt-2 text-sm text-slate-400 font-light leading-relaxed">{metric.context}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-gold">
-                Read case study <ArrowRight size={14} />
-              </div>
-            </div>
-          </article>
-        </Link>
-
-        <div className="grid grid-cols-1 gap-6">
-          {featuredStudies.slice(1).map((study) => (
-            <Link href={`/case-studies/${study.slug}`} key={study.slug} className="group block">
-              <article className="h-full border border-white/10 bg-white/[0.02] p-6 md:p-7 transition-colors group-hover:border-gold/30">
-                <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em]">
-                  <span className="text-gold">{study.industry}</span>
-                  <span className="text-slate-600">/</span>
-                  <span className="text-slate-500">{study.region}</span>
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {featuredStudies.map((study, index) => (
+            <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group flex">
+              <article className="flex w-full flex-col border border-white/12 bg-[#0d1c2c] p-7 transition-colors group-hover:border-gold/45 md:p-8">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-[15px] font-semibold uppercase tracking-[0.1em] text-gold">{study.industry}</span>
+                  <span className="font-mono text-[15px] text-slate-300">0{index + 1}</span>
                 </div>
-
-                <h3 className="mt-5 text-2xl font-serif font-bold text-white leading-tight group-hover:text-gold transition-colors">
-                  {study.client}
-                </h3>
-                <p className="mt-4 text-sm text-slate-300 font-light leading-relaxed">
-                  {study.excerpt}
-                </p>
-
-                <div className="mt-6 space-y-3 border-t border-white/10 pt-6">
-                  {study.metrics.slice(0, 2).map((metric) => (
-                    <div key={metric.label} className="flex items-center justify-between gap-4">
-                      <div>
-                        <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</div>
-                        <div className="mt-1 text-xs text-slate-400 font-light">{metric.context}</div>
-                      </div>
-                      <div className="text-2xl font-serif font-bold text-white">{metric.value}</div>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="mt-7 text-3xl font-semibold text-white transition-colors group-hover:text-gold">{study.client}</h3>
+                <p className="mt-4 text-lg leading-8 text-slate-200">{study.headline}</p>
+                <p className="mt-4 text-base leading-7 text-slate-400">{study.excerpt}</p>
+                <span className="mt-auto inline-flex items-center gap-2 border-t border-white/10 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-gold">
+                  Read the engagement <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
+                </span>
               </article>
             </Link>
           ))}
         </div>
+
+        <p className="mt-6 max-w-4xl text-[15px] leading-7 text-slate-400">
+          Published metrics on individual case-study pages should be read with their stated scope and context. They are engagement evidence, not guarantees of future performance.
+        </p>
       </div>
     </section>
   );

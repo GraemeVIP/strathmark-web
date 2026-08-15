@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "@/app/components/sections/Footer";
 import { Navigation } from "@/app/components/Navigation";
 import { SectionLink } from "@/app/components/ui/SectionLink";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Strathmark",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

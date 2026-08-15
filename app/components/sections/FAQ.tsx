@@ -1,91 +1,51 @@
-"use client";
-
-import { Minus, Plus } from "lucide-react";
-import { useId, useState } from "react";
-
 const FAQS = [
   {
-    q: "Is this an AI agency or software implementation service?",
-    a: "No. Strathmark is an independent advisory firm. The first job is to establish where AI could create measurable operating value, what could go wrong and what the business should do next. Specialist implementation may follow, but it is never assumed or bundled into the diagnosis."
+    question: "What does a digital marketing consultancy do?",
+    answer: "Strathmark connects commercial strategy with the practical work needed to generate and convert demand. That can include positioning, branding, websites, SEO, Google Ads, Meta Ads, measurement, agency oversight and practical AI. The constraint decides the mix, not a pre-set channel package.",
   },
   {
-    q: "What does the AI Opportunity and Exposure Review include?",
-    a: "Leadership and workflow interviews, an opportunity and exposure map, a review of data and governance readiness, and a prioritised 90-day roadmap. The review is fixed fee from £3,500 and is designed to produce a clear investment decision."
+    question: "Are you a consultant or a marketing agency?",
+    answer: "The relationship is consultancy-led and implementation-capable. Senior diagnosis and commercial accountability stay close to the work. Strathmark can deliver directly, coordinate specialist partners or improve and oversee an existing agency or internal team.",
   },
   {
-    q: "Do we need clean data or an AI strategy before starting?",
-    a: "No. Readiness is part of the diagnosis. Many useful first steps begin with understanding existing workflows, project records and decision ownership. The recommendation may be to improve information structure before introducing any AI system."
+    question: "Do we need every service at once?",
+    answer: "No. The aim is to find the highest-value constraint and fix it in the right order. A business may need only an SEO recovery, a better website, a paid-media reset or an independent agency review. Services are connected when that genuinely improves the outcome.",
   },
   {
-    q: "Will AI be allowed to make engineering or production decisions?",
-    a: "Not through this work. Safety-critical engineering, certification, regulatory approval, legal interpretation, live production control and final customer deliverables stay under qualified human authority. Any pilot is bounded, reviewed and reversible."
+    question: "Where does AI fit?",
+    answer: "AI is a major service line, not the whole proposition. It can improve research, content operations, customer follow-up, knowledge access, reporting and repeated workflows when the data, controls and business case support it. Conventional marketing and process fixes still come first when they are the better answer.",
   },
   {
-    q: "What size and type of business is this for?",
-    a: "The primary fit is a founder-led engineering, manufacturing or specialist technical business with roughly 10 to 150 people, valuable accumulated know-how and a leadership team that wants practical advantage without losing control."
+    question: "Can you work with our current agency or team?",
+    answer: "Yes. Strathmark can audit the current setup, strengthen the brief, repair measurement, challenge strategy and provide senior oversight without automatically replacing the people already doing useful work.",
   },
   {
-    q: "Does Strathmark still provide digital performance consulting?",
-    a: "Yes. Independent digital reviews, technical recovery, search and agency oversight continue as a separate secondary practice. You can explore that work through the Digital Performance page."
-  }
+    question: "Can you guarantee leads, revenue or rankings?",
+    answer: "No responsible consultancy can guarantee outcomes controlled by customers, competitors, markets or search platforms. Strathmark defines the baseline, controllable work, responsibilities and measurement so you can see what changed and whether the next investment is justified.",
+  },
 ] as const;
 
 export function FAQ() {
   return (
-    <section className="w-full bg-strath-navy py-20 md:py-28" id="faq">
-      <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-20">
-        <div className="lg:col-span-5">
-          <p className="section-kicker">Questions</p>
-          <h2 className="mt-6 max-w-xl text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-white">
-            Direct answers before you commit.
-          </h2>
-          <p className="mt-6 max-w-md text-base leading-7 text-slate-400">
-            The work is deliberately transparent about scope, authority, limits and the evidence needed to proceed.
-          </p>
+    <section className="bg-[#e9dfcf] py-20 text-ink md:py-28" id="faq">
+      <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-4">
+          <p className="section-kicker !text-[#74521f]">Before you enquire</p>
+          <h2 className="mt-6 text-[clamp(2.6rem,4.8vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">Straight answers to sensible questions.</h2>
+          <p className="mt-6 text-base leading-8 text-slate-600">Clear boundaries reduce buyer risk and make the first conversation more useful.</p>
         </div>
-
-        <div className="border-t border-white/[0.12] lg:col-span-7">
+        <div className="divide-y divide-ink/15 border-y border-ink/15 lg:col-span-8">
           {FAQS.map((item) => (
-            <FAQItem key={item.q} question={item.q} answer={item.a} />
+            <details key={item.question} className="group py-6">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold marker:hidden md:text-2xl">
+                {item.question}
+                <span aria-hidden="true" className="text-3xl font-light text-[#74521f] transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <p className="max-w-3xl pb-2 pt-4 text-base leading-8 text-slate-600">{item.answer}</p>
+            </details>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const id = useId();
-  const triggerId = `faq-trigger-${id}`;
-  const panelId = `faq-panel-${id}`;
-
-  return (
-    <article className="border-b border-white/[0.12]">
-      <h3 className="font-sans">
-        <button
-          id={triggerId}
-          type="button"
-          onClick={() => setIsOpen((open) => !open)}
-          className="flex min-h-20 w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-white transition-colors hover:text-gold"
-          aria-expanded={isOpen}
-          aria-controls={panelId}
-        >
-          <span>{question}</span>
-          <span className="grid h-10 w-10 shrink-0 place-items-center border border-white/15 text-gold" aria-hidden="true">
-            {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-          </span>
-        </button>
-      </h3>
-      <div
-        id={panelId}
-        role="region"
-        aria-labelledby={triggerId}
-        hidden={!isOpen}
-        className="pb-7 pr-14 text-sm leading-7 text-slate-400"
-      >
-        {answer}
-      </div>
-    </article>
   );
 }

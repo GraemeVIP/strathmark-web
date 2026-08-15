@@ -14,6 +14,11 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-playfair);
+
+  --text-xs: 0.9375rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.55;
 }
 
 :root {
@@ -37,7 +42,6 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
@@ -98,9 +102,9 @@ textarea {
   gap: 0.75rem;
   color: var(--color-gold);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.11em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -111,6 +115,22 @@ textarea {
   background: currentColor;
   content: "";
   opacity: 0.75;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (min-width: 80rem) and (max-height: 51.25rem) {
+  .growth-hero {
+    min-height: 100svh;
+    padding-top: 5.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .growth-hero h1 {
+    font-size: clamp(3rem, 4.8vw, 4.45rem) !important;
+  }
 }
 
 .editorial-grid {

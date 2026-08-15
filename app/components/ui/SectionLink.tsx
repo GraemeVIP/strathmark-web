@@ -36,7 +36,7 @@ export function SectionLink({
   const isSamePageSectionLink = pathname === HOME_PATHNAME && sectionHash;
   const resolvedHref = sectionHash
     ? pathname === HOME_PATHNAME
-      ? sectionHash
+      ? getHomeSectionHref(href).replace(/^\/$/, "")
       : getHomeSectionHref(href)
     : href;
 
@@ -55,8 +55,9 @@ export function SectionLink({
 
     const performNavigation = () => {
       if (isSamePageSectionLink) {
-        const historyMethod = window.location.hash === sectionHash ? "replaceState" : "pushState";
-        window.history[historyMethod](null, "", sectionHash);
+        const currentHref = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+        const historyMethod = currentHref === resolvedHref ? "replaceState" : "pushState";
+        window.history[historyMethod](null, "", resolvedHref);
         window.dispatchEvent(
           new CustomEvent(SITE_SECTION_NAVIGATION_EVENT, {
             detail: {

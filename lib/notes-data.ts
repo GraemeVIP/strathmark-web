@@ -83,7 +83,7 @@ export const notes: Note[] = [
   },
   {
     slug: "traffic-is-not-kpi",
-    title: "Traffic Is Not a KPI. Revenue Is.",
+    title: "Organic Traffic Not Converting? Fix the SEO Revenue Gap",
     category: "Strategy",
     date: "2026-03-06",
     readingTime: "9 min read",
@@ -391,7 +391,7 @@ export const notes: Note[] = [
   },
   {
     slug: "agency-vs-consultant",
-    title: "Agency vs. Independent Consultant: When to Fire Your Agency",
+    title: "Marketing Agency vs Consultant: Which Should You Hire?",
     category: "Commercial",
     date: "2026-04-02",
     readingTime: "12 min read",
@@ -538,7 +538,7 @@ export const notes: Note[] = [
   },
   {
     slug: "seo-industry-corruption-problem",
-    title: "The SEO Industry Has a Corruption Problem",
+    title: "SEO Agency Red Flags: How to Avoid SEO Scams",
     category: "Industry",
     date: "2026-04-22",
     readingTime: "11 min read",

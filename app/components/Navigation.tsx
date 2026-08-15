@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import { SectionLink } from "@/app/components/ui/SectionLink";
 
-const NAV_LINKS = [
-  { name: "AI Advisory", href: "/#services" },
-  { name: "Use Cases", href: "/#use-cases" },
-  { name: "Governance", href: "/#governance" },
-  { name: "Digital", href: "/digital-performance" },
+const PAGE_LINKS = [
+  { name: "Services", href: "/services" },
+  { name: "AI & automation", href: "/ai-consulting-services" },
+  { name: "Work", href: "/case-studies" },
   { name: "Insights", href: "/insights" },
+  { name: "About", href: "/about" },
 ] as const;
 
 const MOBILE_NAV_ID = "mobile-navigation";
@@ -43,7 +43,7 @@ export function Navigation() {
   }, []);
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
     const closeAtDesktop = (event: MediaQueryListEvent | MediaQueryList) => {
       if (event.matches) setIsOpen(false);
     };
@@ -97,7 +97,7 @@ export function Navigation() {
     <>
       <a
         href="#main-content"
-        className="fixed left-4 top-3 z-[80] -translate-y-24 bg-ivory px-4 py-3 text-sm font-bold text-ink shadow-xl transition-transform focus:translate-y-0"
+        className="fixed left-4 top-3 z-[90] -translate-y-24 bg-ivory px-4 py-3 text-[15px] font-bold text-ink shadow-xl transition-transform focus:translate-y-0"
       >
         Skip to main content
       </a>
@@ -105,7 +105,7 @@ export function Navigation() {
       <nav
         aria-label="Primary navigation"
         className={clsx(
-          "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow] duration-300",
+          "fixed inset-x-0 top-0 z-[70] border-b transition-[background-color,border-color,padding,box-shadow] duration-300",
           scrolled || isOpen
             ? "border-white/10 bg-strath-navy/95 py-3 shadow-[0_16px_45px_rgba(2,8,16,0.18)] supports-[backdrop-filter]:backdrop-blur-xl"
             : "border-transparent bg-strath-navy/35 py-4 supports-[backdrop-filter]:backdrop-blur-sm"
@@ -125,34 +125,34 @@ export function Navigation() {
               <span className="font-serif text-xl font-semibold tracking-[0.14em] text-white transition-colors group-hover:text-gold">
                 STRATHMARK
               </span>
-              <span className="text-[0.62rem] font-medium uppercase tracking-[0.34em] text-slate-400">
+              <span className="text-[15px] font-medium uppercase tracking-[0.16em] text-slate-300">
                 Consulting
               </span>
             </span>
           </Link>
 
-          <div className="hidden items-center gap-7 lg:flex xl:gap-9">
-            {NAV_LINKS.map((link) => (
-              <SectionLink
+          <div className="hidden items-center gap-1 xl:flex">
+            {PAGE_LINKS.map((link) => (
+              <Link
                 key={link.name}
                 href={link.href}
-                className="inline-flex min-h-11 items-center text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate-300 transition-colors hover:text-gold"
+                className="inline-flex min-h-11 items-center px-3 text-[15px] font-semibold text-slate-200 transition-colors hover:text-gold"
               >
                 {link.name}
-              </SectionLink>
+              </Link>
             ))}
             <SectionLink
-              href="/#contact"
-              className="inline-flex min-h-11 items-center border border-gold bg-gold px-5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-white"
+              href="/?service=digital-growth-review#contact"
+              className="ml-3 inline-flex min-h-12 items-center border border-gold bg-gold px-5 text-[15px] font-bold uppercase tracking-[0.08em] text-ink transition-colors hover:bg-white"
             >
-              Discuss your business
+              Request a growth review
             </SectionLink>
           </div>
 
           <button
             ref={menuButtonRef}
             type="button"
-            className="grid h-11 w-11 place-items-center border border-white/15 text-white transition-colors hover:border-gold hover:text-gold lg:hidden"
+            className="grid h-11 w-11 place-items-center border border-white/15 text-white transition-colors hover:border-gold hover:text-gold xl:hidden"
             onClick={() => setIsOpen((open) => !open)}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
@@ -161,7 +161,6 @@ export function Navigation() {
             {isOpen ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
           </button>
         </div>
-
       </nav>
 
       {isOpen ? (
@@ -171,37 +170,35 @@ export function Navigation() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-x-0 bottom-0 top-[4.75rem] z-40 overflow-y-auto border-t border-white/10 bg-strath-navy px-5 py-8 lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-[4.5rem] z-[75] overflow-y-auto border-t border-white/10 bg-strath-navy px-5 py-8 xl:hidden"
         >
           <div className="mx-auto flex min-h-full max-w-2xl flex-col">
-            <p className="mb-7 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
-              Navigate
+            <p className="border-b border-white/10 pb-3 text-[15px] font-semibold uppercase tracking-[0.12em] text-gold">
+              Explore Strathmark
             </p>
-            <div className="flex flex-col border-t border-white/10">
-              {NAV_LINKS.map((link, index) => (
-                <SectionLink
+            <div className="flex flex-col">
+              {PAGE_LINKS.map((link) => (
+                <Link
                   key={link.name}
                   href={link.href}
-                  onNavigate={closeMenu}
+                  onClick={closeMenu}
                   className="flex min-h-16 items-center justify-between border-b border-white/10 py-4 font-serif text-2xl text-white transition-colors hover:text-gold"
                 >
                   <span>{link.name}</span>
-                  <span aria-hidden="true" className="font-mono text-xs text-slate-400">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </SectionLink>
+                  <ArrowRight aria-hidden="true" className="text-gold" size={20} strokeWidth={1.75} />
+                </Link>
               ))}
             </div>
-            <div className="pt-7">
+            <div className="mt-auto pt-8">
               <SectionLink
-                href="/#contact"
+                href="/?service=digital-growth-review#contact"
                 onNavigate={closeMenu}
-                className="flex min-h-14 w-full items-center justify-center bg-gold px-6 text-sm font-bold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-white"
+                className="flex min-h-14 w-full items-center justify-center bg-gold px-6 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white"
               >
-                Discuss your business
+                Request a growth review
               </SectionLink>
-              <p className="mt-5 text-center text-xs text-slate-400">
-                Fixed fees · Controlled pilots · Principal-led
+              <p className="mt-5 text-center text-[15px] leading-6 text-slate-300">
+                Every menu item above opens a dedicated page.
               </p>
             </div>
           </div>

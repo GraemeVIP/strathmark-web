@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Suspense } from "react";
 import "./globals.css";
@@ -31,11 +31,11 @@ const playfair = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `AI Transformation for Technical SMEs | Strathmark`,
-  description: "Independent AI transformation for founder-led engineering and manufacturing businesses. Find valuable workflows, control risk and prove the case before scaling.",
+  title: "Digital Marketing Consultancy UK | SEO, PPC, Web & AI",
+  description: "Independent digital marketing consultancy for UK businesses. SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
   openGraph: {
-    title: `AI Transformation for Technical SMEs | Strathmark`,
-    description: "Turn hard-won technical knowledge into an AI advantage, with controlled pilots, human authority and evidence before scale.",
+    title: "Digital Marketing Consultancy for UK Businesses | Strathmark",
+    description: "Connect strategy, branding, websites, SEO, paid media, measurement and practical AI under one accountable senior-led plan.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_GB",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `AI Transformation for Technical SMEs | Strathmark`,
-    description: "Turn hard-won technical knowledge into an AI advantage, with controlled pilots and evidence before scale.",
+    title: "Digital Marketing Consultancy for UK Businesses | Strathmark",
+    description: "SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
     images: [SHARE_IMAGE_PATH],
   },
   robots: {
@@ -69,6 +69,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b1624",
 };
 
 export default function RootLayout({
@@ -94,30 +100,67 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": SITE_NAME,
-              "url": SITE_URL,
-              "logo": `${SITE_URL}${LOGO_PATH}`,
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Edinburgh",
-                "addressRegion": "Scotland",
-                "addressCountry": "UK"
-              },
-              "description": "Independent AI transformation advisory for founder-led engineering, manufacturing and specialist technical businesses.",
-              "priceRange": "£££",
-              "areaServed": ["UK", "US", "UAE", "Europe"],
-              "knowsAbout": ["AI Transformation", "Industrial AI", "AI Governance", "Knowledge Management", "Digital Strategy", "Technical SEO"],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "AI transformation advisory services",
-                "itemListElement": [
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Opportunity and Exposure Review" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow and Knowledge Diagnostic" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Controlled AI Pilot" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Independent AI Oversight" } }
-                ]
-              }
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#website`,
+                  name: SITE_NAME,
+                  url: SITE_URL,
+                  inLanguage: "en-GB",
+                  publisher: { "@id": `${SITE_URL}/#business` },
+                },
+                {
+                  "@type": ["Organization", "ProfessionalService"],
+                  "@id": `${SITE_URL}/#business`,
+                  name: SITE_NAME,
+                  url: SITE_URL,
+                  logo: `${SITE_URL}${LOGO_PATH}`,
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Edinburgh",
+                    addressRegion: "Scotland",
+                    addressCountry: "GB",
+                  },
+                  description: "Independent digital marketing consultancy connecting strategy, branding, websites, SEO, paid media, measurement and practical AI for established UK businesses.",
+                  priceRange: "£££",
+                  areaServed: { "@type": "Country", name: "United Kingdom" },
+                  knowsAbout: [
+                    "Digital marketing strategy",
+                    "Search engine optimisation",
+                    "Google Ads management",
+                    "Meta Ads management",
+                    "Website design and development",
+                    "Brand strategy and identity",
+                    "Conversion rate optimisation",
+                    "Digital analytics",
+                    "Marketing agency oversight",
+                    "AI consulting",
+                    "AI strategy",
+                    "Workflow automation",
+                  ],
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Digital marketing, AI and automation services",
+                    itemListElement: [
+                      "Digital Growth Review",
+                      "Digital Marketing Strategy",
+                      "Website Design and Development",
+                      "Brand Strategy and Identity",
+                      "SEO Services and Content",
+                      "Google Ads Management",
+                      "Meta Ads Management",
+                      "Paid Media Management",
+                      "Marketing Agency Audit",
+                      "AI Consulting and Implementation",
+                      "AI Strategy Consulting",
+                      "Workflow Automation",
+                    ].map((name) => ({
+                      "@type": "Offer",
+                      itemOffered: { "@type": "Service", name },
+                    })),
+                  },
+                },
+              ],
             }),
           }}
         />

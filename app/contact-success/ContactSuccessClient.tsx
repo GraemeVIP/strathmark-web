@@ -1,38 +1,8 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { SectionLink } from "@/app/components/ui/SectionLink";
 
-const LEAD_SESSION_STORAGE_KEY = "strathmark_pending_lead";
-const LAST_SUBMIT_STORAGE_KEY = "strathmark_last_submit_ts";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 export function ContactSuccessClient() {
-  useEffect(() => {
-    window.localStorage.setItem(LAST_SUBMIT_STORAGE_KEY, String(Date.now()));
-
-    const pendingLead = window.sessionStorage.getItem(LEAD_SESSION_STORAGE_KEY);
-    if (!pendingLead) return;
-
-    try {
-      const parsed = JSON.parse(pendingLead) as Record<string, string>;
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "generate_lead", parsed);
-      }
-    } catch {
-      // Ignore analytics parsing issues and still clear the pending lead flag.
-    } finally {
-      window.sessionStorage.removeItem(LEAD_SESSION_STORAGE_KEY);
-    }
-  }, []);
-
   return (
     <main className="min-h-screen bg-strath-navy text-slate-200 flex items-center justify-center px-6">
       <section className="w-full max-w-3xl border border-gold/30 bg-white/5 p-10 md:p-14 text-center backdrop-blur-sm">
@@ -44,7 +14,7 @@ export function ContactSuccessClient() {
             </h1>
             <h2 className="text-xs font-mono uppercase tracking-[0.3em] text-gold">Application Received</h2>
             <p className="text-slate-300 text-lg leading-relaxed">
-              Your enquiry is in. I review each brief carefully and respond within 2 business days when I can add meaningful value.
+              Your enquiry has been received. I review each brief personally and respond within two business days with the most useful next step.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -55,7 +25,7 @@ export function ContactSuccessClient() {
               Return Home
             </Link>
             <SectionLink
-              href="/#contact"
+              href="/?service=digital-growth-review#contact"
               className="inline-flex items-center justify-center border border-white/15 px-6 py-3 text-white hover:border-gold hover:text-gold transition-colors"
             >
               Submit Another Brief

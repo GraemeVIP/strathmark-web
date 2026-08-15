@@ -165,7 +165,7 @@ export function LeadMagnet() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-12 h-px bg-gold/50"></span>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-gold">Executive Intelligence</span>
+                  <span className="text-[15px] font-mono uppercase tracking-[0.3em] text-gold">Executive Intelligence</span>
                 </div>
                 
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.1] mb-8">
@@ -191,7 +191,7 @@ export function LeadMagnet() {
                       className="border border-white/10 bg-white/5 py-1.5 px-3 flex items-center gap-2"
                     >
                       <div className="w-1 h-1 rounded-full bg-gold"></div>
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">{topic}</span>
+                      <span className="text-[15px] font-mono uppercase tracking-widest text-slate-400">{topic}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -207,16 +207,16 @@ export function LeadMagnet() {
                     <div className="flex items-center justify-between mb-8">
                       <div className="flex items-center gap-2">
                          <Lock size={14} className="text-gold" />
-                         <span className="text-[10px] font-mono uppercase tracking-widest text-gold">Secure Access</span>
+                         <span className="text-[15px] font-mono uppercase tracking-widest text-gold">Secure Access</span>
                       </div>
-                      <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Digital Audit v1.2</span>
+                      <span className="text-[15px] font-mono text-slate-500 uppercase tracking-widest">Digital Audit v1.2</span>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <input type="text" name="honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
                       
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-mono uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
+                        <label className="text-[15px] font-mono uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
                         <input
                           type="text"
                           name="name"
@@ -228,7 +228,7 @@ export function LeadMagnet() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-mono uppercase tracking-widest text-slate-400 ml-1">Work Email</label>
+                        <label className="text-[15px] font-mono uppercase tracking-widest text-slate-400 ml-1">Work Email</label>
                         <input
                           type="email"
                           name="email"
@@ -269,7 +269,7 @@ export function LeadMagnet() {
                         )}
                       </button>
 
-                      <p className="text-[10px] text-slate-500 text-center uppercase tracking-widest pt-4">
+                      <p className="text-[15px] text-slate-500 text-center uppercase tracking-widest pt-4">
                         Instant unlock. Zero Friction.
                       </p>
                     </form>
@@ -345,7 +345,7 @@ function UnlockedContent({ name }: { name: string }) {
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 mb-4">
             <CheckCircle2 size={16} className="text-gold" />
-            <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-gold">Briefing Unlocked</span>
+            <span className="text-[15px] font-mono uppercase tracking-[0.3em] text-gold">Briefing Unlocked</span>
           </div>
           <h3 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6">
             {name ? `${name.split(' ')[0]}, here it is.` : "Here it is."}
@@ -357,8 +357,8 @@ function UnlockedContent({ name }: { name: string }) {
         
         <div className="hidden md:flex gap-4 mb-4">
           <div className="text-right">
-            <p className="text-[10px] font-mono uppercase text-slate-500 tracking-widest mb-1">Status</p>
-            <p className="text-[11px] font-mono uppercase text-white font-bold">Independent Review v1.0</p>
+            <p className="text-[15px] font-mono uppercase text-slate-500 tracking-widest mb-1">Status</p>
+            <p className="text-[15px] font-mono uppercase text-white font-bold">Independent Review v1.0</p>
           </div>
         </div>
       </div>
@@ -394,13 +394,13 @@ function UnlockedContent({ name }: { name: string }) {
               </div>
               
               <div className="mb-auto">
-                <p className="text-[10px] font-mono text-gold uppercase tracking-[0.2em] mb-4">Finding {index + 1}</p>
+                <p className="text-[15px] font-mono text-gold uppercase tracking-[0.2em] mb-4">Finding {index + 1}</p>
                 <h4 className="text-xl md:text-2xl font-serif font-bold text-white mb-6 leading-tight min-h-[3.5rem]">
                   {card.title}
                 </h4>
                 
                 <div className="bg-white/5 border-l-2 border-gold p-4 mb-8">
-                  <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold italic">Revenue Impact</p>
+                  <p className="text-[15px] font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold italic">Revenue Impact</p>
                   <p className="text-sm text-slate-200 font-medium">{card.loss}</p>
                 </div>
                 
@@ -410,7 +410,7 @@ function UnlockedContent({ name }: { name: string }) {
               </div>
 
               <div className="w-full pt-8 border-t border-white/5 mt-auto">
-                 <p className="text-[10px] font-mono text-gold uppercase tracking-widest mb-3">Principal Correction</p>
+                 <p className="text-[15px] font-mono text-gold uppercase tracking-widest mb-3">Principal Correction</p>
                  <p className="text-xs text-slate-300 leading-relaxed italic">
                    &quot;{card.fix}&quot;
                  </p>

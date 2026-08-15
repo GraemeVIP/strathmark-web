@@ -7,11 +7,11 @@ import { Navigation } from "@/app/components/Navigation";
 import { SHARE_IMAGE_PATH, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Strathmark Consulting",
-  description: "Selected engagements showing how strategic digital advisory improves visibility, conversion quality, and commercial clarity.",
+  title: "Digital Marketing Case Studies | Strathmark",
+  description: "Digital marketing case studies across websites, SEO, conversion and commercial strategy, with engagement context and the changes made.",
   openGraph: {
-    title: "Case Studies | Strathmark Consulting",
-    description: "Selected engagements showing how strategic digital advisory improves visibility, conversion quality, and commercial clarity.",
+    title: "Digital Marketing Case Studies | Strathmark",
+    description: "Selected website, SEO, conversion and digital strategy engagements with commercial context.",
     url: `${SITE_URL}/case-studies`,
     images: [SHARE_IMAGE_PATH],
   },
@@ -35,15 +35,14 @@ export default function CaseStudiesIndex() {
         </div>
 
         <div className="relative max-w-7xl mx-auto">
-          <span className="inline-flex items-center border border-gold/20 bg-gold/8 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.35em] text-gold">
+          <span className="inline-flex items-center border border-gold/20 bg-gold/8 px-3 py-1 text-[15px] font-mono uppercase tracking-[0.35em] text-gold">
             Selected engagements
           </span>
           <h1 className="mt-8 max-w-5xl font-serif text-4xl font-bold leading-tight text-white md:text-6xl">
-            Case studies built around commercial movement, not decorative reporting.
+            Digital Marketing Case Studies
           </h1>
           <p className="mt-8 max-w-3xl text-lg font-light leading-relaxed text-slate-300 md:text-xl">
-            These engagements cover enterprise insurance, legal services, utilities, hospitality, and destination-led leisure. Each one focuses on what actually changed:
-            clearer demand capture, better conversion routes, and less wasted effort across the digital estate.
+            Website, SEO, conversion and digital strategy work across insurance, legal services, utilities, hospitality and destination-led leisure. Each summary explains the commercial context, the work and the reported engagement signals.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-4 text-left md:mt-16 md:grid-cols-3">
             {[
@@ -52,7 +51,7 @@ export default function CaseStudiesIndex() {
               { label: "End result", value: "Commercial clarity", copy: "Less noise. Better outcomes. Faster decisions." },
             ].map((item) => (
               <div key={item.label} className="border border-white/10 bg-white/[0.03] p-5">
-                <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-slate-400">{item.label}</p>
+                <p className="text-[15px] font-mono uppercase tracking-[0.24em] text-slate-400">{item.label}</p>
                 <p className="mt-3 font-serif text-2xl font-bold text-white">{item.value}</p>
                 <p className="mt-2 text-sm font-light leading-relaxed text-slate-400">{item.copy}</p>
               </div>
@@ -77,7 +76,7 @@ export default function CaseStudiesIndex() {
                   <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-gold/8 blur-[90px] transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div className="relative flex h-full flex-col">
-                    <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.24em]">
+                    <div className="flex flex-wrap items-center gap-3 text-[15px] font-mono uppercase tracking-[0.24em]">
                       <span className="border border-gold/20 bg-gold/10 px-3 py-1 text-gold">{study.industry}</span>
                       <span className="text-slate-500">{study.region}</span>
                       <span className="text-slate-600">/</span>
@@ -94,7 +93,7 @@ export default function CaseStudiesIndex() {
                       {study.metrics.map((metric) => (
                         <div key={metric.label}>
                           <p className="font-serif text-3xl font-bold text-white">{metric.value}</p>
-                          <p className="mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</p>
+                          <p className="mt-2 text-[15px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</p>
                           <p className="mt-2 text-sm font-light leading-relaxed text-slate-400">{metric.context}</p>
                         </div>
                       ))}
@@ -124,7 +123,7 @@ export default function CaseStudiesIndex() {
               {additionalStudies.map((study) => (
                 <Link href={`/case-studies/${study.slug}`} key={study.slug} className="group flex h-full">
                   <article className="flex h-full flex-col border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:border-gold/30 md:p-7">
-                    <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em]">
+                    <div className="flex flex-wrap items-center gap-2 text-[15px] font-mono uppercase tracking-[0.22em]">
                       <span className="text-gold">{study.industry}</span>
                       <span className="text-slate-600">/</span>
                       <span className="text-slate-500">{study.region}</span>
@@ -139,7 +138,7 @@ export default function CaseStudiesIndex() {
                       {study.metrics.map((metric) => (
                         <div key={metric.label} className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</p>
+                            <p className="text-[15px] font-mono uppercase tracking-[0.18em] text-slate-500">{metric.label}</p>
                             <p className="mt-1 text-xs font-light leading-relaxed text-slate-400">{metric.context}</p>
                           </div>
                           <p className="font-serif text-2xl font-bold text-white">{metric.value}</p>
