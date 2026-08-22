@@ -51,10 +51,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-3xl font-bold text-white">Optional analytics</h2>
             <p className="mt-4">
-              Google Analytics, Microsoft Clarity and Strathmark&apos;s first-party visitor analytics load only after you choose “Allow analytics”. They may process page paths, referral and campaign information, device and browser details, IP address, approximate location derived from network information, interaction events and performance data. Contact-form names, email addresses and message content are not sent in the lead event recorded by Google Analytics.
+              Google Analytics loads with analytics storage denied unless you choose “Allow analytics”; advertising storage remains denied. Before consent it does not read or write analytics cookies, although Google may receive limited cookieless measurements. Microsoft Clarity and Strathmark&apos;s first-party visitor analytics collect data only after you allow analytics. These services may process page paths, referral and campaign information, device and browser details, IP address, approximate location derived from network information, interaction events and performance data. Contact-form names, email addresses and message content are not sent in the lead event recorded by Google Analytics.
             </p>
             <p className="mt-4">
-              This information is used to understand which pages and journeys are useful, diagnose performance and improve the website. If you choose “Essential only”, these analytics tools are not loaded by the site.
+              This information is used to understand which pages and journeys are useful, diagnose performance and improve the website. If you choose “Essential only”, Google Analytics remains in consent-denied mode and the other analytics tools do not collect data.
             </p>
             <div className="mt-5">
               <CookieResetButton />
