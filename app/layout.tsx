@@ -6,8 +6,7 @@ import { CookieBanner } from "@/app/components/ui/CookieBanner";
 import { Analytics } from "@/app/components/ui/Analytics";
 import { FirstPartyVisitorTracker } from "@/app/components/ui/FirstPartyVisitorTracker";
 import { ScrollBehaviorManager } from "@/app/components/ui/ScrollBehaviorManager";
-import { ANALYTICS_CONSENT_KEY } from "@/lib/analytics-consent";
-import { GA_MEASUREMENT_ID, LOGO_PATH, SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
+import { LOGO_PATH, SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const geistSans = localFont({
   src: "./fonts/geist-latin.woff2",
@@ -78,29 +77,6 @@ export const viewport: Viewport = {
   themeColor: "#0b1624",
 };
 
-const googleAnalyticsBootstrap = `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-var analyticsConsent = 'denied';
-try {
-  analyticsConsent = window.localStorage.getItem(${JSON.stringify(ANALYTICS_CONSENT_KEY)}) === 'analytics'
-    ? 'granted'
-    : 'denied';
-} catch (error) {
-  analyticsConsent = 'denied';
-}
-
-gtag('consent', 'default', {
-  analytics_storage: analyticsConsent,
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied'
-});
-gtag('js', new Date());
-gtag('config', ${JSON.stringify(GA_MEASUREMENT_ID)});
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -109,11 +85,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: googleAnalyticsBootstrap }} />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
         <Analytics />
       </head>
       <body
