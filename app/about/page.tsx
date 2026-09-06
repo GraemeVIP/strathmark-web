@@ -40,9 +40,12 @@ export default function AboutPage() {
       <About />
       <section className="section-shell pb-20 md:pb-28" aria-labelledby="local-business-heading">
         <div className="max-w-4xl border-t border-white/10 pt-8">
-          <h2 id="local-business-heading" className="text-3xl font-semibold text-white">Experience running a local service business</h2>
+          <h2 id="local-business-heading" className="text-3xl font-semibold text-white">Where it started</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            I also run <a href="https://www.ayrshiretechhelp.co.uk/" className="font-semibold text-gold underline underline-offset-4 hover:text-white">Ayrshire Tech Help</a>, my computer repair and home tech support business serving Ayrshire since 2008. I work directly with customers on computer, Wi-Fi and printer problems, including patient help in their own homes.
+            My first business, <a href="https://www.ayrshiretechhelp.co.uk/" className="font-semibold text-gold underline underline-offset-4 hover:text-white">Ayrshire Tech Help</a>, grew out of a love of technology and figuring out how things work. I still make time for it because I enjoy practical problem-solving and helping people locally. It is a satisfying change of pace from consultancy, and a connection to where I started.
+          </p>
+          <p className="mt-5 text-lg leading-8 text-slate-300">
+            Through ATH, I also offer a small number of free home visits and essential repairs for people who cannot afford help and would otherwise be cut off from family or everyday online services. It works on trust, with no financial paperwork and each request considered individually before a visit is agreed.
           </p>
         </div>
       </section>
