@@ -38,6 +38,14 @@ export default function AboutPage() {
         </div>
       </header>
       <About />
+      <section className="section-shell pb-20 md:pb-28" aria-labelledby="local-business-heading">
+        <div className="max-w-4xl border-t border-white/10 pt-8">
+          <h2 id="local-business-heading" className="text-3xl font-semibold text-white">Experience running a local service business</h2>
+          <p className="mt-5 text-lg leading-8 text-slate-300">
+            I also run <a href="https://www.ayrshiretechhelp.co.uk/" className="font-semibold text-gold underline underline-offset-4 hover:text-white">Ayrshire Tech Help</a>, my computer repair and home tech support business serving Ayrshire since 2008. I work directly with customers on computer, Wi-Fi and printer problems, including patient help in their own homes.
+          </p>
+        </div>
+      </section>
       <section className="bg-[#e9dfcf] py-16 text-ink">
         <div className="section-shell flex flex-col justify-between gap-7 md:flex-row md:items-center">
           <div>
