@@ -54,7 +54,7 @@ export function Hero() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-mist shadow-[0_40px_80px_rgba(13,19,33,0.18)]">
             <Image
               src="/optimized/founder.webp"
-              alt="Graeme Tudhope, founder of Strathmark"
+              alt="Graeme, founder of Strathmark"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 440px"
@@ -62,7 +62,7 @@ export function Hero() {
             />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 to-transparent" aria-hidden="true" />
             <p className="absolute bottom-5 left-5 text-white">
-              <span className="block font-display text-xl font-bold [font-stretch:110%]">Graeme Tudhope</span>
+              <span className="block font-display text-xl font-bold [font-stretch:110%]">Graeme</span>
               <span className="text-sm text-white/80">15 years in search and paid media</span>
             </p>
           </div>

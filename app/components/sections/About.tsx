@@ -16,7 +16,7 @@ export function About({ showLink = true }: { showLink?: boolean }) {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-mist">
             <Image
               src="/optimized/founder.webp"
-              alt="Graeme Tudhope"
+              alt="Graeme"
               fill
               sizes="(max-width: 1024px) 80vw, 380px"
               className="object-cover object-[center_15%]"

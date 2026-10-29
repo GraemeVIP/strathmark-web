@@ -24,9 +24,12 @@ const FOCUSABLE_SELECTOR =
 export function Wordmark({ inverted = false }: { inverted?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
-      <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-[6px] bg-signal">
-        <span className="h-3.5 w-3.5 rotate-45 rounded-[2px] border-[2.5px] border-ink" />
-      </span>
+      {/* The mark: a waymark diamond carrying a rising tick. Same drawing as public/logo-mark.svg. */}
+      <svg aria-hidden="true" viewBox="0 0 64 64" className="h-9 w-9 shrink-0">
+        <rect width="64" height="64" rx="14" fill={inverted ? "#1d2638" : "#0D1321"} />
+        <path d="M32 9 55 32 32 55 9 32Z" fill="#FF6A2B" />
+        <path d="M20.5 32.5 28.5 40.5 43.5 25.5" fill="none" stroke="#0D1321" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
       <span
         className={clsx(
           "font-display text-[1.35rem] font-extrabold uppercase leading-none tracking-[0.02em] [font-stretch:125%]",

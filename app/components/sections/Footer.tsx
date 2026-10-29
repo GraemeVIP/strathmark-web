@@ -59,7 +59,7 @@ export function Footer() {
               <Wordmark inverted />
             </Link>
             <p className="mt-6 max-w-sm text-base leading-7">
-              Websites, SEO and Google Ads from Graeme Tudhope. Based in Edinburgh, working across Scotland and the UK.
+              Websites, SEO and Google Ads from Graeme. Based in Edinburgh, working across Scotland and the UK.
             </p>
           </div>
 

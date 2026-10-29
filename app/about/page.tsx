@@ -8,17 +8,17 @@ import { GROWTH_REVIEW_HREF } from "@/lib/offers";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Graeme Tudhope | Strathmark",
-  description: "Graeme Tudhope builds websites and runs SEO and Google Ads for businesses across Scotland and the UK. 15 years in search, one person from first call to monthly report.",
+  title: "About Graeme | Strathmark",
+  description: "Graeme builds websites and runs SEO and Google Ads for businesses across Scotland and the UK. 15 years in search, one person from first call to monthly report.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
-    title: "About Graeme Tudhope",
+    title: "About Graeme",
     description: "Websites, SEO and Google Ads from one person who does the work.",
     url: `${SITE_URL}/about`,
     siteName: SITE_NAME,
     locale: "en_GB",
     type: "profile",
-    images: [{ url: SHARE_IMAGE_PATH, width: 1200, height: 630, alt: "About Graeme Tudhope" }],
+    images: [{ url: SHARE_IMAGE_PATH, width: 1200, height: 630, alt: "About Graeme" }],
   },
 };
 
