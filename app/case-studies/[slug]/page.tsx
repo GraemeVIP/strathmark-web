@@ -22,17 +22,23 @@ export async function generateStaticParams() {
   }));
 }
 
+function shorten(text: string, max: number) {
+  if (text.length <= max) return text;
+  return `${text.slice(0, text.lastIndexOf(" ", max - 1)).replace(/[,;:]$/, "")}…`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const study = caseStudies.find((entry) => entry.slug === slug);
-  const title = study ? (study.anonymous ? `${study.headline.replace(/\.$/, "")} | Strathmark` : `${study.client} Case Study | Strathmark`) : "Case Study Not Found";
+  const title = study ? (study.anonymous ? "Car Leasing Broker Case Study: Leads Tripled | Strathmark" : `${study.client} Case Study | Strathmark`) : "Case Study Not Found";
+  const description = study ? shorten(study.excerpt, 158) : undefined;
 
   return {
     title,
-    description: study?.excerpt,
+    description,
     openGraph: {
       title,
-      description: study?.excerpt,
+      description,
       type: "article",
       url: study ? `${SITE_URL}/case-studies/${study.slug}` : `${SITE_URL}/case-studies`,
       images: [SHARE_IMAGE_PATH],

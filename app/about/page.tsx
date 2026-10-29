@@ -8,7 +8,7 @@ import { GROWTH_REVIEW_HREF } from "@/lib/offers";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Graeme | Strathmark",
+  title: "About Graeme | Websites, SEO and Google Ads | Strathmark",
   description: "Graeme builds websites and runs SEO and Google Ads for businesses across Scotland and the UK. 15 years in search, one person from first call to monthly report.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {

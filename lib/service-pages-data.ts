@@ -49,7 +49,7 @@ export const servicePages = [
     eyebrow: "Website design",
     title: "Website Design That Wins Enquiries | Strathmark",
     description:
-      "Website design and build for small and medium businesses. Fast, properly made sites written to turn visitors into enquiries, with tracking and SEO built in. From £3,500.",
+      "Website design for established businesses. Fast, properly built sites written to win enquiries, with SEO and revenue tracking built in. From £3,500.",
     h1: "Websites built to bring in enquiries",
     intro:
       "Most websites look fine and do nothing. I build sites around one job: getting the right people to pick up the phone or fill in the form. Clear words, fast pages, proper tracking, and search set up right from day one.",
@@ -104,7 +104,7 @@ export const servicePages = [
     eyebrow: "SEO services",
     title: "SEO Services for Google and AI Search | Strathmark",
     description:
-      "SEO that brings in enquiries, not just traffic. Technical fixes, content and local search for Google and AI tools like ChatGPT, with plain English monthly reports. From £850 a month.",
+      "SEO that brings in enquiries, not just traffic. Technical fixes, content and local search for Google and AI tools like ChatGPT. From £850 a month.",
     h1: "SEO that brings in enquiries, not just traffic",
     intro:
       "Rankings are only worth having if they bring in work. I focus on the searches your buyers actually use, fix what's holding your site back, and track every enquiry that comes from Google. And because people now ask ChatGPT and Google's AI for recommendations, I make sure you show up there too.",
@@ -157,9 +157,9 @@ export const servicePages = [
     slug: "google-ads-management",
     serviceValue: "google-ads",
     eyebrow: "Google Ads management",
-    title: "Google Ads Management That Pays Its Way | Strathmark",
+    title: "Google Ads Management (PPC) That Pays Its Way | Strathmark",
     description:
-      "Google Ads management built around what a lead is worth to you. Every pound tracked to an enquiry, no markup on ad spend, monthly plain English reports. From £600 a month.",
+      "Google Ads management built around what a sale is worth to you. Every pound tracked to an enquiry, no markup on ad spend. From £600 a month.",
     h1: "Google Ads that pay their way",
     intro:
       "Google Ads can bring enquiries in days, or quietly burn through your budget. I build campaigns around what a lead is actually worth to you, cut the searches that waste money, and track every pound to a call or form. Your ad spend goes straight to Google, never through me.",
@@ -214,7 +214,7 @@ export const servicePages = [
     eyebrow: "Car leasing and automotive marketing",
     title: "Automotive SEO and Google Ads for Car Leasing | Strathmark",
     description:
-      "SEO and Google Ads for car leasing brokers, dealers and vehicle businesses. I helped a national leasing broker go from around 300 to over 1,000 sales a month in four months.",
+      "SEO and Google Ads for car leasing brokers and dealers. I helped a national leasing broker go from around 300 to over 1,000 sales a month in four months.",
     h1: "SEO and Google Ads for car leasing and automotive",
     intro:
       "Car leasing is one of the hardest markets on Google. You're up against comparison sites with huge budgets, on searches where a single deal can be worth thousands. I've done it before: I helped a national leasing broker go from around 300 to over 1,000 sales a month in four months.",
@@ -267,9 +267,9 @@ export const servicePages = [
     slug: "web-design-edinburgh",
     serviceValue: "website",
     eyebrow: "Web design Edinburgh",
-    title: "Web Design Edinburgh | Websites That Win Enquiries | Strathmark",
+    title: "Web Design Edinburgh | Sites That Win Enquiries | Strathmark",
     description:
-      "Edinburgh web designer building fast, properly made websites for established businesses, with SEO and revenue tracking built in. Fixed prices from £3,500. Meet in person or online.",
+      "Edinburgh web designer building fast websites for established businesses, with SEO and revenue tracking built in. Fixed prices from £3,500.",
     h1: "Web design in Edinburgh, built to win enquiries",
     intro:
       "I'm an Edinburgh web designer who also does the marketing. That means your new site isn't just nice to look at. It's written for the people searching for you, set up to show on Google Maps and local searches, and tracked so you know what it brings in.",
@@ -323,7 +323,7 @@ export const servicePages = [
     eyebrow: "SEO Edinburgh",
     title: "SEO Edinburgh | Local SEO That Brings In Work | Strathmark",
     description:
-      "Edinburgh SEO consultant helping established businesses show up on Google Maps, local searches and AI tools. Monthly reporting on revenue, not traffic. From £850 a month.",
+      "Edinburgh SEO consultant helping established businesses win Google Maps and local searches, plus AI tools. Reported on revenue, not traffic.",
     h1: "SEO in Edinburgh that brings in local work",
     intro:
       "When someone in Edinburgh searches for what you do, you want to be in the map results and the top few links. I help established Edinburgh businesses get there with a properly set up Google Business Profile, pages for the areas you cover, reviews, and the technical fixes most sites are missing.",

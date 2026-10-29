@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy and Cookie Notice | Strathmark",
-  description: "How Strathmark handles enquiry details, essential storage and website analytics.",
+  description: "How Strathmark handles enquiry details, essential storage and website analytics, and the choices and rights you have over your information.",
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: true, follow: true },
 };

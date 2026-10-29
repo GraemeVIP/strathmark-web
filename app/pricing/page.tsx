@@ -6,7 +6,7 @@ import { Footer } from "@/app/components/sections/Footer";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Pricing | Websites, SEO and Google Ads | Strathmark",
+  title: "Website Design Prices, SEO and Google Ads Costs | Strathmark",
   description: "Website builds from £3,500. SEO from £850 a month. Google Ads management from £600 a month. Fixed quotes, no long contracts, and you own everything.",
   alternates: { canonical: `${SITE_URL}/pricing` },
   openGraph: {

@@ -9,10 +9,10 @@ import { RevenueFocus } from "@/app/components/sections/RevenueFocus";
 import { SHARE_IMAGE_PATH, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Results | Strathmark",
-  description: "Real results with the numbers behind them, from a national car leasing broker that tripled its inbound leads in four months to insurers, law firms and leisure businesses.",
+  title: "Results and Case Studies | Strathmark",
+  description: "Real results with the numbers behind them, from a car leasing broker that tripled its leads in four months to insurers, law firms and leisure brands.",
   openGraph: {
-    title: "Results | Strathmark",
+    title: "Results and Case Studies | Strathmark",
     description: "Real results with the numbers behind them.",
     url: `${SITE_URL}/case-studies`,
     images: [SHARE_IMAGE_PATH],
