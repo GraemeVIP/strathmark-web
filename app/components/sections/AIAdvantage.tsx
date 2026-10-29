@@ -24,12 +24,12 @@ const AI_ROUTES = [
 
 export function AIAdvantage() {
   return (
-    <section className="relative overflow-hidden bg-[#dce8e5] py-20 text-ink md:py-28" id="ai-and-automation">
+    <section className="relative overflow-hidden bg-[#e6ecf3] py-20 text-ink md:py-28" id="ai-and-automation">
       <div className="editorial-grid-dark absolute inset-0 opacity-35" aria-hidden="true" />
       <div className="section-shell relative">
         <div className="grid gap-9 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="section-kicker !text-[#315f63]">AI and automation</p>
+            <p className="section-kicker !text-[#2a4a7a]">AI and automation</p>
             <h2 className="mt-6 max-w-5xl text-[clamp(2.7rem,5vw,4.9rem)] font-semibold leading-[1.01] tracking-[-0.035em]">
               Bring AI into the business where it can improve real work.
             </h2>
@@ -52,7 +52,7 @@ export function AIAdvantage() {
                   </span>
                   <h3 className="mt-7 text-3xl font-semibold leading-tight">{item.title}</h3>
                   <p className="mt-5 text-base leading-8 text-slate-600">{item.copy}</p>
-                  <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#315f63]">
+                  <span className="mt-auto inline-flex min-h-11 items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#2a4a7a]">
                     Explore the service
                     <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>

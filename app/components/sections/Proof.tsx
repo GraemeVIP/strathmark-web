@@ -30,7 +30,7 @@ export function Proof() {
       <div className="section-shell relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="section-kicker !text-[#74521f]">Why connected expertise matters</p>
+            <p className="section-kicker !text-[#b8441a]">Why connected expertise matters</p>
             <h2 className="mt-6 max-w-4xl text-[clamp(2.7rem,5.2vw,4.95rem)] font-semibold leading-[0.99] tracking-[-0.035em]">
               Marketing usually underperforms at the joins.
             </h2>
@@ -46,12 +46,12 @@ export function Proof() {
           {SIGNALS.map((signal, index) => {
             const Icon = signal.icon;
             return (
-              <article key={signal.title} className="group bg-white p-7 transition-colors hover:bg-[#fbf8f1] md:p-9">
+              <article key={signal.title} className="group bg-white p-7 transition-colors hover:bg-[#f7f8fa] md:p-9">
                 <div className="flex items-center justify-between">
                   <span className="grid h-12 w-12 place-items-center bg-strath-navy text-gold">
                     <Icon aria-hidden="true" size={22} />
                   </span>
-                  <span className="font-mono text-[15px] font-semibold text-[#74521f]">0{index + 1}</span>
+                  <span className="font-mono text-[15px] font-semibold text-[#b8441a]">0{index + 1}</span>
                 </div>
                 <h3 className="mt-7 max-w-xl text-[clamp(1.65rem,2.2vw,2.15rem)] font-semibold leading-[1.15]">{signal.title}</h3>
                 <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">{signal.copy}</p>

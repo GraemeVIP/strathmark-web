@@ -65,7 +65,7 @@ export function InsightsFilter({ categories, notes }: InsightsFilterProps) {
         {filtered.map((note) => (
           <Link href={`/insights/${note.slug}`} key={note.slug} className="block group h-full">
             <article className="flex h-full flex-col overflow-hidden border border-white/10 bg-white/[0.025] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 hover:shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#101f31]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#16213a]">
                 <Image
                   src={note.shareImage ?? "/share-image.png"}
                   alt={`${note.title} — Strathmark editorial illustration`}

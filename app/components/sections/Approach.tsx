@@ -29,7 +29,7 @@ export function Approach() {
       <div className="section-shell relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="section-kicker !text-[#74521f]">How the work runs</p>
+            <p className="section-kicker !text-[#b8441a]">How the work runs</p>
             <h2 className="mt-6 max-w-4xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em]">
               Review. Implement. Optimise.
             </h2>
@@ -43,8 +43,8 @@ export function Approach() {
           {STEPS.map((step) => (
             <li key={step.number} className="flex flex-col border border-ink/15 bg-white p-7 md:p-9">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[15px] font-bold text-[#74521f]">{step.number}</span>
-                <span className="font-mono text-[15px] font-bold uppercase tracking-[0.12em] text-[#74521f]">{step.verb}</span>
+                <span className="font-mono text-[15px] font-bold text-[#b8441a]">{step.number}</span>
+                <span className="font-mono text-[15px] font-bold uppercase tracking-[0.12em] text-[#b8441a]">{step.verb}</span>
               </div>
               <div className="mt-8 h-1 w-14 bg-gold" />
               <h3 className="mt-7 text-3xl font-semibold leading-tight">{step.title}</h3>

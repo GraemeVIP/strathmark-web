@@ -8,7 +8,7 @@ export function ProvenOutcomes() {
   if (featuredStudies.length === 0) return null;
 
   return (
-    <section className="w-full bg-[#07111d] py-20 md:py-28" id="outcomes">
+    <section className="w-full bg-[#0a0f1a] py-20 md:py-28" id="outcomes">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
@@ -30,7 +30,7 @@ export function ProvenOutcomes() {
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {featuredStudies.map((study, index) => (
             <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group flex">
-              <article className="flex w-full flex-col border border-white/12 bg-[#0d1c2c] p-7 transition-colors group-hover:border-gold/45 md:p-8">
+              <article className="flex w-full flex-col border border-white/12 bg-[#131c2e] p-7 transition-colors group-hover:border-gold/45 md:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <span className="font-mono text-[15px] font-semibold uppercase tracking-[0.1em] text-gold">{study.industry}</span>
                   <span className="font-mono text-[15px] text-slate-300">0{index + 1}</span>

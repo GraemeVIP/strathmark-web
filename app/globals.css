@@ -2,18 +2,31 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-strath-navy: #0b1624;
-  --color-strath-blue: #18344f;
-  --color-ink: #0b1624;
-  --color-ivory: #f4efe5;
-  --color-ivory-deep: #e9dfcf;
+  /* Strathmark 2026: ink and paper, one signal orange (a rev counter's redline). */
+  --color-paper: #f5f6f8;
+  --color-mist: #e9ecf1;
+  --color-line: #d9dee6;
+  --color-ink: #0d1321;
+  --color-ink-2: #3b4456;
+  --color-ink-3: #5b6577;
+  --color-signal: #ff6a2b;
+  --color-signal-ink: #b8441a;
+  --color-signal-soft: #ffe5d9;
+  --color-sky: #9db4d6;
+
+  /* Legacy names, remapped so older pages pick up the new palette. */
+  --color-strath-navy: #0d1321;
+  --color-strath-blue: #16213a;
+  --color-ivory: #f5f6f8;
+  --color-ivory-deep: #e9ecf1;
   --color-slate-light: #aeb9c7;
-  --color-gold: #c9a463;
-  --color-gold-light: #e0c58f;
+  --color-gold: #ff6a2b;
+  --color-gold-light: #ff9a6b;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-playfair);
+  --font-display: var(--font-archivo);
+  --font-serif: var(--font-archivo);
 
   --text-xs: 0.9375rem;
   --text-xs--line-height: 1.45;
@@ -22,8 +35,8 @@
 }
 
 :root {
-  --background: #0b1624;
-  --foreground: #f8fafc;
+  --background: #f5f6f8;
+  --foreground: #0d1321;
   --surface: rgba(255, 255, 255, 0.045);
   --surface-strong: rgba(255, 255, 255, 0.075);
   --line: rgba(255, 255, 255, 0.12);
@@ -55,7 +68,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-archivo), "Arial Narrow", Arial, sans-serif;
+  font-stretch: 108%;
   text-wrap: balance;
 }
 
@@ -69,9 +83,8 @@ p {
 }
 
 :where(a, button, input, select, textarea, summary):focus-visible {
-  outline: 3px solid #ffffff;
+  outline: 3px solid var(--color-signal);
   outline-offset: 3px;
-  box-shadow: 0 0 0 6px var(--color-ink);
 }
 
 button,
@@ -115,6 +128,57 @@ textarea {
   background: currentColor;
   content: "";
   opacity: 0.75;
+}
+
+/* 2026 system: eyebrow labels, section titles and the faint road-marking texture. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-signal-ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: var(--color-signal);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.eyebrow-dark {
+  color: var(--color-signal);
+}
+
+.section-title {
+  color: inherit;
+  font-family: var(--font-archivo), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(2.3rem, 4.6vw, 3.9rem);
+  font-stretch: 110%;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.road-lines {
+  background-image:
+    linear-gradient(90deg, rgba(13, 19, 33, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 85% 10%, rgba(255, 106, 43, 0.12), transparent 40%);
+  background-size: 6rem 100%, 100% 100%;
+}
+
+.road-lines-dark {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 15% 90%, rgba(255, 106, 43, 0.16), transparent 45%);
+  background-size: 6rem 100%, 100% 100%;
 }
 
 summary::-webkit-details-marker {
@@ -218,7 +282,7 @@ summary::-webkit-details-marker {
 .strath-article ol {
   margin-block: 2rem;
   border-left: 3px solid var(--color-gold);
-  background: rgba(201, 164, 99, 0.1);
+  background: rgba(255,106,43, 0.1);
   padding: 1.5rem 1.5rem 1.5rem 3.25rem;
 }
 
@@ -228,7 +292,7 @@ summary::-webkit-details-marker {
 }
 
 .strath-article li::marker {
-  color: #8a6428;
+  color: #b8441a;
   font-weight: 700;
 }
 
@@ -242,7 +306,7 @@ summary::-webkit-details-marker {
 }
 
 .strath-article a {
-  color: #74521f;
+  color: #b8441a;
   font-weight: 650;
   text-decoration: underline;
   text-decoration-color: rgba(116, 82, 31, 0.35);
@@ -257,7 +321,7 @@ summary::-webkit-details-marker {
   border: 1px solid rgba(11, 22, 36, 0.12);
   background: white;
   padding: 0.15rem 0.4rem;
-  color: #74521f;
+  color: #b8441a;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.88em;
 }

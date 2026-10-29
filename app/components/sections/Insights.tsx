@@ -15,14 +15,14 @@ export function Insights() {
       <div className="section-shell relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="section-kicker !text-[#74521f]">AI and digital marketing insights</p>
+            <p className="section-kicker !text-[#b8441a]">AI and digital marketing insights</p>
             <h2 className="mt-6 max-w-5xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em]">
               Better decisions need useful evidence, not more noise.
             </h2>
           </div>
           <div className="lg:col-span-4">
             <p className="text-base leading-7 text-slate-600">Practical analysis on AI adoption, websites, SEO, paid media, agencies and commercial measurement.</p>
-            <Link href="/insights" className="group mt-5 inline-flex min-h-11 items-center gap-3 text-[15px] font-bold uppercase tracking-[0.1em] text-[#74521f] transition-colors hover:text-ink">
+            <Link href="/insights" className="group mt-5 inline-flex min-h-11 items-center gap-3 text-[15px] font-bold uppercase tracking-[0.1em] text-[#b8441a] transition-colors hover:text-ink">
               Browse all insights <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -32,7 +32,7 @@ export function Insights() {
           {latest.map((note) => (
             <Link key={note.slug} href={`/insights/${note.slug}`} className="group flex">
               <article className="flex w-full flex-col overflow-hidden border border-ink/15 bg-white shadow-[0_18px_55px_rgba(11,22,36,0.06)] transition-transform group-hover:-translate-y-1">
-                <div className="relative aspect-[16/9] overflow-hidden bg-[#101f31]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[#16213a]">
                   <Image
                     src={note.shareImage || "/share-image.png"}
                     alt={`${note.title} editorial illustration`}
@@ -48,9 +48,9 @@ export function Insights() {
                     <time dateTime={note.date}>{formatDateOnly(note.date)}</time>
                     <span className="flex items-center gap-2"><Clock aria-hidden="true" size={15} />{note.readingTime}</span>
                   </div>
-                  <h3 className="mt-5 text-2xl font-semibold leading-tight transition-colors group-hover:text-[#74521f]">{note.title}</h3>
+                  <h3 className="mt-5 text-2xl font-semibold leading-tight transition-colors group-hover:text-[#b8441a]">{note.title}</h3>
                   <p className="mt-4 text-base leading-7 text-slate-600">{note.excerpt}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#74521f]">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#b8441a]">
                     Read the analysis <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>

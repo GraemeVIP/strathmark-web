@@ -1,28 +1,26 @@
 import { Navigation } from "@/app/components/Navigation";
 import { Hero } from "@/app/components/sections/Hero";
-import { Proof } from "@/app/components/sections/Proof";
-import { About } from "@/app/components/sections/About";
 import { Services } from "@/app/components/sections/Services";
-import { AIAdvantage } from "@/app/components/sections/AIAdvantage";
-import { Approach } from "@/app/components/sections/Approach";
-import { ProvenOutcomes } from "@/app/components/sections/ProvenOutcomes";
-import { Insights } from "@/app/components/sections/Insights";
+import { FeaturedResult } from "@/app/components/sections/FeaturedResult";
+import { HowItWorks } from "@/app/components/sections/HowItWorks";
+import { Sectors } from "@/app/components/sections/Sectors";
+import { Pricing } from "@/app/components/sections/Pricing";
+import { About } from "@/app/components/sections/About";
 import { FAQ } from "@/app/components/sections/FAQ";
 import { Contact } from "@/app/components/sections/Contact";
 import { Footer } from "@/app/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-strath-navy text-slate-200">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
       <Hero />
-      <Proof />
       <Services />
-      <ProvenOutcomes />
-      <AIAdvantage />
+      <FeaturedResult />
+      <HowItWorks />
+      <Sectors />
+      <Pricing />
       <About />
-      <Approach />
-      <Insights />
       <FAQ />
       <Contact />
       <Footer />

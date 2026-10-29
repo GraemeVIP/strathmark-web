@@ -97,7 +97,7 @@ export default function InsightsIndex() {
         <h2 className="sr-only">Featured Article</h2>
         <Link href={`/insights/${featured.slug}`} className="group block">
           <article className="relative grid overflow-hidden border border-white/10 bg-white/[0.025] transition-all duration-300 hover:border-gold/45 md:grid-cols-12">
-            <div className="relative min-h-[22rem] overflow-hidden bg-[#101f31] md:col-span-5 md:min-h-full">
+            <div className="relative min-h-[22rem] overflow-hidden bg-[#16213a] md:col-span-5 md:min-h-full">
               <Image
                 src={featured.shareImage ?? "/share-image.png"}
                 alt={`${featured.title} — Strathmark editorial illustration`}

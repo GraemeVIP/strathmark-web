@@ -1,63 +1,63 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Navigation } from "@/app/components/Navigation";
 import { About } from "@/app/components/sections/About";
 import { Footer } from "@/app/components/sections/Footer";
+import { SectionLink } from "@/app/components/ui/SectionLink";
+import { GROWTH_REVIEW_HREF } from "@/lib/offers";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Strathmark | Independent Digital Marketing Consultant",
-  description: "Meet the principal-led Edinburgh digital marketing consultancy working internationally across strategy, branding, web, SEO, paid media and practical AI.",
+  title: "About Graeme Tudhope | Strathmark",
+  description: "Graeme Tudhope builds websites and runs SEO and Google Ads for businesses across Scotland and the UK. 15 years in search, one person from first call to monthly report.",
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
-    title: "About Strathmark Consulting",
-    description: "Independent, principal-led digital marketing expertise for businesses in the UK, US and internationally.",
+    title: "About Graeme Tudhope",
+    description: "Websites, SEO and Google Ads from one person who does the work.",
     url: `${SITE_URL}/about`,
     siteName: SITE_NAME,
     locale: "en_GB",
     type: "profile",
-    images: [{ url: SHARE_IMAGE_PATH, width: 1200, height: 630, alt: "About Strathmark Consulting" }],
+    images: [{ url: SHARE_IMAGE_PATH, width: 1200, height: 630, alt: "About Graeme Tudhope" }],
   },
 };
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-strath-navy text-slate-200">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <header className="relative overflow-hidden border-b border-white/10 pb-16 pt-32 md:pb-20 md:pt-40">
-        <div className="editorial-grid absolute inset-0 opacity-50" aria-hidden="true" />
-        <div className="section-shell relative">
-          <p className="section-kicker">About Strathmark</p>
-          <h1 className="mt-7 max-w-5xl text-[clamp(3rem,6.2vw,5.8rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-white">
-            Senior Digital Marketing Expertise Across the Whole Customer Journey
+      <header className="relative isolate overflow-hidden pb-10 pt-32 md:pt-40">
+        <div className="road-lines absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="section-shell">
+          <p className="eyebrow">About</p>
+          <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.6rem,6vw,5rem)] font-extrabold leading-[0.97] tracking-[-0.02em] [font-stretch:112%]">
+            One person. Websites, SEO and Google Ads.
           </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-9">
-            Independent advice, direct senior involvement and joined-up implementation for businesses in the UK, US and internationally.
-          </p>
         </div>
       </header>
-      <About />
-      <section className="section-shell pb-20 md:pb-28" aria-labelledby="local-business-heading">
-        <div className="max-w-4xl border-t border-white/10 pt-8">
-          <h2 id="local-business-heading" className="text-3xl font-semibold text-white">Where it started</h2>
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            My first business, <a href="https://www.ayrshiretechhelp.co.uk/" className="font-semibold text-gold underline underline-offset-4 hover:text-white">Ayrshire Tech Help</a>, grew out of a love of technology and figuring out how things work. I still make time for it because I enjoy practical problem-solving and helping people locally. It is a satisfying change of pace from consultancy, and a connection to where I started.
-          </p>
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            Through ATH, I also offer a small number of free home visits and essential repairs for people who cannot afford help and would otherwise be cut off from family or everyday online services. It works on trust, with no financial paperwork and each request considered individually before a visit is agreed.
-          </p>
+      <About showLink={false} />
+      <section className="py-20 md:py-24" aria-labelledby="started-heading">
+        <div className="section-shell grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">Where it started</p>
+            <h2 id="started-heading" className="section-title mt-5">Fixing things for people.</h2>
+          </div>
+          <div className="grid gap-5 text-lg leading-8 text-ink-2 lg:col-span-8">
+            <p>
+              My first business, <a href="https://www.ayrshiretechhelp.co.uk/" className="font-semibold text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-signal-ink">Ayrshire Tech Help</a>, grew out of a love of technology and figuring out how things work. I still make time for it because I enjoy practical problem solving and helping people locally.
+            </p>
+            <p>
+              Through it I also offer a small number of free home visits and essential repairs for people who can’t afford help and would otherwise be cut off from family or everyday online services. It works on trust, with each request considered individually.
+            </p>
+          </div>
         </div>
       </section>
-      <section className="bg-[#e9dfcf] py-16 text-ink">
+      <section className="bg-ink py-16 text-white">
         <div className="section-shell flex flex-col justify-between gap-7 md:flex-row md:items-center">
-          <div>
-            <p className="font-mono text-[15px] font-bold uppercase tracking-[0.1em] text-[#74521f]">A useful first conversation</p>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Tell me what is getting in the way of growth.</h2>
-          </div>
-          <Link href="/?service=digital-growth-review#contact" className="group inline-flex min-h-14 items-center justify-center gap-3 bg-strath-navy px-7 text-[15px] font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#18344f]">
-            Request a growth review <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
-          </Link>
+          <h2 className="font-display text-3xl font-bold [font-stretch:110%] md:text-4xl">Tell me what you need.</h2>
+          <SectionLink href={GROWTH_REVIEW_HREF} className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-signal px-7 font-bold text-ink transition-colors hover:bg-white">
+            Book a free growth review <ArrowRight aria-hidden="true" size={18} className="transition-transform group-hover:translate-x-1" />
+          </SectionLink>
         </div>
       </section>
       <Footer />

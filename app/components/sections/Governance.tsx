@@ -4,7 +4,7 @@ const BOUNDARIES = ["Safety-critical engineering decisions", "Certification or r
 
 export function Governance() {
   return (
-    <section className="w-full bg-[#07111d] py-20 md:py-28" id="governance">
+    <section className="w-full bg-[#0a0f1a] py-20 md:py-28" id="governance">
       <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5"><p className="section-kicker">Governance and boundaries</p><h2 className="mt-6 text-[clamp(2.7rem,5vw,4.7rem)] font-semibold leading-[1.01] tracking-[-0.03em] text-white">Useful AI needs visible authority.</h2><p className="mt-7 text-lg leading-9 text-slate-300">Every engagement starts by defining what data may be used, what the system may produce, who must review it and where AI must not act.</p></div>
         <div className="lg:col-span-7">

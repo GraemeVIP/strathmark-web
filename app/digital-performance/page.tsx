@@ -76,7 +76,7 @@ export default function DigitalPerformancePage() {
 
       <header className="relative overflow-hidden pb-20 pt-32 md:pb-24 md:pt-40">
         <div className="editorial-grid absolute inset-0 opacity-50" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(201,164,99,0.2),transparent_30%)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,106,43,0.2),transparent_30%)]" aria-hidden="true" />
         <div className="section-shell relative grid gap-12 xl:grid-cols-12 xl:items-end">
           <div className="xl:col-span-8">
             <p className="section-kicker">Independent digital performance review</p>
@@ -107,7 +107,7 @@ export default function DigitalPerformancePage() {
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
-              <p className="section-kicker !text-[#74521f]">One connected growth system</p>
+              <p className="section-kicker !text-[#b8441a]">One connected growth system</p>
               <h2 className="mt-6 max-w-4xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em]">Fix the commercial joins, not only the channels.</h2>
             </div>
             <p className="text-lg leading-8 text-slate-600 lg:col-span-4">A good campaign cannot rescue a confusing offer, a weak landing page or unreliable measurement. The system is reviewed end to end.</p>
@@ -117,13 +117,13 @@ export default function DigitalPerformancePage() {
               const Icon = item.icon;
               return (
                 <article key={item.title} className="flex flex-col border border-ink/15 bg-white p-7 md:p-8">
-                  <Icon aria-hidden="true" className="text-[#74521f]" size={28} />
+                  <Icon aria-hidden="true" className="text-[#b8441a]" size={28} />
                   <h3 className="mt-7 text-3xl font-semibold">{item.title}</h3>
                   <p className="mt-5 text-base leading-8 text-slate-600">{item.copy}</p>
                   <ul className="mt-7 space-y-3 border-t border-ink/10 pt-6 text-base text-slate-700">
-                    {item.points.map((point) => <li key={point} className="flex gap-3"><Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-[#74521f]" />{point}</li>)}
+                    {item.points.map((point) => <li key={point} className="flex gap-3"><Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-[#b8441a]" />{point}</li>)}
                   </ul>
-                  <Link href={item.href} className="group mt-auto inline-flex min-h-11 items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#74521f] hover:text-ink">
+                  <Link href={item.href} className="group mt-auto inline-flex min-h-11 items-center gap-2 pt-7 text-[15px] font-bold uppercase tracking-[0.1em] text-[#b8441a] hover:text-ink">
                     Explore this service <ArrowRight aria-hidden="true" size={15} className="transition-transform group-hover:translate-x-1" />
                   </Link>
                 </article>
@@ -133,7 +133,7 @@ export default function DigitalPerformancePage() {
         </div>
       </section>
 
-      <section className="bg-[#07111d] py-20 md:py-28">
+      <section className="bg-[#0a0f1a] py-20 md:py-28">
         <div className="section-shell">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -145,7 +145,7 @@ export default function DigitalPerformancePage() {
           </div>
           <div className="mt-12 grid gap-px border border-white/10 bg-white/10 lg:grid-cols-3">
             {featured.map((study) => (
-              <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group flex bg-[#0d1c2c] p-7 transition-colors hover:bg-[#12263b] md:p-8">
+              <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group flex bg-[#131c2e] p-7 transition-colors hover:bg-[#12263b] md:p-8">
                 <article className="flex flex-col">
                   <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.1em] text-gold">{study.industry}</p>
                   <h3 className="mt-5 text-3xl font-semibold text-white transition-colors group-hover:text-gold">{study.client}</h3>
@@ -158,16 +158,16 @@ export default function DigitalPerformancePage() {
         </div>
       </section>
 
-      <section className="bg-[#e9dfcf] py-20 text-ink md:py-28">
+      <section className="bg-[#e9ecf1] py-20 text-ink md:py-28">
         <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <p className="section-kicker !text-[#74521f]">Before you change supplier or spend</p>
+            <p className="section-kicker !text-[#b8441a]">Before you change supplier or spend</p>
             <h2 className="mt-6 text-[clamp(2.5rem,4vw,4rem)] font-semibold leading-[1.04]">Ask the commercial questions first.</h2>
           </div>
           <div className="divide-y divide-ink/15 border-y border-ink/15 lg:col-span-8">
             {FAQS.map(([question, answer]) => (
               <details key={question} className="group py-6">
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold marker:hidden">{question}<span aria-hidden="true" className="text-3xl font-light text-[#74521f] transition-transform group-open:rotate-45">+</span></summary>
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold marker:hidden">{question}<span aria-hidden="true" className="text-3xl font-light text-[#b8441a] transition-transform group-open:rotate-45">+</span></summary>
                 <p className="max-w-3xl pb-2 pt-4 text-base leading-8 text-slate-600">{answer}</p>
               </details>
             ))}

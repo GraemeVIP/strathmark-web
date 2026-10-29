@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Archivo } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { CookieBanner } from "@/app/components/ui/CookieBanner";
-import { Analytics } from "@/app/components/ui/Analytics";
+import { Analytics, CONSENT_DEFAULT_SCRIPT } from "@/app/components/ui/Analytics";
 import { FirstPartyVisitorTracker } from "@/app/components/ui/FirstPartyVisitorTracker";
 import { ScrollBehaviorManager } from "@/app/components/ui/ScrollBehaviorManager";
 import { LOGO_PATH, SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -22,20 +23,20 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const playfair = localFont({
-  src: "./fonts/playfair-display-latin.woff2",
-  variable: "--font-playfair",
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
-  weight: "400 900",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Digital Marketing Consultancy | SEO, PPC, Web & AI",
-  description: "Independent digital marketing consultancy working internationally. SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
+  title: "Websites, SEO and Google Ads That Bring In Sales | Strathmark",
+  description: "Edinburgh web design, SEO and Google Ads from Graeme Tudhope. Websites built to win enquiries, then the monthly marketing to fill them. Prices on the site.",
   openGraph: {
-    title: "Digital Marketing Consultancy Built to Work as One System",
-    description: "International digital marketing consultancy connecting strategy, branding, websites, SEO, paid media, measurement and practical AI.",
+    title: "Websites, SEO and Google Ads That Bring In Sales",
+    description: "Websites built to win enquiries, then the SEO and Google Ads to fill them. Senior help from one person who does the work.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_GB",
@@ -51,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Consultancy Built to Work as One System",
-    description: "SEO, Google Ads, Meta Ads, web design, branding and practical AI under one senior-led plan.",
+    title: "Websites, SEO and Google Ads That Bring In Sales",
+    description: "Websites built to win enquiries, then the SEO and Google Ads to fill them.",
     images: [SHARE_IMAGE_PATH],
   },
   robots: {
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0b1624",
+  themeColor: "#f5f6f8",
 };
 
 export default function RootLayout({
@@ -83,13 +84,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SCRIPT }} />
         <Analytics />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-strath-navy text-slate-200`}
-        style={{ backgroundColor: "#0B1624", color: "#F8FAFC" }}
+        className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} antialiased bg-paper text-ink`}
       >
         <Suspense fallback={null}>
           <FirstPartyVisitorTracker />
@@ -110,50 +111,46 @@ export default function RootLayout({
                   publisher: { "@id": `${SITE_URL}/#business` },
                 },
                 {
+                  "@type": "Person",
+                  "@id": `${SITE_URL}/#graeme`,
+                  name: "Graeme Tudhope",
+                  jobTitle: "Founder",
+                  worksFor: { "@id": `${SITE_URL}/#business` },
+                  url: `${SITE_URL}/about`,
+                },
+                {
                   "@type": ["Organization", "ProfessionalService"],
                   "@id": `${SITE_URL}/#business`,
                   name: SITE_NAME,
                   url: SITE_URL,
                   logo: `${SITE_URL}${LOGO_PATH}`,
+                  founder: { "@id": `${SITE_URL}/#graeme` },
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Edinburgh",
                     addressRegion: "Scotland",
                     addressCountry: "GB",
                   },
-                  description: "Edinburgh-based digital marketing consultancy working internationally across strategy, branding, websites, SEO, paid media, measurement and practical AI.",
-                  priceRange: "£££",
-                  areaServed: "International",
+                  description: "Edinburgh web design, SEO and Google Ads. Websites built to win enquiries, then the monthly marketing to fill them, with specialist work for car leasing and automotive businesses.",
+                  priceRange: "££",
+                  areaServed: ["Edinburgh", "Scotland", "United Kingdom"],
                   knowsAbout: [
-                    "Digital marketing strategy",
+                    "Website design",
                     "Search engine optimisation",
+                    "AI search optimisation",
                     "Google Ads management",
-                    "Meta Ads management",
-                    "Website design and development",
-                    "Brand strategy and identity",
+                    "Automotive marketing",
+                    "Car leasing marketing",
                     "Conversion rate optimisation",
-                    "Digital analytics",
-                    "Marketing agency oversight",
-                    "AI consulting",
-                    "AI strategy",
-                    "Workflow automation",
                   ],
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",
-                    name: "Digital marketing, AI and automation services",
+                    name: "Websites, SEO and Google Ads",
                     itemListElement: [
-                      "Digital Growth Review",
-                      "Digital Marketing Strategy",
-                      "Website Design and Development",
-                      "Brand Strategy and Identity",
-                      "SEO Services and Content",
+                      "Website Design and Build",
+                      "SEO for Google and AI Search",
                       "Google Ads Management",
-                      "Meta Ads Management",
-                      "Paid Media Management",
-                      "Marketing Agency Audit",
-                      "AI Consulting and Implementation",
-                      "AI Strategy Consulting",
-                      "Workflow Automation",
+                      "Automotive SEO and Google Ads",
                     ].map((name) => ({
                       "@type": "Offer",
                       itemOffered: { "@type": "Service", name },

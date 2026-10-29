@@ -207,7 +207,7 @@ export default async function NotePage({ params }: PageProps) {
               </div>
 
               <div className="md:col-span-5">
-                <div className="relative aspect-[4/3] overflow-hidden border border-white/15 bg-[#101f31] shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
+                <div className="relative aspect-[4/3] overflow-hidden border border-white/15 bg-[#16213a] shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
                   <Image
                     src={note.shareImage || SHARE_IMAGE_PATH}
                     alt={`${note.title} — Strathmark editorial illustration`}
@@ -231,7 +231,7 @@ export default async function NotePage({ params }: PageProps) {
           <div className="section-shell">
             <aside aria-label="Article details" className="overflow-hidden border border-ink/15 bg-white shadow-[0_24px_70px_rgba(11,22,36,0.08)] lg:grid lg:grid-cols-12">
               <div className="border-b border-ink/10 p-6 md:p-8 lg:col-span-5 lg:border-b-0 lg:border-r">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#74521f]">Written and reviewed by</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#b8441a]">Written and reviewed by</p>
                 <div className="mt-5 flex items-center gap-5">
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-gold/55">
                     <Image
@@ -244,10 +244,10 @@ export default async function NotePage({ params }: PageProps) {
                     />
                   </div>
                   <div>
-                    <SectionLink href="/about" className="text-xl font-semibold text-ink transition-colors hover:text-[#74521f]">
+                    <SectionLink href="/about" className="text-xl font-semibold text-ink transition-colors hover:text-[#b8441a]">
                       {note.author}
                     </SectionLink>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#74521f]">Principal Consultant</p>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.13em] text-[#b8441a]">Principal Consultant</p>
                   </div>
                 </div>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 md:text-base">
@@ -256,7 +256,7 @@ export default async function NotePage({ params }: PageProps) {
               </div>
 
               <div className="bg-[#efe8dc] p-6 md:p-8 lg:col-span-7">
-                <div className="flex items-center gap-3 text-[#74521f]">
+                <div className="flex items-center gap-3 text-[#b8441a]">
                   <BookOpen aria-hidden="true" size={18} />
                   <p className="text-xs font-bold uppercase tracking-[0.16em]">Article dossier</p>
                 </div>
@@ -291,7 +291,7 @@ export default async function NotePage({ params }: PageProps) {
             <div className="mx-auto mt-16 max-w-4xl md:mt-20">
               <div className="mb-12 flex items-center gap-4">
                 <span className="h-1 w-16 bg-gold" aria-hidden="true" />
-                <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#74521f]">Independent analysis</p>
+                <p className="text-xs font-bold uppercase tracking-[0.17em] text-[#b8441a]">Independent analysis</p>
               </div>
 
               <p className="max-w-3xl text-xl leading-9 text-slate-700 md:text-[1.35rem] md:leading-10">
@@ -299,7 +299,7 @@ export default async function NotePage({ params }: PageProps) {
               </p>
 
               <section aria-labelledby="key-takeaways" className="my-12 border border-ink/15 bg-[#efe8dc] p-7 shadow-[0_18px_55px_rgba(11,22,36,0.06)] md:p-9">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#74521f]">The short version</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#b8441a]">The short version</p>
                 <h2 id="key-takeaways" className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-ink">Key takeaways</h2>
                 <ul className="mt-6 grid gap-4">
                   {seo.keyTakeaways.map((takeaway) => (
@@ -319,7 +319,7 @@ export default async function NotePage({ params }: PageProps) {
               />
 
               <section aria-labelledby="article-faqs" className="mt-20 border-t border-ink/15 pt-12">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#74521f]">Useful answers</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#b8441a]">Useful answers</p>
                 <h2 id="article-faqs" className="mt-4 text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-tight tracking-[-0.03em] text-ink">
                   Frequently asked questions
                 </h2>
@@ -328,7 +328,7 @@ export default async function NotePage({ params }: PageProps) {
                     <details key={faq.question} className="group py-2" open={index === 0}>
                       <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-semibold text-ink marker:content-none md:text-xl">
                         <span>{faq.question}</span>
-                        <span className="text-2xl font-light text-[#74521f] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                        <span className="text-2xl font-light text-[#b8441a] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                       </summary>
                       <p className="max-w-3xl pb-6 pr-10 text-base leading-8 text-slate-700 md:text-lg">{faq.answer}</p>
                     </details>
@@ -363,10 +363,10 @@ export default async function NotePage({ params }: PageProps) {
             <div className="section-shell">
               <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="section-kicker !text-[#74521f]">Continue reading</p>
+                  <p className="section-kicker !text-[#b8441a]">Continue reading</p>
                   <h2 className="mt-5 text-[clamp(2.4rem,4vw,4rem)] font-semibold leading-none tracking-[-0.03em]">Related intelligence</h2>
                 </div>
-                <Link href="/insights" className="group inline-flex min-h-11 items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#74521f] transition-colors hover:text-ink">
+                <Link href="/insights" className="group inline-flex min-h-11 items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#b8441a] transition-colors hover:text-ink">
                   View all insights
                   <ArrowRight aria-hidden="true" size={14} className="transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -386,16 +386,16 @@ export default async function NotePage({ params }: PageProps) {
                         />
                       </div>
                       <div className="flex flex-1 flex-col p-6">
-                        <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.13em] text-[#74521f]">
+                        <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.13em] text-[#b8441a]">
                           <span>{relatedNote.category}</span>
                           <span className="text-slate-500">{formatDate(relatedNote.date)}</span>
                         </div>
-                        <h3 className="mt-5 text-2xl font-semibold leading-tight transition-colors group-hover:text-[#74521f]">
+                        <h3 className="mt-5 text-2xl font-semibold leading-tight transition-colors group-hover:text-[#b8441a]">
                           {relatedNote.title}
                         </h3>
                         <div className="mt-auto flex items-center justify-between border-t border-ink/10 pt-6 text-sm text-slate-600">
                           <span>{relatedNote.readingTime}</span>
-                          <ArrowRight aria-hidden="true" size={16} className="text-[#74521f] transition-transform group-hover:translate-x-1" />
+                          <ArrowRight aria-hidden="true" size={16} className="text-[#b8441a] transition-transform group-hover:translate-x-1" />
                         </div>
                       </div>
                     </article>

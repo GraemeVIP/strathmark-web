@@ -5,7 +5,7 @@ export function SampleBriefing() {
   return (
     <section className="w-full bg-strath-navy py-20 md:py-28" id="briefing">
       <div className="section-shell">
-        <div className="overflow-hidden border border-white/15 bg-[#0d1c2c] lg:grid lg:grid-cols-12">
+        <div className="overflow-hidden border border-white/15 bg-[#131c2e] lg:grid lg:grid-cols-12">
           <div className="relative min-h-[28rem] overflow-hidden border-b border-white/10 p-8 md:p-12 lg:col-span-5 lg:border-b-0 lg:border-r">
             <div className="editorial-grid absolute inset-0 opacity-60" aria-hidden="true"/><div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-gold/25" aria-hidden="true"/><div className="absolute -right-10 -top-10 h-48 w-48 rounded-full border border-gold/25" aria-hidden="true"/>
             <div className="relative"><p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">Anonymised strategic research sample</p><p className="mt-24 font-mono text-xs text-slate-400">INDUSTRIAL SYSTEMS INTEGRATION / 2026</p><h2 className="mt-5 text-4xl font-semibold leading-[1.05] text-white md:text-5xl">How agentic AI could reshape a 30-year-old industrial integrator.</h2></div>
