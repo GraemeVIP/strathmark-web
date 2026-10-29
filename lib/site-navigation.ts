@@ -2,6 +2,7 @@ export const HOME_PATHNAME = "/";
 export const SITE_SECTION_NAVIGATION_EVENT = "strathmark:navigate-section";
 
 const HOME_SECTION_IDS = [
+  "revenue",
   "services",
   "results",
   "how-it-works",

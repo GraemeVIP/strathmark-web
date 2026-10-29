@@ -33,7 +33,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Websites, SEO and Google Ads That Bring In Sales | Strathmark",
-  description: "Edinburgh web design, SEO and Google Ads from Graeme. Websites built to win enquiries, then the monthly marketing to fill them. Prices on the site.",
+  description: "Edinburgh web design, SEO and Google Ads from Graeme. Judged on the revenue it brings in, not traffic or clicks. Prices on the site.",
   openGraph: {
     title: "Websites, SEO and Google Ads That Bring In Sales",
     description: "Websites built to win enquiries, then the SEO and Google Ads to fill them. Senior help from one person who does the work.",

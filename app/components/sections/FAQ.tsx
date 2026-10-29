@@ -2,6 +2,14 @@ import { Plus } from "lucide-react";
 
 export const HOME_FAQS = [
   {
+    question: "What do your monthly reports show?",
+    answer: "Money. How many enquiries and sales came from your marketing, what each one cost, and the return on what you spent. I'll mention traffic and rankings only when they explain a change in revenue. If something isn't paying its way, I'll say so and move the budget.",
+  },
+  {
+    question: "Why do you want to see our numbers?",
+    answer: "Because you can't judge marketing without them. I need to know what a customer is worth, your rough margin and how many enquiries turn into sales. That tells us what you can afford to pay for a lead, and whether the marketing is making you money or just keeping an agency busy. Anything you share stays private.",
+  },
+  {
     question: "How much does a website cost?",
     answer: "Most of the sites I build for small and medium businesses cost between £3,500 and £8,000. The price depends on the number of pages, whether you need things like bookings or a shop, and how much writing is involved. You get a fixed quote before anything starts.",
   },

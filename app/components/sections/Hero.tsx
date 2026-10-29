@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SectionLink } from "@/app/components/ui/SectionLink";
 import { GROWTH_REVIEW_HREF } from "@/lib/offers";
 
-const TRUST = ["Prices on the site", "You own everything", "No long contracts"] as const;
+const TRUST = ["Judged on revenue, not traffic", "Prices on the site", "You own everything"] as const;
 
 export function Hero() {
   return (
@@ -20,8 +20,8 @@ export function Hero() {
               <span aria-hidden="true" className="absolute inset-x-0 bottom-[0.06em] z-0 h-[0.28em] rounded-sm bg-signal/80" />
             </span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-2 md:text-xl md:leading-9">
-            I build fast, properly made websites, then run the SEO and Google Ads that fill them with enquiries. You deal with me from the first call to the monthly report. No account managers and no juniors learning on your budget.
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-2 md:text-xl md:leading-9 lg:max-w-xl">
+            I build websites and run SEO and Google Ads, then judge all of it on one thing: the money it brings in. Not traffic, not clicks. I get into your numbers so every pound you spend on marketing has to earn its place.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -67,7 +67,7 @@ export function Hero() {
             </p>
           </div>
 
-          <figure className="relative mt-4 rounded-2xl border border-line bg-white p-5 shadow-[0_24px_50px_rgba(13,19,33,0.16)] sm:absolute sm:-left-10 sm:top-8 sm:mt-0 sm:w-[15.5rem] lg:-left-16">
+          <figure className="relative mt-4 rounded-2xl border border-line bg-white p-5 shadow-[0_24px_50px_rgba(13,19,33,0.16)] sm:absolute sm:-left-10 sm:top-8 sm:mt-0 sm:w-[15.5rem] lg:-left-6 xl:-left-14">
             <figcaption className="font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-ink-3">
               UK car leasing broker
             </figcaption>

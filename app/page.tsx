@@ -1,5 +1,6 @@
 import { Navigation } from "@/app/components/Navigation";
 import { Hero } from "@/app/components/sections/Hero";
+import { RevenueFocus } from "@/app/components/sections/RevenueFocus";
 import { Services } from "@/app/components/sections/Services";
 import { FeaturedResult } from "@/app/components/sections/FeaturedResult";
 import { HowItWorks } from "@/app/components/sections/HowItWorks";
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="min-h-screen bg-paper text-ink">
       <Navigation />
       <Hero />
+      <RevenueFocus />
       <Services />
       <FeaturedResult />
       <HowItWorks />

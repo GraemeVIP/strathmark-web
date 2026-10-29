@@ -2,7 +2,7 @@ const STEPS = [
   {
     step: "Step 1",
     title: "Free growth review",
-    copy: "A 30 minute call, then written notes on what's holding your website and marketing back. You keep the notes whether we work together or not.",
+    copy: "A 30 minute call about your numbers: what a customer is worth and what you can afford to pay for one. Then written notes on what's holding you back. You keep them either way.",
     time: "This week",
   },
   {
@@ -14,7 +14,7 @@ const STEPS = [
   {
     step: "Step 3",
     title: "Grow every month",
-    copy: "SEO and Google Ads working together. A short report in plain English and a call with me each month. Leads first, traffic second.",
+    copy: "SEO and Google Ads working together. Each month you see what came in, what it cost and what you made, plus a call with me.",
     time: "Ongoing",
   },
 ] as const;

@@ -5,6 +5,7 @@ import { ArrowRight, Check, CircleX, TrendingUp } from "lucide-react";
 import { Navigation } from "@/app/components/Navigation";
 import { Footer } from "@/app/components/sections/Footer";
 import { FAQ } from "@/app/components/sections/FAQ";
+import { RevenueFocus } from "@/app/components/sections/RevenueFocus";
 import { SectionLink } from "@/app/components/ui/SectionLink";
 import { getServicePage, servicePages } from "@/lib/service-pages-data";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -225,6 +226,8 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <RevenueFocus compact />
 
       <FAQ faqs={service.faqs} />
 
