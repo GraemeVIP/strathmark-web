@@ -26,7 +26,7 @@ const FOOTER_COLUMNS = [
     title: "Strathmark",
     links: [
       ["/case-studies", "Results"],
-      ["/insights", "Guides"],
+      ["/insights", "Insights"],
       ["/about", "About Graeme"],
       ["/privacy", "Privacy"],
     ],

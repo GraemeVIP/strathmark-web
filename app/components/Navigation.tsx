@@ -14,6 +14,7 @@ const PAGE_LINKS = [
   { name: "Automotive", href: "/automotive-seo" },
   { name: "Pricing", href: "/pricing" },
   { name: "Results", href: "/case-studies" },
+  { name: "Insights", href: "/insights" },
   { name: "About", href: "/about" },
 ] as const;
 

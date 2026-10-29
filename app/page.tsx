@@ -6,6 +6,7 @@ import { HowItWorks } from "@/app/components/sections/HowItWorks";
 import { Sectors } from "@/app/components/sections/Sectors";
 import { Pricing } from "@/app/components/sections/Pricing";
 import { About } from "@/app/components/sections/About";
+import { Insights } from "@/app/components/sections/Insights";
 import { FAQ } from "@/app/components/sections/FAQ";
 import { Contact } from "@/app/components/sections/Contact";
 import { Footer } from "@/app/components/sections/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <Sectors />
       <Pricing />
       <About />
+      <Insights />
       <FAQ />
       <Contact />
       <Footer />

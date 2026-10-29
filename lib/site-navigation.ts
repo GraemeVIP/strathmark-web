@@ -8,6 +8,7 @@ const HOME_SECTION_IDS = [
   "who-for",
   "pricing",
   "about",
+  "insights",
   "faq",
   "contact",
 ] as const;
@@ -19,7 +20,6 @@ const LEGACY_HOME_SECTION_MAP: Record<string, (typeof HOME_SECTION_IDS)[number]>
   approach: "how-it-works",
   outcomes: "results",
   "why-now": "services",
-  insights: "results",
   briefing: "services",
   "digital-performance": "services",
 };
