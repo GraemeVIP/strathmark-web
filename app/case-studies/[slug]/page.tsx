@@ -171,7 +171,7 @@ export default async function CaseStudyDetail({ params }: PageProps) {
                   <dd className="mt-1 font-semibold">{study.client}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[12px] uppercase tracking-[0.14em] text-ink-3">When</dt>
+                  <dt className="font-mono text-[12px] uppercase tracking-[0.14em] text-ink-3">Scope</dt>
                   <dd className="mt-1 font-semibold">{study.timeframe}</dd>
                 </div>
                 <div>
