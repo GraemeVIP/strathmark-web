@@ -7,78 +7,81 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy and Cookie Notice | Strathmark",
-  description: "How Strathmark Consulting handles enquiry data, essential storage and optional website analytics.",
+  description: "How Strathmark handles enquiry details, essential storage and website analytics, and the choices and rights you have over your information.",
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: true, follow: true },
 };
 
+const link = "font-semibold text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-signal-ink";
+const heading = "font-display text-2xl font-bold text-ink [font-stretch:108%]";
+
 export default function PrivacyPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-strath-navy text-slate-200">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <article className="mx-auto w-full max-w-3xl flex-1 px-6 py-32 md:py-40">
-        <header className="mb-10 border-b border-white/10 pb-10">
-          <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.1em] text-gold">Legal</p>
-          <h1 className="mt-5 text-4xl font-bold text-white md:text-6xl">Privacy and Cookie Notice</h1>
-          <p className="mt-5 text-base leading-8 text-slate-300">
-            This notice explains what information Strathmark Consulting receives through this website, why it is used and the choices available to you.
+      <article className="mx-auto w-full max-w-3xl px-5 pb-24 pt-32 md:px-8 md:pt-40">
+        <header className="border-b border-line pb-10">
+          <p className="eyebrow">Legal</p>
+          <h1 className="mt-5 font-display text-[clamp(2.4rem,5vw,3.8rem)] font-extrabold leading-[1] [font-stretch:110%]">Privacy and cookie notice</h1>
+          <p className="mt-5 text-lg leading-8 text-ink-2">
+            What Strathmark Consulting receives through this website, why it&apos;s used, and the choices you have.
           </p>
-          <p className="mt-4 text-[15px] text-slate-300">Last updated: 14 August 2026.</p>
+          <p className="mt-3 text-sm text-ink-3">Last updated: 29 October 2026.</p>
         </header>
 
-        <div className="space-y-10 text-base leading-8 text-slate-300">
+        <div className="mt-10 grid gap-12 text-base leading-8 text-ink-2">
           <section>
-            <h2 className="text-3xl font-bold text-white">Enquiry information</h2>
+            <h2 className={heading}>Enquiry information</h2>
             <p className="mt-4">
-              When you submit the contact form, Strathmark receives the details you choose to provide, such as your name, email, company, website, business situation and optional qualification information. This is used to assess and respond to your enquiry, keep a record of the conversation and take reasonable steps requested before entering a contract.
+              When you send the contact form, Strathmark receives the details you choose to give, such as your name, email, company, website, what you need help with and optional details like turnover. These are used to assess and reply to your enquiry, keep a record of the conversation and take steps you ask for before any contract.
             </p>
             <p className="mt-4">
-              The form is processed by <a href="https://docs.web3forms.com/getting-started/faq" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold underline underline-offset-4 hover:text-white">Web3Forms</a>, which forwards submissions to Strathmark by email. Web3Forms states that it does not store form submissions, that its servers are in the United States, and that server logs containing personal information may be retained temporarily and deleted periodically.
+              The form is processed by <a href="https://docs.web3forms.com/getting-started/faq" target="_blank" rel="noopener noreferrer" className={link}>Web3Forms</a>, which forwards submissions to Strathmark by email. Web3Forms says it does not store submissions, that its servers are in the United States, and that server logs with personal information may be kept for a short time and deleted periodically.
             </p>
             <p className="mt-4">
-              Strathmark keeps enquiry correspondence only for as long as reasonably needed to respond, manage the business relationship, meet legal or accounting obligations, or resolve a dispute. Please do not submit special-category or highly sensitive personal information through the form.
+              Enquiry emails are kept only as long as needed to reply, manage the working relationship, meet legal or accounting duties, or resolve a dispute. Please don&apos;t send sensitive personal information through the form.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-white">Essential storage</h2>
+            <h2 className={heading}>Essential storage</h2>
             <p className="mt-4">
-              The site uses local or session storage for essential functions, including remembering your cookie choice, maintaining a short anti-repeat window after a form submission and supporting basic navigation behaviour. These functions do not require analytics consent.
+              The site uses your browser&apos;s storage for essential jobs: remembering your cookie choice, stopping a form being sent twice by accident, and basic navigation. These don&apos;t need your consent.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-white">Optional analytics</h2>
+            <h2 className={heading}>Analytics</h2>
             <p className="mt-4">
-              Google Analytics, Microsoft Clarity and Strathmark&apos;s first-party visitor analytics load only after you choose “Allow analytics”. They may process page paths, referral and campaign information, device and browser details, IP address, approximate location derived from network information, interaction events and performance data. Contact-form names, email addresses and message content are not sent in the lead event recorded by Google Analytics.
+              Google Analytics, Microsoft Clarity and Strathmark&apos;s own visitor analytics load only after you choose &ldquo;Allow analytics&rdquo;. Between them they may process page addresses, where you came from, device and browser details, IP address, approximate location, clicks and scrolling, and page speed. Names, email addresses and messages from the contact form are never sent to Google Analytics.
             </p>
             <p className="mt-4">
-              This information is used to understand which pages and journeys are useful, diagnose performance and improve the website. If you choose “Essential only”, these analytics tools are not loaded by the site.
+              This is used to understand which pages are useful and which marketing brings in enquiries, and to improve the site. If you choose &ldquo;Essential only&rdquo;, none of these analytics tools are loaded.
             </p>
-            <div className="mt-5">
+            <div className="mt-6">
               <CookieResetButton />
             </div>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-white">Sharing and international processing</h2>
+            <h2 className={heading}>Sharing and processing outside the UK</h2>
             <p className="mt-4">
-              Information is shared only with service providers needed to operate the website, process enquiries, deliver analytics where consented, host systems or meet a legal obligation. Some providers process data outside the United Kingdom. Their own privacy and transfer safeguards apply to that processing.
+              Information is shared only with the service providers needed to run the website, handle enquiries, provide analytics, host systems or meet a legal duty. Some of them process data outside the UK, under their own privacy and transfer safeguards.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-white">Your choices and rights</h2>
+            <h2 className={heading}>Your choices and rights</h2>
             <p className="mt-4">
-              You can choose essential-only storage, reset the cookie notice at any time, and ask Strathmark to provide, correct or delete personal information where applicable. You may also object to or restrict certain processing and raise a concern with the UK Information Commissioner&apos;s Office.
+              You can choose essential storage only, show the cookie notice again at any time, and ask Strathmark to give you, correct or delete personal information about you. You can also object to or restrict some processing, and raise a concern with the UK Information Commissioner&apos;s Office.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold text-white">Contact</h2>
+            <h2 className={heading}>Contact</h2>
             <p className="mt-4">
-              To ask about privacy or exercise a data right, use the <SectionLink href="/?service=unsure#contact" className="font-semibold text-gold underline underline-offset-4 hover:text-white">contact form</SectionLink> and state that the message concerns privacy. Please do not include more personal information than needed.
+              To ask about privacy or use any of your rights, use the <SectionLink href="/?service=unsure#contact" className={link}>contact form</SectionLink> and say the message is about privacy.
             </p>
           </section>
         </div>

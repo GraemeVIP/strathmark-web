@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowRight,
-  Check,
-  CircleAlert,
-  Compass,
-  Gauge,
-  Layers3,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Check, CircleX, TrendingUp } from "lucide-react";
 import { Navigation } from "@/app/components/Navigation";
 import { Footer } from "@/app/components/sections/Footer";
+import { FAQ } from "@/app/components/sections/FAQ";
+import { RevenueFocus } from "@/app/components/sections/RevenueFocus";
+import { SectionLink } from "@/app/components/ui/SectionLink";
 import { getServicePage, servicePages } from "@/lib/service-pages-data";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -46,14 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: SITE_NAME,
       locale: "en_GB",
       type: "website",
-      images: [
-        {
-          url: SHARE_IMAGE_PATH,
-          width: 1200,
-          height: 630,
-          alt: `${service.h1} — ${SITE_NAME}`,
-        },
-      ],
+      images: [{ url: SHARE_IMAGE_PATH, width: 1200, height: 630, alt: `${service.h1}, ${SITE_NAME}` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -63,8 +51,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 }
-
-const DELIVERY_ICONS = [Compass, Layers3, Gauge, ShieldCheck] as const;
 
 export default async function ServicePage({ params }: PageProps) {
   const { service: slug } = await params;
@@ -83,12 +69,8 @@ export default async function ServicePage({ params }: PageProps) {
     description: service.description,
     url,
     serviceType: service.eyebrow,
-    provider: {
-      "@type": "ProfessionalService",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    areaServed: "International",
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: service.areaServed,
   };
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -98,193 +80,145 @@ export default async function ServicePage({ params }: PageProps) {
       { "@type": "ListItem", position: 2, name: service.eyebrow, item: url },
     ],
   };
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: service.faqs.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
-  };
 
   return (
-    <main className="min-h-screen bg-strath-navy text-slate-200">
-      {[serviceJsonLd, breadcrumbJsonLd, faqJsonLd].map((value, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(value) }}
-        />
+    <main className="min-h-screen bg-paper text-ink">
+      {[serviceJsonLd, breadcrumbJsonLd].map((value, index) => (
+        <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(value) }} />
       ))}
       <Navigation />
 
-      <header className="relative isolate overflow-hidden border-b border-white/10 pb-16 pt-32 md:pb-24 md:pt-40">
-        <div className="editorial-grid absolute inset-0 opacity-50" aria-hidden="true" />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_82%_20%,rgba(201,164,99,0.2),transparent_30%),radial-gradient(circle_at_18%_78%,rgba(35,111,119,0.18),transparent_34%)]"
-          aria-hidden="true"
-        />
-        <div className="section-shell relative grid gap-12 xl:grid-cols-12 xl:items-end">
-          <div className="xl:col-span-8">
-            <p className="section-kicker">{service.eyebrow}</p>
-            <h1 className="mt-7 max-w-5xl text-[clamp(3rem,6.6vw,6.25rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-white">
+      <header className="relative isolate overflow-hidden pb-16 pt-32 md:pb-24 md:pt-40">
+        <div className="road-lines absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="section-shell grid gap-12 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <nav aria-label="Breadcrumb" className="mb-6 font-mono text-[13px] text-ink-3">
+              <Link href="/" className="hover:text-ink">Home</Link>
+              <span aria-hidden="true" className="mx-2">/</span>
+              <span>{service.eyebrow}</span>
+            </nav>
+            <p className="eyebrow">{service.eyebrow}</p>
+            <h1 className="mt-5 font-display text-[clamp(2.6rem,6vw,5.2rem)] font-extrabold leading-[0.97] tracking-[-0.02em] [font-stretch:112%]">
               {service.h1}
             </h1>
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-9">
-              {service.intro}
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={contactHref}
-                className="group inline-flex min-h-14 items-center justify-center gap-3 bg-gold px-7 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white"
-              >
-                Discuss this project
-                <ArrowRight aria-hidden="true" size={17} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex min-h-14 items-center justify-center border border-white/25 px-7 text-[15px] font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:border-gold hover:text-gold"
-              >
-                Compare all services
-              </Link>
-            </div>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-ink-2 md:text-xl md:leading-9">{service.intro}</p>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium text-ink-2">
+              {service.highlights.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <Check aria-hidden="true" size={17} strokeWidth={3} className="text-signal-ink" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <aside className="border border-gold/30 bg-[#102237]/90 p-7 shadow-[0_35px_90px_rgba(2,8,16,0.3)] md:p-8 xl:col-span-4">
-            <p className="font-mono text-[15px] font-semibold uppercase tracking-[0.12em] text-gold">
-              What you are buying
-            </p>
-            <p className="mt-5 text-2xl font-semibold leading-tight text-white">{service.promise}</p>
-            <div className="mt-7 border-t border-white/10 pt-5">
-              <p className="text-[15px] leading-7 text-slate-300">{service.searchIntent}</p>
-            </div>
+          <aside className="rounded-[1.5rem] bg-ink p-7 text-white shadow-[0_40px_80px_rgba(13,19,33,0.25)] md:p-8 lg:col-span-4">
+            <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-white/60">Price</p>
+            <p className="mt-2 font-display text-[2.6rem] font-extrabold leading-none text-signal [font-stretch:105%]">{service.price}</p>
+            <p className="mt-2 text-[15px] text-white/70">{service.priceNote}</p>
+            <SectionLink
+              href={contactHref}
+              className="group mt-7 flex min-h-14 items-center justify-center gap-2 rounded-full bg-signal px-6 font-bold text-ink transition-colors hover:bg-white"
+            >
+              Book a free growth review
+              <ArrowRight aria-hidden="true" size={18} className="transition-transform group-hover:translate-x-1" />
+            </SectionLink>
+            <Link href="/pricing" className="mt-3 flex min-h-11 items-center justify-center text-[15px] font-semibold text-white/75 hover:text-white">
+              See all prices
+            </Link>
           </aside>
         </div>
       </header>
 
-      <section className="relative bg-ivory py-20 text-ink md:py-28">
-        <div className="editorial-grid-dark absolute inset-0 opacity-45" aria-hidden="true" />
-        <div className="section-shell relative grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <p className="section-kicker !text-[#74521f]">When the current setup is holding you back</p>
-            <h2 className="mt-6 text-[clamp(2.6rem,4.8vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
-              Start with the commercial constraint, not the channel.
-            </h2>
+      <section className="bg-white py-20 md:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">Sound familiar?</p>
+            <h2 className="section-title mt-5">If this is you, I can help.</h2>
           </div>
-          <ul className="grid gap-px border border-ink/15 bg-ink/15 sm:grid-cols-2 lg:col-span-7">
-            {service.challenges.map((challenge, index) => (
-              <li key={challenge} className="bg-white p-6 md:p-8">
-                <span className="font-mono text-[15px] font-semibold text-[#74521f]">0{index + 1}</span>
-                <p className="mt-5 text-lg font-medium leading-8 text-slate-700">{challenge}</p>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-8">
+            {service.problems.map((problem) => (
+              <li key={problem} className="rounded-2xl border border-line bg-paper p-6 text-lg font-medium leading-7 text-ink">
+                {problem}
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="bg-[#07111d] py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="section-shell">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <p className="section-kicker">What changes</p>
-              <h2 className="mt-6 max-w-4xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em] text-white">
-                A useful engagement leaves the business stronger.
-              </h2>
-            </div>
-            <p className="text-lg leading-8 text-slate-300 lg:col-span-4">
-              The work is judged by operating evidence and the quality of the next decision, not the amount of activity produced.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
-            {service.outcomes.map((outcome) => (
-              <div key={outcome} className="flex gap-4 bg-[#0d1c2c] p-7 md:p-9">
-                <Check aria-hidden="true" className="mt-1 shrink-0 text-gold" size={21} />
-                <p className="text-lg font-medium leading-8 text-white">{outcome}</p>
-              </div>
+          <p className="eyebrow">What you get</p>
+          <h2 className="section-title mt-5 max-w-3xl">Everything included.</h2>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {service.included.map((item) => (
+              <article key={item.title} className="rounded-[1.25rem] border border-line bg-white p-7 md:p-8">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-signal-soft text-signal-ink">
+                  <Check aria-hidden="true" size={20} strokeWidth={3} />
+                </span>
+                <h3 className="mt-6 font-display text-2xl font-bold [font-stretch:108%]">{item.title}</h3>
+                <p className="mt-3 text-base leading-7 text-ink-2">{item.copy}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-ivory py-20 text-ink md:py-28">
-        <div className="section-shell">
-          <div className="max-w-4xl">
-            <p className="section-kicker !text-[#74521f]">Scope and deliverables</p>
-            <h2 className="mt-6 text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em]">
-              Tangible work, clearly owned.
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {service.deliverables.map((deliverable, index) => {
-              const Icon = DELIVERY_ICONS[index % DELIVERY_ICONS.length];
-              return (
-                <article key={deliverable.title} className="border border-ink/15 bg-white p-7 md:p-9">
-                  <div className="flex items-center justify-between">
-                    <span className="grid h-12 w-12 place-items-center bg-strath-navy text-gold">
-                      <Icon aria-hidden="true" size={21} />
-                    </span>
-                    <span className="font-mono text-[15px] font-semibold text-[#74521f]">0{index + 1}</span>
-                  </div>
-                  <h3 className="mt-7 text-3xl font-semibold">{deliverable.title}</h3>
-                  <p className="mt-5 text-base leading-8 text-slate-600">{deliverable.copy}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-strath-navy py-20 md:py-28">
-        <div className="section-shell">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <p className="section-kicker">Delivery route</p>
-              <h2 className="mt-6 text-[clamp(2.7rem,5vw,4.7rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-white">
-                Evidence earns the next investment.
-              </h2>
+      {service.proof ? (
+        <section className="relative overflow-hidden bg-ink py-16 text-white md:py-20">
+          <div className="road-lines-dark absolute inset-0" aria-hidden="true" />
+          <div className="section-shell relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-6">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-signal text-ink">
+                <TrendingUp aria-hidden="true" size={26} />
+              </span>
+              <div>
+                <p className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none text-signal [font-stretch:108%]">{service.proof.stat}</p>
+                <p className="mt-2 text-lg text-white/75">{service.proof.label}</p>
+              </div>
             </div>
-            <p className="text-lg leading-8 text-slate-300 lg:col-span-4">
-              Each phase has an owner, output and decision. A stopped project can be the right result when the evidence does not support scale.
-            </p>
+            <Link href={service.proof.href} className="group inline-flex min-h-11 items-center gap-2 font-bold text-white underline decoration-signal decoration-2 underline-offset-[6px] hover:text-signal">
+              Read the story <ArrowRight aria-hidden="true" size={17} className="transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
-          <ol className="mt-12 grid gap-4 lg:grid-cols-4">
+        </section>
+      ) : null}
+
+      <section className="py-20 md:py-28">
+        <div className="section-shell">
+          <p className="eyebrow">How it works</p>
+          <h2 className="section-title mt-5 max-w-3xl">Four steps, no mystery.</h2>
+          <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {service.process.map((step, index) => (
-              <li key={step.title} className="border border-white/12 bg-white/[0.035] p-7">
-                <span className="font-mono text-[15px] font-semibold text-gold">0{index + 1}</span>
-                <h3 className="mt-8 text-2xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-4 text-base leading-7 text-slate-300">{step.copy}</p>
+              <li key={step.title} className="rounded-[1.25rem] border border-line bg-white p-7">
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-ink font-mono text-sm font-semibold text-white">{index + 1}</span>
+                <h3 className="mt-6 font-display text-xl font-bold [font-stretch:108%]">{step.title}</h3>
+                <p className="mt-3 text-base leading-7 text-ink-2">{step.copy}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="bg-[#e9dfcf] py-20 text-ink md:py-28">
-        <div className="section-shell grid gap-6 lg:grid-cols-2">
-          <div className="border border-ink/15 bg-white p-7 md:p-10">
-            <div className="flex items-center gap-4">
-              <Check aria-hidden="true" className="text-emerald-700" size={24} />
-              <h2 className="text-3xl font-semibold">A strong fit</h2>
-            </div>
-            <ul className="mt-7 space-y-4">
+      <section className="bg-mist py-20 md:py-24">
+        <div className="section-shell grid gap-5 lg:grid-cols-2">
+          <div className="rounded-[1.25rem] bg-white p-7 md:p-10">
+            <h2 className="font-display text-2xl font-bold [font-stretch:108%]">A good fit if</h2>
+            <ul className="mt-6 space-y-4">
               {service.fit.map((item) => (
-                <li key={item} className="flex gap-3 text-base leading-7 text-slate-700">
-                  <Check aria-hidden="true" className="mt-1 shrink-0 text-emerald-700" size={17} />
+                <li key={item} className="flex gap-3 text-base leading-7 text-ink-2">
+                  <Check aria-hidden="true" className="mt-1 shrink-0 text-signal-ink" size={18} strokeWidth={3} />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="border border-white/12 bg-strath-navy p-7 text-white md:p-10">
-            <div className="flex items-center gap-4">
-              <CircleAlert aria-hidden="true" className="text-gold" size={24} />
-              <h2 className="text-3xl font-semibold">Not the right engagement</h2>
-            </div>
-            <ul className="mt-7 space-y-4">
-              {service.exclusions.map((item) => (
-                <li key={item} className="flex gap-3 text-base leading-7 text-slate-300">
-                  <CircleAlert aria-hidden="true" className="mt-1 shrink-0 text-gold" size={17} />
+          <div className="rounded-[1.25rem] border border-line bg-paper p-7 md:p-10">
+            <h2 className="font-display text-2xl font-bold [font-stretch:108%]">Probably not for you if</h2>
+            <ul className="mt-6 space-y-4">
+              {service.notFit.map((item) => (
+                <li key={item} className="flex gap-3 text-base leading-7 text-ink-2">
+                  <CircleX aria-hidden="true" className="mt-1 shrink-0 text-ink-3" size={18} />
                   {item}
                 </li>
               ))}
@@ -293,60 +227,20 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-ivory py-20 text-ink md:py-28">
-        <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <p className="section-kicker !text-[#74521f]">Questions before you commit</p>
-            <h2 className="mt-6 text-[clamp(2.5rem,4vw,4rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
-              Clear answers, including the limits.
-            </h2>
-          </div>
-          <div className="divide-y divide-ink/15 border-y border-ink/15 lg:col-span-8">
-            {service.faqs.map((item) => (
-              <details key={item.question} className="group py-6">
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold marker:hidden">
-                  {item.question}
-                  <span aria-hidden="true" className="text-3xl font-light text-[#74521f] transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="max-w-3xl pb-2 pt-4 text-base leading-8 text-slate-600">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RevenueFocus compact />
 
-      <section className="border-y border-white/10 bg-[#0d1c2c] py-12">
-        <div className="section-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <p className="text-base font-semibold text-white">Related expertise</p>
-          <div className="flex flex-wrap gap-x-7 gap-y-3">
+      <FAQ faqs={service.faqs} />
+
+      <section className="border-t border-line bg-white py-10">
+        <div className="section-shell flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="font-semibold text-ink">Related</p>
+          <div className="flex flex-wrap gap-x-7 gap-y-2">
             {service.related.map((item) => (
-              <Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center gap-2 text-[15px] font-semibold text-gold transition-colors hover:text-white">
-                {item.label} <ArrowRight aria-hidden="true" size={14} />
+              <Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center gap-2 font-semibold text-ink hover:text-signal-ink">
+                {item.label} <ArrowRight aria-hidden="true" size={15} />
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-strath-navy py-20 md:py-24">
-        <div className="editorial-grid absolute inset-0 opacity-45" aria-hidden="true" />
-        <div className="section-shell relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
-          <div>
-            <p className="section-kicker">A useful first conversation</p>
-            <h2 className="mt-5 max-w-4xl text-[clamp(2.7rem,5vw,4.8rem)] font-semibold leading-[1.01] tracking-[-0.035em] text-white">
-              Tell me what needs to work better.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-              Share the last concrete example. I will review it personally and respond within two business days with the most useful next step.
-            </p>
-          </div>
-          <Link
-            href={contactHref}
-            className="group inline-flex min-h-14 w-full items-center justify-center gap-3 bg-gold px-8 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white md:w-auto"
-          >
-            Start the conversation
-            <ArrowRight aria-hidden="true" size={17} className="transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
       </section>
 

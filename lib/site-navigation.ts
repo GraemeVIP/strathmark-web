@@ -2,11 +2,13 @@ export const HOME_PATHNAME = "/";
 export const SITE_SECTION_NAVIGATION_EVENT = "strathmark:navigate-section";
 
 const HOME_SECTION_IDS = [
-  "about",
+  "revenue",
   "services",
-  "why-now",
-  "approach",
-  "outcomes",
+  "results",
+  "how-it-works",
+  "who-for",
+  "pricing",
+  "about",
   "insights",
   "faq",
   "contact",
@@ -15,7 +17,10 @@ const HOME_SECTION_IDS = [
 const HOME_SECTION_ID_SET = new Set<string>(HOME_SECTION_IDS);
 const LEGACY_HOME_SECTION_MAP: Record<string, (typeof HOME_SECTION_IDS)[number]> = {
   "use-cases": "services",
-  governance: "approach",
+  governance: "how-it-works",
+  approach: "how-it-works",
+  outcomes: "results",
+  "why-now": "services",
   briefing: "services",
   "digital-performance": "services",
 };

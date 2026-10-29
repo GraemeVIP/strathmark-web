@@ -22,9 +22,17 @@ export interface CaseStudy {
   outcomes: string[];
   metrics: CaseStudyMetric[];
   services: string[];
+  anonymous?: boolean;
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+    caption: string;
+  };
 }
 
-export const caseStudies: CaseStudy[] = [
+const allCaseStudies: CaseStudy[] = [
   {
     slug: "axa-insurance-uk",
     client: "AXA Insurance",
@@ -150,44 +158,46 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "organic-turnaround-uk-automotive",
-    client: "First Vehicle Leasing",
-    title: "First Vehicle Leasing",
-    headline: "Reversing a prolonged organic decline by fixing the structural issues suppressing visibility, click growth, and commercial search performance.",
-    industry: "Automotive",
+    client: "UK Car Leasing Broker",
+    title: "UK Car Leasing Broker",
+    headline: "How a national car leasing broker tripled its inbound leads in four months.",
+    industry: "Car leasing",
     region: "United Kingdom",
-    engagementType: "Advisory + Structural Remediation",
-    timeframe: "Organic turnaround programme",
+    engagementType: "SEO and site fixes",
+    timeframe: "Four months, 2025",
     featured: true,
-    excerpt: "A UK automotive leasing case study showing how search performance recovered when structural blockers were resolved instead of masked with more activity.",
-    businessContext: "First Vehicle Leasing is a national vehicle-leasing brand operating in a highly competitive search environment where commercial visibility is heavily influenced by site structure, intent alignment, and page hierarchy.",
-    mandate: "Diagnose the causes of sustained organic underperformance and restore growth by correcting the structural, reporting, and prioritisation issues suppressing commercial search outcomes.",
+    excerpt: "Search traffic had been sliding for over a year. Four months after the fixes went in, inbound leads had tripled and sales went from around 300 a month to over 1,000.",
+    businessContext: "A national car leasing broker with thousands of vehicle and deal pages, up against comparison sites and much bigger brokers for every model search.",
+    mandate: "Find out why search traffic had been falling for over a year and turn it around, judged on leads and sales rather than traffic.",
     challenge: [
-      "Organic performance had stagnated and then steadily declined despite brand awareness, active marketing investment, and a large commercial inventory.",
-      "The estate had accumulated structural complexity over time, making it harder for search engines and users to understand how key leasing pages related to one another.",
-      "Decision-making had drifted toward surface metrics, which made it harder to identify where commercial visibility was genuinely being won or lost.",
+      "Clicks from Google had been sliding for over a year, even though the business had plenty of deals and stock to sell.",
+      "Years of patches had left the site hard for Google to make sense of. Thousands of model and deal pages were competing with each other instead of supporting each other.",
+      "Reporting focused on traffic, so nobody could see which searches were actually bringing in deals.",
     ],
     interventions: [
-      "Started with a full diagnostic review covering historical performance, page-group behaviour, internal structure, and ranking suppression points across the commercial estate.",
-      "Prioritised structural corrections to page relationships, discoverability, and search focus rather than defaulting to more content production or reactive optimisations.",
-      "Re-aligned reporting around commercial outcomes so progress could be judged by visibility quality, click recovery, and the health of core demand-capture pathways.",
+      "Went through the whole site to find exactly where visibility was being lost: which groups of pages, which searches, and why.",
+      "Fixed the structure first: how model, deal and brand pages link together, which pages Google should focus on, and what was getting in its way.",
+      "Moved reporting onto leads and sales, so every change was judged on whether it brought in deals.",
     ],
     outcomes: [
-      "Organic performance reversed course once the site was made easier to interpret, prioritise, and support across core commercial topics.",
-      "Growth became more stable because it was driven by structural correction rather than short-term tactical spikes.",
-      "The business gained a clearer understanding of search as infrastructure, not just a reporting channel.",
+      "Clicks from Google turned and kept climbing.",
+      "Inbound leads tripled in four months.",
+      "Sales went from around 300 a month to over 1,000.",
     ],
     metrics: [
-      { label: "Organic Clicks", value: "29.2K", context: "generated across the measured recovery period" },
-      { label: "Impressions Served", value: "24.5M", context: "while commercial visibility rebuilt" },
-      { label: "Click Trend", value: "Recovered", context: "into a sustained upward trajectory" },
+      { label: "Sales a month", value: "~300 → 1,000+", context: "four months apart" },
+      { label: "Inbound leads", value: "3×", context: "in four months" },
+      { label: "Search clicks", value: "29.2K", context: "across the measured period in Search Console" },
     ],
-    services: [
-      "Organic diagnostics",
-      "Structural remediation",
-      "Search performance analysis",
-      "Commercial prioritisation",
-      "Measurement realignment",
-    ],
+    services: ["SEO audit", "Site structure fixes", "Lead and sales tracking"],
+    anonymous: true,
+    image: {
+      src: "/case-studies/organic-turnaround-gsc.png",
+      width: 2276,
+      height: 1254,
+      alt: "Google Search Console for the broker's site: 29.2K clicks and 24.5M impressions, with clicks climbing sharply from September 2025.",
+      caption: "The client's real Search Console account, with the site name removed. The blue line is clicks from Google.",
+    },
   },
   {
     slug: "scottishpower",
@@ -312,4 +322,10 @@ export const caseStudies: CaseStudy[] = [
       "Leisure demand capture",
     ],
   },
+];
+
+// The anonymised car leasing study, with its Search Console graph, leads the list.
+export const caseStudies: CaseStudy[] = [
+  ...allCaseStudies.filter((study) => study.image),
+  ...allCaseStudies.filter((study) => !study.image),
 ];

@@ -1,47 +1,74 @@
-const FAQS = [
+import { Plus } from "lucide-react";
+
+export const HOME_FAQS = [
   {
-    question: "What does a digital marketing consultancy do?",
-    answer: "Strathmark connects commercial strategy with the practical work needed to generate and convert demand. That can include positioning, branding, websites, SEO, Google Ads, Meta Ads, measurement, agency oversight and practical AI. The constraint decides the mix, not a pre-set channel package.",
+    question: "What do your monthly reports show?",
+    answer: "Money. How many enquiries and sales came from your marketing, what each one cost, and the return on what you spent. I'll mention traffic and rankings only when they explain a change in revenue. If something isn't paying its way, I'll say so and move the budget.",
   },
   {
-    question: "Are you a consultant or a marketing agency?",
-    answer: "The relationship is consultancy-led and implementation-capable. Senior diagnosis and commercial accountability stay close to the work. Strathmark can deliver directly, coordinate specialist partners or improve and oversee an existing agency or internal team.",
+    question: "Why do you want to see our numbers?",
+    answer: "Because you can't judge marketing without them. I need to know what a customer is worth, your rough margin and how many enquiries turn into sales. That tells us what you can afford to pay for a lead, and whether the marketing is making you money or just keeping an agency busy. Anything you share stays private.",
   },
   {
-    question: "Do we need every service at once?",
-    answer: "No. The aim is to find the highest-value constraint and fix it in the right order. A business may need only an SEO recovery, a better website, a paid-media reset or an independent agency review. Services are connected when that genuinely improves the outcome.",
+    question: "Who do you work with?",
+    answer: "Established businesses, usually turning over £500k or more, where a new customer is worth at least a few hundred pounds. Car leasing and automotive firms, professional services, private clinics, property and high value home improvement. If you're just starting out or need a simple site on a small budget, I'll point you to a cheaper option that suits you better.",
   },
   {
-    question: "Where does AI fit?",
-    answer: "AI is a major service line, not the whole proposition. It can improve research, content operations, customer follow-up, knowledge access, reporting and repeated workflows when the data, controls and business case support it. Conventional marketing and process fixes still come first when they are the better answer.",
+    question: "How much does a website cost?",
+    answer: "Most of the sites I build for small and medium businesses cost between £3,500 and £8,000. The price depends on the number of pages, whether you need things like bookings or a shop, and how much writing is involved. You get a fixed quote before anything starts.",
   },
   {
-    question: "Can you work with our current agency or team?",
-    answer: "Yes. Strathmark can audit the current setup, strengthen the brief, repair measurement, challenge strategy and provide senior oversight without automatically replacing the people already doing useful work.",
+    question: "Do I have to sign up for a long contract?",
+    answer: "No. Monthly SEO and Google Ads plans have a three month minimum, because that's how long it takes to see whether the work is paying off. After that it's 30 days notice.",
   },
   {
-    question: "Can you guarantee leads, revenue or rankings?",
-    answer: "No responsible consultancy can guarantee outcomes controlled by customers, competitors, markets or search platforms. Strathmark defines the baseline, controllable work, responsibilities and measurement so you can see what changed and whether the next investment is justified.",
+    question: "Who owns the website and the accounts?",
+    answer: "You do. The website, the domain, Google Ads, Analytics and Search Console are all set up in your name. If we ever stop working together, you keep everything.",
+  },
+  {
+    question: "How quickly will I see results?",
+    answer: "Google Ads can bring enquiries in the first week or two. SEO is slower: expect three to six months before it's a steady source of leads, faster for local searches. I'll tell you honestly what's realistic for your market before you spend anything.",
+  },
+  {
+    question: "Can you guarantee first place on Google?",
+    answer: "No, and be careful with anyone who does. Nobody controls Google. What I can promise is honest work, clear tracking of every enquiry and a straight answer each month on whether it's paying off.",
+  },
+  {
+    question: "Do you work outside Edinburgh?",
+    answer: "Yes. I'm based in Edinburgh and work with businesses across Scotland and the UK. Car leasing and automotive clients are all over the country.",
   },
 ] as const;
 
-export function FAQ() {
+export function FAQ({ faqs = HOME_FAQS }: { faqs?: readonly { question: string; answer: string }[] }) {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
   return (
-    <section className="bg-[#e9dfcf] py-20 text-ink md:py-28" id="faq">
+    <section className="bg-paper py-20 md:py-28" id="faq">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="section-shell grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
-          <p className="section-kicker !text-[#74521f]">Before you enquire</p>
-          <h2 className="mt-6 text-[clamp(2.6rem,4.8vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]">Straight answers to sensible questions.</h2>
-          <p className="mt-6 text-base leading-8 text-slate-600">Clear boundaries reduce buyer risk and make the first conversation more useful.</p>
+          <p className="eyebrow">Questions</p>
+          <h2 className="section-title mt-5">Straight answers.</h2>
+          <p className="mt-5 text-base leading-7 text-ink-2">The things people ask before they get in touch.</p>
         </div>
-        <div className="divide-y divide-ink/15 border-y border-ink/15 lg:col-span-8">
-          {FAQS.map((item) => (
-            <details key={item.question} className="group py-6">
-              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-xl font-semibold marker:hidden md:text-2xl">
+        <div className="grid gap-3 lg:col-span-8">
+          {faqs.map((item) => (
+            <details key={item.question} className="group rounded-2xl border border-line bg-white px-6 open:shadow-[0_16px_40px_rgba(13,19,33,0.06)]">
+              <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-4 text-lg font-bold text-ink marker:hidden">
                 {item.question}
-                <span aria-hidden="true" className="text-3xl font-light text-[#74521f] transition-transform group-open:rotate-45">+</span>
+                <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-mist text-ink transition-transform group-open:rotate-45 group-open:bg-signal">
+                  <Plus size={18} strokeWidth={2.5} />
+                </span>
               </summary>
-              <p className="max-w-3xl pb-2 pt-4 text-base leading-8 text-slate-600">{item.answer}</p>
+              <p className="max-w-3xl pb-6 text-base leading-7 text-ink-2">{item.answer}</p>
             </details>
           ))}
         </div>

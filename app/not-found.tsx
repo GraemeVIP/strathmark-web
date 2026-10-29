@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "@/app/components/sections/Footer";
 import { Navigation } from "@/app/components/Navigation";
-import { SectionLink } from "@/app/components/ui/SectionLink";
 
 export const metadata: Metadata = {
   title: "Page Not Found | Strathmark",
@@ -12,36 +11,29 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-strath-navy text-slate-200">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <section className="relative flex min-h-[75svh] items-center overflow-hidden px-6 pb-20 pt-36">
-        <div className="editorial-grid absolute inset-0 opacity-50" aria-hidden="true" />
-        <div className="absolute left-1/2 top-0 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-gold/10 blur-[150px]" aria-hidden="true" />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[0.4fr_1fr] lg:items-center">
-          <p className="font-serif text-[clamp(7rem,18vw,14rem)] font-semibold leading-none text-white/5">404</p>
-          <div>
-            <p className="section-kicker">Page not found</p>
-            <h1 className="mt-6 max-w-3xl text-[clamp(3rem,7vw,6rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white">
-              This route does not lead anywhere useful.
+      <section className="relative isolate overflow-hidden pb-24 pt-36 md:pt-44">
+        <div className="road-lines absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="section-shell grid gap-8 lg:grid-cols-12 lg:items-center">
+          <p aria-hidden="true" className="font-display text-[clamp(7rem,18vw,13rem)] font-extrabold leading-none text-ink/10 [font-stretch:120%] lg:col-span-4">
+            404
+          </p>
+          <div className="lg:col-span-8">
+            <p className="eyebrow">Page not found</p>
+            <h1 className="mt-5 max-w-3xl font-display text-[clamp(2.4rem,5.4vw,4.4rem)] font-extrabold leading-[0.98] [font-stretch:110%]">
+              That page has moved or never existed.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
-              The page may have moved, or the address may be incorrect. Return home or continue to the latest insights.
+            <p className="mt-6 max-w-xl text-lg leading-8 text-ink-2">
+              Try the homepage, or have a look at the services and prices.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/"
-                className="inline-flex min-h-14 items-center justify-center gap-3 bg-gold px-7 text-sm font-bold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-white"
-              >
-                <ArrowLeft aria-hidden="true" size={16} />
-                Return home
+              <Link href="/" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-signal px-7 font-bold text-ink transition-colors hover:bg-ink hover:text-white">
+                <ArrowLeft aria-hidden="true" size={18} /> Back to the homepage
               </Link>
-              <SectionLink
-                href="/insights"
-                className="inline-flex min-h-14 items-center justify-center gap-3 border border-white/20 px-7 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:border-gold hover:text-gold"
-              >
-                Browse insights
-                <ArrowRight aria-hidden="true" size={16} />
-              </SectionLink>
+              <Link href="/pricing" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border-2 border-ink px-7 font-bold text-ink transition-colors hover:bg-ink hover:text-white">
+                See prices <ArrowRight aria-hidden="true" size={18} />
+              </Link>
             </div>
           </div>
         </div>

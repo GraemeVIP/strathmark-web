@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/site";
 import { ContactSuccessClient } from "./ContactSuccessClient";
 
 export const metadata: Metadata = {
-  title: "Application Received | Strathmark Consulting",
+  title: "Enquiry received | Strathmark",
   description: "Confirmation page for submitted enquiry forms.",
   robots: {
     index: false,

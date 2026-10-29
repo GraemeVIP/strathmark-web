@@ -28,19 +28,13 @@ const WEB3FORMS_ACCESS_KEY = "7673741a-3e33-4912-96b3-bd1a31729185";
 const WEB3FORMS_FROM_NAME = "Strathmark Consulting";
 
 const SERVICE_OPTIONS = [
-  { label: "Digital Growth Review", value: "digital-growth-review" },
-  { label: "Digital Performance Review", value: "digital-performance" },
-  { label: "Website Design and Development", value: "website-design" },
-  { label: "Brand Strategy and Identity", value: "branding" },
-  { label: "SEO and Content", value: "seo-content" },
-  { label: "Google Ads Management", value: "google-ads" },
-  { label: "Meta Ads Management", value: "meta-ads" },
-  { label: "Paid Media Strategy", value: "paid-media" },
-  { label: "Marketing Agency Audit", value: "agency-audit" },
-  { label: "AI Consulting and Implementation", value: "ai-consulting" },
-  { label: "AI Strategy Consulting", value: "ai-strategy" },
-  { label: "Workflow Automation", value: "workflow-automation" },
-  { label: "I am not sure yet", value: "unsure" },
+  { label: "Free growth review", value: "growth-review" },
+  { label: "New website", value: "website" },
+  { label: "SEO", value: "seo" },
+  { label: "Google Ads", value: "google-ads" },
+  { label: "Website plus SEO and Google Ads", value: "growth-plan" },
+  { label: "Car leasing or automotive marketing", value: "automotive" },
+  { label: "I'm not sure yet", value: "unsure" },
 ] as const;
 
 const SERVICE_VALUES = new Set<string>(SERVICE_OPTIONS.map((option) => option.value));
@@ -89,7 +83,7 @@ const contactSchema = z.object({
     .refine(isValidWebsite, "Please enter a valid website address")
     .transform(normalizeWebsiteInput),
   country: optionalString,
-  companySize: optionalString,
+  turnover: optionalString,
   industry: optionalString,
   challenge: optionalString,
   timeline: optionalString,
@@ -220,7 +214,7 @@ export function Contact() {
         result.data.website ? `Website: ${result.data.website}` : null,
         result.data.country ? `Country: ${result.data.country}` : null,
         `Looking for: ${result.data.serviceType}`,
-        result.data.companySize ? `Company size: ${result.data.companySize}` : null,
+        result.data.turnover ? `Annual turnover: ${result.data.turnover}` : null,
         result.data.industry ? `Industry: ${result.data.industry}` : null,
         result.data.challenge ? `Primary challenge: ${result.data.challenge}` : null,
         result.data.timeline ? `Timeline: ${result.data.timeline}` : null,
@@ -254,7 +248,8 @@ export function Contact() {
         window.gtag?.("event", "generate_lead", {
           form_id: "contact",
           serviceType: result.data.serviceType,
-          companySize: result.data.companySize || "not-provided",
+          // Key kept as companySize so the existing GA4 lead event is unchanged; it now carries the turnover band.
+          companySize: result.data.turnover || "not-provided",
           industry: result.data.industry || "not-provided",
           challenge: result.data.challenge || "not-provided",
           timeline: result.data.timeline || "not-provided",
@@ -276,7 +271,7 @@ export function Contact() {
       <section className="w-full bg-ivory py-20 text-ink md:py-28" id="contact">
         <div className="section-shell">
           <div role="status" aria-live="polite" className="mx-auto flex max-w-3xl flex-col items-center border border-ink/15 bg-white p-8 text-center shadow-[0_30px_80px_rgba(11,22,36,0.1)] md:p-14">
-            <span className="grid h-16 w-16 place-items-center bg-[#74521f]/10 text-[#74521f]">
+            <span className="grid h-16 w-16 place-items-center bg-[#b8441a]/10 text-[#b8441a]">
               <CheckCircle2 aria-hidden="true" size={32} />
             </span>
             <h2 className="mt-7 text-4xl font-semibold">Your enquiry is in.</h2>
@@ -290,7 +285,7 @@ export function Contact() {
                 setStep(1);
                 setIsSuccess(false);
               }}
-              className="mt-7 min-h-11 text-[15px] font-bold uppercase tracking-[0.1em] text-[#74521f] transition-colors hover:text-ink"
+              className="mt-7 min-h-11 text-[15px] font-bold uppercase tracking-[0.1em] text-[#b8441a] transition-colors hover:text-ink"
             >
               Submit another enquiry
             </button>
@@ -301,32 +296,31 @@ export function Contact() {
   }
 
   return (
-    <section className="relative w-full overflow-hidden bg-ivory py-20 text-ink md:py-28" id="contact">
-      <div className="editorial-grid-dark absolute inset-0 opacity-35" aria-hidden="true" />
+    <section className="relative w-full overflow-hidden bg-mist py-20 text-ink md:py-28" id="contact">
       <div className="section-shell relative grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
-          <p className="section-kicker !text-[#74521f]">Start with the real problem</p>
-          <h2 className="mt-6 text-[clamp(2.7rem,5vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
-            Tell me what needs to work better.
+          <p className="eyebrow">Free growth review</p>
+          <h2 className="section-title mt-5">
+            Tell me what you need.
           </h2>
           <p className="mt-6 text-base leading-8 text-slate-700">
-            Share the last concrete example of weak enquiries, wasted spend, a difficult customer journey or repeated work. Every enquiry is reviewed personally.
+            Book a free growth review or ask for a quote. I read every enquiry myself and reply within two working days.
           </p>
 
           <dl className="mt-9 border-t border-ink/15">
             {[
-              ["01", "You share the situation"],
-              ["02", "I assess the likely next move"],
-              ["03", "You receive a direct reply within two business days"],
+              ["01", "You tell me about your business"],
+              ["02", "I look at your website and your market"],
+              ["03", "You get a straight answer within two working days"],
             ].map(([number, label]) => (
               <div key={number} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-ink/15 py-4">
-                <dt className="font-mono text-[15px] font-semibold text-[#74521f]">{number}</dt>
+                <dt className="font-mono text-[15px] font-semibold text-[#b8441a]">{number}</dt>
                 <dd className="text-base font-semibold leading-6">{label}</dd>
               </div>
             ))}
           </dl>
           <p className="mt-6 text-[15px] leading-7 text-slate-600">
-            No sales trap. No obligation to buy a larger project. If another route is more sensible, I will say so.
+            No hard sell. If I’m not the right fit, I’ll tell you and point you somewhere better.
           </p>
         </div>
 
@@ -339,19 +333,19 @@ export function Contact() {
             advanceToDetails(event.currentTarget);
           }}
           noValidate
-          className="border border-white/10 bg-strath-navy p-6 text-white shadow-[0_35px_90px_rgba(11,22,36,0.18)] md:p-10 lg:col-span-8"
+          className="rounded-[1.5rem] bg-ink p-6 text-white shadow-[0_35px_90px_rgba(13,19,33,0.22)] md:p-10 lg:col-span-8"
         >
           <input type="text" name="honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
 
           <div className="mb-8 flex items-center gap-3" aria-label={`Step ${step} of 2`}>
             {[1, 2].map((item) => (
-              <span key={item} className={clsx("h-1 flex-1 transition-colors", item <= step ? "bg-gold" : "bg-white/10")} />
+              <span key={item} className={clsx("h-1.5 flex-1 rounded-full transition-colors", item <= step ? "bg-gold" : "bg-white/10")} />
             ))}
           </div>
 
           <div hidden={step !== 1}>
-            <h3 ref={firstStepHeadingRef} tabIndex={-1} className="text-3xl font-semibold text-white">The useful minimum</h3>
-            <p className="mt-3 text-[15px] leading-7 text-slate-300">Four fields. Enough context for a relevant first response.</p>
+            <h3 ref={firstStepHeadingRef} tabIndex={-1} className="text-3xl font-semibold text-white">The basics</h3>
+            <p className="mt-3 text-[15px] leading-7 text-slate-300">Four quick fields. Takes a minute.</p>
 
             <div className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
@@ -360,45 +354,46 @@ export function Contact() {
               </div>
               <InputField label="Company" name="company" placeholder="Company name" autoComplete="organization" error={errors.company} required />
               <TextAreaField
-                label="What happened the last time this issue cost you enquiries, time or budget?"
+                label="What do you need help with?"
                 name="message"
-                placeholder="A concrete example is more useful than a polished brief."
+                placeholder="For example: a new website, more enquiries from Google, or Google Ads that aren't paying off."
                 error={errors.message}
                 required
               />
             </div>
 
-            <button type="button" onClick={() => formRef.current && advanceToDetails(formRef.current)} className="mt-8 inline-flex min-h-14 w-full items-center justify-center bg-gold px-7 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white sm:w-auto">
-              Add a little context
+            <button type="button" onClick={() => formRef.current && advanceToDetails(formRef.current)} className="mt-8 inline-flex min-h-14 w-full items-center justify-center rounded-full bg-gold px-7 text-base font-bold text-ink transition-colors hover:bg-white sm:w-auto">
+              Next
             </button>
           </div>
 
           <div hidden={step !== 2}>
-            <h3 ref={secondStepHeadingRef} tabIndex={-1} className="text-3xl font-semibold text-white">Help me route it well</h3>
-            <p className="mt-3 text-[15px] leading-7 text-slate-300">Only the service choice is required here. The remaining fields help make the response more useful.</p>
+            <h3 ref={secondStepHeadingRef} tabIndex={-1} className="text-3xl font-semibold text-white">A little more detail</h3>
+            <p className="mt-3 text-[15px] leading-7 text-slate-300">Only the first question is needed. The rest helps me reply properly.</p>
 
             <div className="mt-8 space-y-6">
-              <SelectField label="Closest service" name="serviceType" options={[...SERVICE_OPTIONS]} defaultValue="digital-growth-review" error={errors.serviceType} required />
+              <SelectField label="What are you after?" name="serviceType" options={[...SERVICE_OPTIONS]} defaultValue="growth-review" error={errors.serviceType} required />
               <div className="grid gap-6 md:grid-cols-2">
                 <SelectField
-                  label="Company size (optional)"
-                  name="companySize"
+                  label="Annual turnover (optional)"
+                  name="turnover"
                   options={[
-                    { label: "1–9 people", value: "1-9" },
-                    { label: "10–49 people", value: "10-49" },
-                    { label: "50–250 people", value: "50-250" },
-                    { label: "251–500 people", value: "251-500" },
-                    { label: "500+ people", value: "500-plus" },
+                    { label: "Under £250k", value: "under-250k" },
+                    { label: "£250k to £500k", value: "250k-500k" },
+                    { label: "£500k to £1m", value: "500k-1m" },
+                    { label: "£1m to £5m", value: "1m-5m" },
+                    { label: "Over £5m", value: "over-5m" },
                   ]}
                 />
                 <SelectField
                   label="Industry (optional)"
                   name="industry"
                   options={[
+                    { label: "Car leasing or automotive", value: "automotive" },
                     { label: "Professional services", value: "professional-services" },
                     { label: "Technology", value: "technology" },
                     { label: "Manufacturing or engineering", value: "manufacturing-engineering" },
-                    { label: "E-commerce or retail", value: "ecommerce-retail" },
+                    { label: "Ecommerce or retail", value: "ecommerce-retail" },
                     { label: "Hospitality or leisure", value: "hospitality-leisure" },
                     { label: "Health or aesthetics", value: "health-aesthetics" },
                     { label: "Property or construction", value: "property-construction" },
@@ -410,16 +405,14 @@ export function Contact() {
               </div>
               <div className="grid gap-6 md:grid-cols-2">
                 <SelectField
-                  label="Primary constraint (optional)"
+                  label="Biggest problem right now (optional)"
                   name="challenge"
                   options={[
-                    { label: "Repeated work or slow workflow", value: "repeated-work" },
-                    { label: "Knowledge trapped in people or files", value: "knowledge-reuse" },
-                    { label: "Unclear AI opportunity or risk", value: "ai-opportunity" },
-                    { label: "Website or conversion problem", value: "website-conversion" },
-                    { label: "Positioning or brand problem", value: "positioning-brand" },
-                    { label: "SEO or demand problem", value: "seo-demand" },
-                    { label: "Google Ads, Meta Ads or agency accountability", value: "paid-agency" },
+                    { label: "Not enough enquiries", value: "not-enough-enquiries" },
+                    { label: "Website looks dated or doesn't convert", value: "website-conversion" },
+                    { label: "Not showing up on Google", value: "seo-visibility" },
+                    { label: "Google Ads costing too much", value: "google-ads-cost" },
+                    { label: "Current agency not delivering", value: "agency" },
                     { label: "Not sure yet", value: "unsure" },
                   ]}
                 />
@@ -427,7 +420,7 @@ export function Contact() {
                   label="Timing (optional)"
                   name="timeline"
                   options={[
-                    { label: "As soon as there is a sound route", value: "immediate" },
+                    { label: "As soon as possible", value: "immediate" },
                     { label: "Within 1–3 months", value: "1-3-months" },
                     { label: "Within 3–6 months", value: "3-6-months" },
                     { label: "Exploring for later", value: "later" },
@@ -436,7 +429,7 @@ export function Contact() {
               </div>
               <div className="grid gap-6 md:grid-cols-2">
                 <InputField label="Website (optional)" name="website" placeholder="company.com" autoComplete="url" error={errors.website} />
-                <InputField label="Country (optional)" name="country" placeholder="United States, United Kingdom…" autoComplete="country-name" error={errors.country} />
+                <InputField label="Town or city (optional)" name="country" placeholder="Edinburgh, Glasgow, Leeds…" autoComplete="country-name" error={errors.country} />
               </div>
               <InputField label="How did you hear about Strathmark? (optional)" name="heardFrom" placeholder="Search, referral, LinkedIn…" autoComplete="off" error={errors.heardFrom} />
             </div>
@@ -448,8 +441,8 @@ export function Contact() {
             ) : null}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <button type="submit" disabled={isSubmitting} className="inline-flex min-h-14 items-center justify-center gap-3 bg-gold px-7 text-[15px] font-bold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-white disabled:cursor-wait disabled:opacity-70">
-                {isSubmitting ? <><Loader2 aria-hidden="true" size={17} className="animate-spin" /> Sending enquiry</> : "Send the enquiry"}
+              <button type="submit" disabled={isSubmitting} className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-gold px-7 text-base font-bold text-ink transition-colors hover:bg-white disabled:cursor-wait disabled:opacity-70">
+                {isSubmitting ? <><Loader2 aria-hidden="true" size={17} className="animate-spin" /> Sending enquiry</> : "Send enquiry"}
               </button>
               <button
                 type="button"
@@ -562,7 +555,7 @@ function SelectField({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={clsx(
-          "min-h-14 w-full border bg-[#102237] px-4 text-base text-white outline-none transition-colors focus:border-gold",
+          "min-h-14 w-full border bg-[#16213a] px-4 text-base text-white outline-none transition-colors focus:border-gold",
           error ? "border-red-400" : "border-white/20"
         )}
       >
