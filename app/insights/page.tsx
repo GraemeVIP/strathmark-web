@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { notes } from "@/lib/notes-data";
 import { formatDateOnly, getDateOnlyTime } from "@/lib/date-format";
 import { Footer } from "@/app/components/sections/Footer";
@@ -9,19 +9,21 @@ import { Navigation } from "@/app/components/Navigation";
 import { SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 import { InsightsFilter, type InsightsFilterNote } from "./InsightsFilter";
 
+const DESCRIPTION = "Straight talk on SEO, Google Ads, websites and agencies, written for business owners who care about sales, not traffic.";
+
 export const metadata: Metadata = {
-  title: "AI and Digital Marketing Insights | Strathmark",
-  description: "Practical insights on AI adoption, SEO, paid media, websites, agency management and commercial measurement for business leaders.",
+  title: "Insights on SEO, Google Ads and Agencies | Strathmark",
+  description: DESCRIPTION,
   openGraph: {
-    title: "AI and Digital Marketing Insights | Strathmark",
-    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
+    title: "Insights on SEO, Google Ads and Agencies | Strathmark",
+    description: DESCRIPTION,
     url: `${SITE_URL}/insights`,
     images: [SHARE_IMAGE_PATH],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI and Digital Marketing Insights | Strathmark",
-    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
+    title: "Insights on SEO, Google Ads and Agencies | Strathmark",
+    description: DESCRIPTION,
     images: [SHARE_IMAGE_PATH],
   },
   alternates: {
@@ -29,40 +31,21 @@ export const metadata: Metadata = {
   },
 };
 
-function formatDate(dateStr: string) {
-  return formatDateOnly(dateStr);
-}
-
 const categories = Array.from(new Set(notes.map((n) => n.category)));
-const sortedNotes = [...notes].sort(
-  (a, b) => getDateOnlyTime(b.date) - getDateOnlyTime(a.date)
-);
+const sortedNotes = [...notes].sort((a, b) => getDateOnlyTime(b.date) - getDateOnlyTime(a.date));
 const featured = sortedNotes[0];
-const rest = sortedNotes.slice(1);
-const restSummaries: InsightsFilterNote[] = rest.map(
-  ({ slug, category, title, excerpt, date, readingTime, shareImage }) => ({
-    slug,
-    category,
-    title,
-    excerpt,
-    date,
-    readingTime,
-    shareImage,
-  })
+const restSummaries: InsightsFilterNote[] = sortedNotes.slice(1).map(
+  ({ slug, category, title, excerpt, date, readingTime, shareImage }) => ({ slug, category, title, excerpt, date, readingTime, shareImage })
 );
 
 export default function InsightsIndex() {
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Strathmark AI and Digital Marketing Insights",
-    description: "Practical analysis on AI adoption, SEO, paid media, websites, agencies and commercial measurement.",
+    name: "Strathmark Insights",
+    description: DESCRIPTION,
     url: `${SITE_URL}/insights`,
-    isPartOf: {
-      "@type": "WebSite",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
     mainEntity: {
       "@type": "ItemList",
       itemListElement: sortedNotes.map((note, index) => ({
@@ -75,72 +58,65 @@ export default function InsightsIndex() {
   };
 
   return (
-    <main className="min-h-screen bg-strath-navy text-slate-200 selection:bg-gold selection:text-strath-navy flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
-      />
+    <main className="min-h-screen bg-paper text-ink">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       <Navigation />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 px-6 border-b border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">AI, SEO and Digital Marketing Insights</h1>
-          <p className="text-xl text-slate-400 max-w-2xl font-light">
-            Practical analysis on AI adoption, websites, SEO, paid media, agency management and commercial measurement for leaders who care about outcomes, not activity.
+      <header className="relative isolate overflow-hidden pb-12 pt-32 md:pb-16 md:pt-40">
+        <div className="road-lines absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="section-shell">
+          <p className="eyebrow">Insights</p>
+          <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.6rem,6vw,5rem)] font-extrabold leading-[0.97] tracking-[-0.02em] [font-stretch:112%]">
+            Straight talk on SEO, Google Ads and agencies.
+          </h1>
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-2 md:text-xl md:leading-9">
+            Written for business owners, not marketers. What I check first, where the money usually leaks, and the questions worth asking anyone who handles your marketing.
           </p>
         </div>
-      </section>
+      </header>
 
-      {/* Featured Article */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-8 w-full">
-        <h2 className="sr-only">Featured Article</h2>
-        <Link href={`/insights/${featured.slug}`} className="group block">
-          <article className="relative grid overflow-hidden border border-white/10 bg-white/[0.025] transition-all duration-300 hover:border-gold/45 md:grid-cols-12">
-            <div className="relative min-h-[22rem] overflow-hidden bg-[#16213a] md:col-span-5 md:min-h-full">
+      <section className="pb-10">
+        <div className="section-shell">
+          <h2 className="sr-only">Latest article</h2>
+          <Link
+            href={`/insights/${featured.slug}`}
+            className="group grid overflow-hidden rounded-[1.5rem] border border-line bg-white transition-shadow hover:shadow-[0_30px_70px_rgba(13,19,33,0.12)] md:grid-cols-12"
+          >
+            <div className="relative min-h-[16rem] overflow-hidden bg-ink md:col-span-5 md:min-h-full">
               <Image
-                src={featured.shareImage ?? "/share-image.png"}
-                alt={`${featured.title} — Strathmark editorial illustration`}
+                src={featured.shareImage ?? SHARE_IMAGE_PATH}
+                alt=""
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 42vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-strath-navy/55 via-transparent to-transparent" aria-hidden="true" />
-              <span className="absolute left-6 top-6 bg-gold px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-ink">
-                Latest intelligence
+              <span className="absolute left-5 top-5 rounded-full bg-signal px-3 py-1 font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-ink">
+                Latest
               </span>
             </div>
-
-            <div className="relative flex flex-col p-8 md:col-span-7 md:p-12 lg:p-14">
-              <div className="absolute left-0 top-0 h-full w-1 bg-gold" aria-hidden="true" />
-              <div className="mb-7 flex flex-wrap items-center gap-4">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">{featured.category}</span>
-                <span className="flex items-center gap-1.5 text-xs text-slate-500">
-                  <Calendar aria-hidden="true" size={12} /> {formatDate(featured.date)}
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-slate-500">
-                  <Clock aria-hidden="true" size={12} /> {featured.readingTime}
-                </span>
-              </div>
-              <h3 className="max-w-3xl text-3xl font-semibold leading-tight text-white transition-colors group-hover:text-gold md:text-4xl">
+            <div className="flex flex-col p-7 md:col-span-7 md:p-10">
+              <p className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[13px] text-ink-3">
+                <span className="font-semibold uppercase tracking-[0.12em] text-signal-ink">{featured.category}</span>
+                <span>{formatDateOnly(featured.date)}</span>
+                <span className="flex items-center gap-1.5"><Clock aria-hidden="true" size={13} />{featured.readingTime}</span>
+              </p>
+              <h3 className="mt-4 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold leading-[1.05] [font-stretch:108%] group-hover:text-signal-ink">
                 {featured.title}
               </h3>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
-                {featured.excerpt}
-              </p>
-              <div className="mt-auto flex items-center gap-3 pt-8 text-sm font-bold uppercase tracking-[0.13em] text-gold">
-                Read full article
-                <ArrowRight aria-hidden="true" size={16} className="transition-transform group-hover:translate-x-1" />
-              </div>
+              <p className="mt-4 text-lg leading-8 text-ink-2">{featured.excerpt}</p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-8 font-bold">
+                Read it <ArrowRight aria-hidden="true" size={18} className="transition-transform group-hover:translate-x-1" />
+              </span>
             </div>
-          </article>
-        </Link>
+          </Link>
+        </div>
       </section>
 
-      {/* Category Filter + Articles Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-8 w-full flex-1">
-        <InsightsFilter categories={categories} notes={restSummaries} />
+      <section className="pb-20 md:pb-28">
+        <div className="section-shell">
+          <InsightsFilter categories={categories} notes={restSummaries} />
+        </div>
       </section>
 
       <Footer />

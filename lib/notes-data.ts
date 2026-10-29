@@ -11,7 +11,7 @@ export interface Note {
   content: string;
 }
 
-const NOTE_AUTHOR = "Strathmark Consulting";
+const NOTE_AUTHOR = "Graeme";
 
 export const notes: Note[] = [
   {

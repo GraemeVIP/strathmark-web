@@ -3,13 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
+import { clsx } from "clsx";
 import type { Note } from "@/lib/notes-data";
 import { formatDateOnly } from "@/lib/date-format";
-
-function formatDate(dateStr: string) {
-  return formatDateOnly(dateStr);
-}
 
 export type InsightsFilterNote = Pick<
   Note,
@@ -23,84 +20,55 @@ interface InsightsFilterProps {
 
 export function InsightsFilter({ categories, notes }: InsightsFilterProps) {
   const [active, setActive] = useState<string | null>(null);
-
   const filtered = active ? notes.filter((n) => n.category === active) : notes;
+  const chip = (selected: boolean) =>
+    clsx(
+      "min-h-11 rounded-full border px-4 text-sm font-semibold transition-colors",
+      selected ? "border-ink bg-ink text-white" : "border-line bg-white text-ink-2 hover:border-ink hover:text-ink"
+    );
 
   return (
     <>
-      {/* Category Filter */}
-      <div className="flex flex-wrap gap-3 mb-12">
-        <button
-          type="button"
-          onClick={() => setActive(null)}
-          aria-pressed={active === null}
-          className={`min-h-11 px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
-            active === null
-              ? "bg-gold text-strath-navy border-gold"
-              : "bg-transparent text-slate-400 border-white/10 hover:border-gold/40 hover:text-white"
-          }`}
-        >
+      <div className="mb-10 flex flex-wrap gap-2.5" role="group" aria-label="Filter by topic">
+        <button type="button" onClick={() => setActive(null)} aria-pressed={active === null} className={chip(active === null)}>
           All
         </button>
         {categories.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setActive(cat)}
-            aria-pressed={active === cat}
-            className={`min-h-11 px-4 py-2 text-xs font-mono uppercase tracking-widest border transition-all duration-200 ${
-              active === cat
-                ? "bg-gold text-strath-navy border-gold"
-                : "bg-transparent text-slate-400 border-white/10 hover:border-gold/40 hover:text-white"
-            }`}
-          >
+          <button key={cat} type="button" onClick={() => setActive(cat)} aria-pressed={active === cat} className={chip(active === cat)}>
             {cat}
           </button>
         ))}
       </div>
 
-      {/* Articles Grid */}
-      <h2 className="sr-only">All Articles</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <h2 className="sr-only">All articles</h2>
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((note) => (
-          <Link href={`/insights/${note.slug}`} key={note.slug} className="block group h-full">
-            <article className="flex h-full flex-col overflow-hidden border border-white/10 bg-white/[0.025] transition-all duration-300 hover:-translate-y-1 hover:border-gold/45 hover:shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#16213a]">
-                <Image
-                  src={note.shareImage ?? "/share-image.png"}
-                  alt={`${note.title} — Strathmark editorial illustration`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-strath-navy/70 via-transparent to-transparent" aria-hidden="true" />
-                <span className="absolute bottom-5 left-5 border border-white/15 bg-strath-navy/85 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-gold backdrop-blur-sm">
-                  {note.category}
-                </span>
+          <Link
+            href={`/insights/${note.slug}`}
+            key={note.slug}
+            className="group flex flex-col overflow-hidden rounded-[1.25rem] border border-line bg-white transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(13,19,33,0.10)]"
+          >
+            <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+              <Image
+                src={note.shareImage ?? "/share-image.png"}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <span className="absolute bottom-4 left-4 rounded-full bg-signal px-3 py-1 font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-ink">
+                {note.category}
+              </span>
+            </div>
+            <div className="flex flex-1 flex-col p-6 md:p-7">
+              <h3 className="font-display text-[1.4rem] font-bold leading-tight [font-stretch:106%] group-hover:text-signal-ink">{note.title}</h3>
+              <p className="mt-3 line-clamp-3 flex-1 text-base leading-7 text-ink-2">{note.excerpt}</p>
+              <div className="mt-6 flex items-center justify-between gap-4 border-t border-line pt-5 font-mono text-[13px] text-ink-3">
+                <span>{formatDateOnly(note.date)}</span>
+                <span className="flex items-center gap-1.5"><Clock aria-hidden="true" size={13} />{note.readingTime}</span>
+                <ArrowRight aria-hidden="true" size={16} className="shrink-0 text-ink transition-transform group-hover:translate-x-1" />
               </div>
-
-              <div className="flex flex-1 flex-col p-7">
-                <h3 className="text-2xl font-semibold leading-tight text-white transition-colors group-hover:text-gold">
-                  {note.title}
-                </h3>
-
-                <p className="mt-4 line-clamp-3 flex-1 text-sm leading-7 text-slate-400">
-                  {note.excerpt}
-                </p>
-
-                <div className="mt-7 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
-                  <div className="flex flex-wrap items-center gap-4">
-                    <span className="flex items-center gap-1.5 text-xs text-slate-500">
-                      <Calendar aria-hidden="true" size={12} /> {formatDate(note.date)}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-xs text-slate-500">
-                      <Clock aria-hidden="true" size={12} /> {note.readingTime}
-                    </span>
-                  </div>
-                  <ArrowRight aria-hidden="true" size={16} className="shrink-0 text-gold transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
-            </article>
+            </div>
           </Link>
         ))}
       </div>

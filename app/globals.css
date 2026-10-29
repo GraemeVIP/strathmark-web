@@ -228,7 +228,7 @@ summary::-webkit-details-marker {
 }
 
 .strath-article {
-  color: #475569;
+  color: var(--color-ink-2);
   font-size: 1.125rem;
   line-height: 1.9;
 }
@@ -253,10 +253,11 @@ summary::-webkit-details-marker {
   margin-top: 4.5rem;
   margin-bottom: 1.5rem;
   color: var(--color-ink);
-  font-size: clamp(2.1rem, 4vw, 3.25rem);
-  font-weight: 650;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+  font-stretch: 108%;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
 
 .strath-article h2::before {
@@ -272,17 +273,19 @@ summary::-webkit-details-marker {
   margin-top: 3rem;
   margin-bottom: 1rem;
   color: var(--color-ink);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 650;
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  font-weight: 700;
+  font-stretch: 106%;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .strath-article ul,
 .strath-article ol {
   margin-block: 2rem;
-  border-left: 3px solid var(--color-gold);
-  background: rgba(255,106,43, 0.1);
+  border-left: 3px solid var(--color-signal);
+  border-radius: 0 1rem 1rem 0;
+  background: var(--color-paper);
   padding: 1.5rem 1.5rem 1.5rem 3.25rem;
 }
 
@@ -302,14 +305,15 @@ summary::-webkit-details-marker {
 }
 
 .strath-article em {
-  color: #334155;
+  color: var(--color-ink);
 }
 
 .strath-article a {
-  color: #b8441a;
+  color: var(--color-ink);
   font-weight: 650;
   text-decoration: underline;
-  text-decoration-color: rgba(116, 82, 31, 0.35);
+  text-decoration-color: var(--color-signal);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 

@@ -30,7 +30,7 @@ export function About({ showLink = true }: { showLink?: boolean }) {
           <h2 className="section-title mt-5">Hi, I’m Graeme.</h2>
           <div className="mt-7 grid gap-5 text-lg leading-8 text-ink-2">
             <p>
-              I’ve spent 15 years getting businesses found on Google and turning that attention into sales. I’ve worked on everything from a glamping site in Inverness to a national car leasing company, and the job is always the same: get in front of people who are ready to buy, then make it easy for them to get in touch.
+              I’ve spent 15 years getting businesses found on Google and turning that attention into sales. I’ve worked with everything from small local firms to a national car leasing company, and the job is always the same: get in front of people who are ready to buy, then make it easy for them to get in touch.
             </p>
             <p>
               Strathmark is just me. That’s the point. The person who builds your website is the person who runs your SEO and your ads, so nothing gets lost between departments and nobody hides behind a dashboard. If something isn’t working, I’ll tell you, and if I’m not the right fit, I’ll say so.

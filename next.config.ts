@@ -12,6 +12,13 @@ const RETIRED_PAGES: [source: string, destination: string][] = [
   ["/ai-strategy-consulting", "/seo-services"],
   ["/workflow-automation", "/services"],
   ["/briefings/industrial-ai-systems-integrator", "/"],
+  // Case studies held back until Graeme confirms them (see lib/case-studies-data.ts).
+  ["/case-studies/axa-insurance-uk", "/case-studies"],
+  ["/case-studies/first-central-insurance", "/case-studies"],
+  ["/case-studies/thorntons-law-llp-scotland", "/case-studies"],
+  ["/case-studies/scottishpower", "/case-studies"],
+  ["/case-studies/inverness-glamping-pods", "/case-studies"],
+  ["/case-studies/edinburgh-ratho-climbing", "/case-studies"],
 ];
 
 const nextConfig: NextConfig = {
