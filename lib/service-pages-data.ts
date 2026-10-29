@@ -269,7 +269,7 @@ export const servicePages = [
     eyebrow: "Web design Edinburgh",
     title: "Web Design Edinburgh | Websites That Win Enquiries | Strathmark",
     description:
-      "Edinburgh web designer building fast, properly made websites for local businesses, with SEO and tracking built in. Fixed prices from £3,500. Meet in person or online.",
+      "Edinburgh web designer building fast, properly made websites for established businesses, with SEO and revenue tracking built in. Fixed prices from £3,500. Meet in person or online.",
     h1: "Web design in Edinburgh, built to win enquiries",
     intro:
       "I'm an Edinburgh web designer who also does the marketing. That means your new site isn't just nice to look at. It's written for the people searching for you, set up to show on Google Maps and local searches, and tracked so you know what it brings in.",
@@ -296,18 +296,18 @@ export const servicePages = [
       { title: "Launch and look after", copy: "Redirects, tracking and a check on results after the first month." },
     ],
     fit: [
-      "Edinburgh and Lothians businesses that win most of their work locally",
-      "Trades, clinics, hospitality and professional services",
-      "Owners who want a website that pays for itself",
+      "Established Edinburgh and Lothians businesses, usually turning over £500k or more",
+      "Professional services, private clinics, property and high value home improvement",
+      "Owners who want a website that pays for itself, and want to see the numbers"
     ],
     notFit: [
-      "Projects needing a large online shop",
+      "Sole traders and small trades businesses. A simple, low cost site is the better fit, and I can point you to one",
       "Anyone looking for the cheapest site in the city",
       "Businesses that don't want to be involved in the words on their own site",
     ],
     faqs: [
       { question: "Can we meet in person?", answer: "Yes. I'm based in Edinburgh and happy to meet locally, or we can do everything online if that's easier." },
-      { question: "How much does a website cost in Edinburgh?", answer: "Most local business sites I build cost between £3,500 and £8,000, depending on the number of pages and features. You get a fixed price before anything starts." },
+      { question: "How much does a website cost in Edinburgh?", answer: "Most sites I build for established Edinburgh businesses cost between £3,500 and £8,000, depending on the number of pages and features. You get a fixed price before anything starts." },
       { question: "Will my site show up on Google Maps?", answer: "Your Google Business Profile is what shows on Maps. I'll set it up or tidy it and link it properly to your new site, which helps you show for local searches." },
       { question: "Do you only work in Edinburgh?", answer: "No. I work across Scotland and the UK, but Edinburgh businesses can meet me in person." },
     ],
@@ -323,10 +323,10 @@ export const servicePages = [
     eyebrow: "SEO Edinburgh",
     title: "SEO Edinburgh | Local SEO That Brings In Work | Strathmark",
     description:
-      "Edinburgh SEO consultant helping local businesses show up on Google Maps, local searches and AI tools. Honest monthly reporting on enquiries. From £850 a month.",
+      "Edinburgh SEO consultant helping established businesses show up on Google Maps, local searches and AI tools. Monthly reporting on revenue, not traffic. From £850 a month.",
     h1: "SEO in Edinburgh that brings in local work",
     intro:
-      "When someone in Edinburgh searches for what you do, you want to be in the map results and the top few links. I help local businesses get there with a properly set up Google Business Profile, pages for the areas you cover, reviews, and the technical fixes most sites are missing.",
+      "When someone in Edinburgh searches for what you do, you want to be in the map results and the top few links. I help established Edinburgh businesses get there with a properly set up Google Business Profile, pages for the areas you cover, reviews, and the technical fixes most sites are missing.",
     price: "from £850",
     priceNote: "a month, three month minimum",
     areaServed: "Edinburgh",
@@ -350,8 +350,8 @@ export const servicePages = [
       { title: "Report", copy: "Monthly enquiries from Google and what's next." },
     ],
     fit: [
-      "Edinburgh and Lothians businesses serving local customers",
-      "Trades, clinics, salons, restaurants and professional services",
+      "Established Edinburgh and Lothians businesses, usually turning over £500k or more",
+      "Professional services, private clinics, property and high value home improvement",
       "Owners willing to ask happy customers for reviews",
     ],
     notFit: [

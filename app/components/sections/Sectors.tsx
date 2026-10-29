@@ -31,7 +31,7 @@ export function Sectors() {
             <p className="mt-8 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-signal-ink">Local</p>
             <h3 className="mt-2 font-display text-[2rem] font-bold leading-tight text-ink [font-stretch:110%]">Edinburgh and Scotland</h3>
             <p className="mt-4 max-w-lg text-base leading-7 text-ink-2">
-              Trades, clinics, hospitality, professional services. Local businesses that need a website people trust and to show up when someone nearby searches.
+              Established firms with real turnover: professional services, private clinics, property and high value home improvement. Businesses where one new client is worth thousands.
             </p>
             <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-8">
               <Link href="/web-design-edinburgh" className="group inline-flex items-center gap-2 font-bold text-ink hover:text-signal-ink">

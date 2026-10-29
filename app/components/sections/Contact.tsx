@@ -83,7 +83,7 @@ const contactSchema = z.object({
     .refine(isValidWebsite, "Please enter a valid website address")
     .transform(normalizeWebsiteInput),
   country: optionalString,
-  companySize: optionalString,
+  turnover: optionalString,
   industry: optionalString,
   challenge: optionalString,
   timeline: optionalString,
@@ -214,7 +214,7 @@ export function Contact() {
         result.data.website ? `Website: ${result.data.website}` : null,
         result.data.country ? `Country: ${result.data.country}` : null,
         `Looking for: ${result.data.serviceType}`,
-        result.data.companySize ? `Company size: ${result.data.companySize}` : null,
+        result.data.turnover ? `Annual turnover: ${result.data.turnover}` : null,
         result.data.industry ? `Industry: ${result.data.industry}` : null,
         result.data.challenge ? `Primary challenge: ${result.data.challenge}` : null,
         result.data.timeline ? `Timeline: ${result.data.timeline}` : null,
@@ -248,7 +248,7 @@ export function Contact() {
         window.gtag?.("event", "generate_lead", {
           form_id: "contact",
           serviceType: result.data.serviceType,
-          companySize: result.data.companySize || "not-provided",
+          turnover: result.data.turnover || "not-provided",
           industry: result.data.industry || "not-provided",
           challenge: result.data.challenge || "not-provided",
           timeline: result.data.timeline || "not-provided",
@@ -374,14 +374,14 @@ export function Contact() {
               <SelectField label="What are you after?" name="serviceType" options={[...SERVICE_OPTIONS]} defaultValue="growth-review" error={errors.serviceType} required />
               <div className="grid gap-6 md:grid-cols-2">
                 <SelectField
-                  label="Company size (optional)"
-                  name="companySize"
+                  label="Annual turnover (optional)"
+                  name="turnover"
                   options={[
-                    { label: "1–9 people", value: "1-9" },
-                    { label: "10–49 people", value: "10-49" },
-                    { label: "50–250 people", value: "50-250" },
-                    { label: "251–500 people", value: "251-500" },
-                    { label: "500+ people", value: "500-plus" },
+                    { label: "Under £250k", value: "under-250k" },
+                    { label: "£250k to £500k", value: "250k-500k" },
+                    { label: "£500k to £1m", value: "500k-1m" },
+                    { label: "£1m to £5m", value: "1m-5m" },
+                    { label: "Over £5m", value: "over-5m" },
                   ]}
                 />
                 <SelectField
@@ -389,7 +389,6 @@ export function Contact() {
                   name="industry"
                   options={[
                     { label: "Car leasing or automotive", value: "automotive" },
-                    { label: "Trades or home services", value: "trades" },
                     { label: "Professional services", value: "professional-services" },
                     { label: "Technology", value: "technology" },
                     { label: "Manufacturing or engineering", value: "manufacturing-engineering" },

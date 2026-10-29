@@ -10,6 +10,10 @@ export const HOME_FAQS = [
     answer: "Because you can't judge marketing without them. I need to know what a customer is worth, your rough margin and how many enquiries turn into sales. That tells us what you can afford to pay for a lead, and whether the marketing is making you money or just keeping an agency busy. Anything you share stays private.",
   },
   {
+    question: "Who do you work with?",
+    answer: "Established businesses, usually turning over £500k or more, where a new customer is worth at least a few hundred pounds. Car leasing and automotive firms, professional services, private clinics, property and high value home improvement. If you're just starting out or need a simple site on a small budget, I'll point you to a cheaper option that suits you better.",
+  },
+  {
     question: "How much does a website cost?",
     answer: "Most of the sites I build for small and medium businesses cost between £3,500 and £8,000. The price depends on the number of pages, whether you need things like bookings or a shop, and how much writing is involved. You get a fixed quote before anything starts.",
   },
