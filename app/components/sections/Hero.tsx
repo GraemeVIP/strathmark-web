@@ -69,7 +69,7 @@ export function Hero() {
 
           <figure className="relative mt-4 rounded-2xl border border-line bg-white p-5 shadow-[0_24px_50px_rgba(13,19,33,0.16)] sm:absolute sm:-left-10 sm:top-8 sm:mt-0 sm:w-[15.5rem] lg:-left-16">
             <figcaption className="font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-ink-3">
-              First Vehicle Leasing
+              UK car leasing broker
             </figcaption>
             <p className="mt-1 text-sm text-ink-2">Sales a month, four months apart</p>
             <div className="mt-4 flex items-end gap-3" aria-hidden="true">

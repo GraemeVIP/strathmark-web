@@ -150,8 +150,8 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "organic-turnaround-uk-automotive",
-    client: "First Vehicle Leasing",
-    title: "First Vehicle Leasing",
+    client: "UK Car Leasing Broker",
+    title: "UK Car Leasing Broker",
     headline: "Reversing a prolonged organic decline by fixing the structural issues suppressing visibility, click growth, and commercial search performance.",
     industry: "Automotive",
     region: "United Kingdom",
@@ -159,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "Organic turnaround programme",
     featured: true,
     excerpt: "A UK automotive leasing case study showing how search performance recovered when structural blockers were resolved instead of masked with more activity.",
-    businessContext: "First Vehicle Leasing is a national vehicle-leasing brand operating in a highly competitive search environment where commercial visibility is heavily influenced by site structure, intent alignment, and page hierarchy.",
+    businessContext: "A national vehicle-leasing brand operating in a highly competitive search environment where commercial visibility is heavily influenced by site structure, intent alignment, and page hierarchy.",
     mandate: "Diagnose the causes of sustained organic underperformance and restore growth by correcting the structural, reporting, and prioritisation issues suppressing commercial search outcomes.",
     challenge: [
       "Organic performance had stagnated and then steadily declined despite brand awareness, active marketing investment, and a large commercial inventory.",

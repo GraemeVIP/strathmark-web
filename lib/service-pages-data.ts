@@ -38,7 +38,7 @@ export type ServicePageData = {
 
 const FVL_PROOF = {
   stat: "~300 → 1,000+",
-  label: "sales a month for First Vehicle Leasing, four months apart",
+  label: "sales a month for a UK car leasing broker, four months apart",
   href: "/case-studies/organic-turnaround-uk-automotive",
 } as const;
 
@@ -214,10 +214,10 @@ export const servicePages = [
     eyebrow: "Car leasing and automotive marketing",
     title: "Automotive SEO and Google Ads for Car Leasing | Strathmark",
     description:
-      "SEO and Google Ads for car leasing brokers, dealers and vehicle businesses. I helped First Vehicle Leasing go from around 300 to over 1,000 sales a month in four months.",
+      "SEO and Google Ads for car leasing brokers, dealers and vehicle businesses. I helped a national leasing broker go from around 300 to over 1,000 sales a month in four months.",
     h1: "SEO and Google Ads for car leasing and automotive",
     intro:
-      "Car leasing is one of the hardest markets on Google. You're up against comparison sites with huge budgets, on searches where a single deal can be worth thousands. I've done it before: I helped First Vehicle Leasing go from around 300 to over 1,000 sales a month in four months.",
+      "Car leasing is one of the hardest markets on Google. You're up against comparison sites with huge budgets, on searches where a single deal can be worth thousands. I've done it before: I helped a national leasing broker go from around 300 to over 1,000 sales a month in four months.",
     price: "from £1,250",
     priceNote: "a month for SEO and Google Ads together",
     areaServed: "United Kingdom",
@@ -252,13 +252,13 @@ export const servicePages = [
       "Anyone looking for the cheapest possible SEO",
     ],
     faqs: [
-      { question: "Have you worked in car leasing before?", answer: "Yes. I helped First Vehicle Leasing reverse a long organic decline. In four months they went from around 300 sales a month to over 1,000." },
+      { question: "Have you worked in car leasing before?", answer: "Yes. I helped a national car leasing broker reverse a long organic decline. In four months they went from around 300 sales a month to over 1,000." },
       { question: "Can a broker really compete with the big comparison sites?", answer: "Not on every search, and you don't need to. There are thousands of specific model, deal and budget searches where a well built broker site can win, and those buyers are often closer to ordering." },
       { question: "Do you work with dealers as well as brokers?", answer: "Yes. Dealer groups, independent dealers with national reach and other vehicle businesses all face the same problem: being found for the right searches at a sensible cost per lead." },
       { question: "Do you need access to our CRM?", answer: "It helps. Knowing which enquiries turned into deals lets me push budget and effort towards what actually makes money. A simple monthly export is enough to start." },
     ],
     related: [
-      { href: "/case-studies/organic-turnaround-uk-automotive", label: "The First Vehicle Leasing story" },
+      { href: "/case-studies/organic-turnaround-uk-automotive", label: "The car leasing case study" },
       { href: "/seo-services", label: "SEO for Google and AI" },
       { href: "/google-ads-management", label: "Google Ads management" },
     ],

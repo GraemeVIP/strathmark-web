@@ -15,7 +15,7 @@ export function FeaturedResult() {
       <div className="section-shell relative grid gap-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-5">
           <p className="eyebrow eyebrow-dark">Result · Car leasing</p>
-          <h2 className="section-title mt-5 text-white">First Vehicle Leasing tripled its sales in four months.</h2>
+          <h2 className="section-title mt-5 text-white">A national leasing broker tripled its sales in four months.</h2>
           <p className="mt-6 text-lg leading-8 text-white/75">
             Search traffic had been sliding for over a year. I found the structural problems holding the site back and fixed them. Clicks turned, and the sales followed.
           </p>
@@ -47,14 +47,14 @@ export function FeaturedResult() {
             </div>
             <Image
               src="/case-studies/organic-turnaround-gsc.png"
-              alt="Google Search Console for firstvehicleleasing.co.uk: 29.2K clicks and 24.5M impressions, with clicks climbing sharply from September 2025."
+              alt="Google Search Console for a UK car leasing broker: 29.2K clicks and 24.5M impressions, with clicks climbing sharply from September 2025."
               width={2276}
-              height={1366}
+              height={1254}
               sizes="(max-width: 1024px) 92vw, 720px"
               className="h-auto w-full"
             />
           </div>
-          <figcaption className="mt-3 text-sm text-white/60">The real Search Console account. The blue line is clicks from Google.</figcaption>
+          <figcaption className="mt-3 text-sm text-white/60">The client’s real Search Console account, with the site name removed. The blue line is clicks from Google.</figcaption>
         </figure>
       </div>
     </section>
