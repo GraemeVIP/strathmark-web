@@ -56,7 +56,7 @@ export function Footer() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.1fr_1.9fr] lg:gap-16">
           <div>
             <Link href="/" aria-label="Strathmark home" className="inline-flex min-h-11 items-center">
-              <Wordmark inverted />
+              <Wordmark inverted className="h-10 w-auto" />
             </Link>
             <p className="mt-6 max-w-sm text-base leading-7">
               Websites, SEO and Google Ads from Graeme. Based in Edinburgh, working across Scotland and the UK.

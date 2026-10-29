@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -22,24 +23,18 @@ const MOBILE_NAV_ID = "mobile-navigation";
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export function Wordmark({ inverted = false }: { inverted?: boolean }) {
+// The cut wordmark. Dark on light backgrounds, white (orange kept) on dark ones.
+export function Wordmark({ inverted = false, className = "h-8 w-auto md:h-9" }: { inverted?: boolean; className?: string }) {
   return (
-    <span className="flex items-center gap-2.5">
-      {/* The mark: a waymark diamond carrying a rising tick. Same drawing as public/logo-mark.svg. */}
-      <svg aria-hidden="true" viewBox="0 0 64 64" className="h-9 w-9 shrink-0">
-        <rect width="64" height="64" rx="14" fill={inverted ? "#1d2638" : "#0D1321"} />
-        <path d="M32 9 55 32 32 55 9 32Z" fill="#FF6A2B" />
-        <path d="M20.5 32.5 28.5 40.5 43.5 25.5" fill="none" stroke="#0D1321" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span
-        className={clsx(
-          "font-display text-[1.35rem] font-extrabold uppercase leading-none tracking-[0.02em] [font-stretch:125%]",
-          inverted ? "text-white" : "text-ink"
-        )}
-      >
-        Strathmark
-      </span>
-    </span>
+    <Image
+      src={inverted ? "/brand/strathmark-wordmark-white.png" : "/brand/strathmark-wordmark.png"}
+      alt="Strathmark"
+      width={1200}
+      height={318}
+      priority={!inverted}
+      sizes="160px"
+      className={className}
+    />
   );
 }
 
