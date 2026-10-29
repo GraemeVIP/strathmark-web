@@ -4,7 +4,7 @@ import { Archivo } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { CookieBanner } from "@/app/components/ui/CookieBanner";
-import { Analytics, CONSENT_DEFAULT_SCRIPT } from "@/app/components/ui/Analytics";
+import { Analytics } from "@/app/components/ui/Analytics";
 import { FirstPartyVisitorTracker } from "@/app/components/ui/FirstPartyVisitorTracker";
 import { ScrollBehaviorManager } from "@/app/components/ui/ScrollBehaviorManager";
 import { LOGO_PATH, SHARE_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -86,7 +86,6 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SCRIPT }} />
         <Analytics />
       </head>
       <body

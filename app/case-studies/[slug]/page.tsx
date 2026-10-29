@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const study = caseStudies.find((entry) => entry.slug === slug);
-  const title = study ? `${study.headline.replace(/\.$/, "")} | Strathmark` : "Case Study Not Found";
+  const title = study ? (study.anonymous ? `${study.headline.replace(/\.$/, "")} | Strathmark` : `${study.client} Case Study | Strathmark`) : "Case Study Not Found";
 
   return {
     title,
@@ -177,9 +177,11 @@ export default async function CaseStudyDetail({ params }: PageProps) {
                   </dd>
                 </div>
               </dl>
-              <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-ink-3">
-                Client name withheld. The screenshots and numbers are real and can be walked through on a call.
-              </p>
+              {study.anonymous ? (
+                <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-ink-3">
+                  Client name withheld. The screenshots and numbers are real and can be walked through on a call.
+                </p>
+              ) : null}
             </div>
           </aside>
         </div>

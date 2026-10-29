@@ -248,7 +248,8 @@ export function Contact() {
         window.gtag?.("event", "generate_lead", {
           form_id: "contact",
           serviceType: result.data.serviceType,
-          turnover: result.data.turnover || "not-provided",
+          // Key kept as companySize so the existing GA4 lead event is unchanged; it now carries the turnover band.
+          companySize: result.data.turnover || "not-provided",
           industry: result.data.industry || "not-provided",
           challenge: result.data.challenge || "not-provided",
           timeline: result.data.timeline || "not-provided",

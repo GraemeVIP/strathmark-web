@@ -54,13 +54,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className={heading}>Analytics</h2>
             <p className="mt-4">
-              Google Analytics runs on every visit in a restricted mode. Until you choose &ldquo;Allow&rdquo;, it sets no analytics cookies and sends only basic signals without identifiers, such as a page being viewed, which Google uses to estimate overall visitor numbers.
+              Google Analytics, Microsoft Clarity and Strathmark&apos;s own visitor analytics load only after you choose &ldquo;Allow analytics&rdquo;. Between them they may process page addresses, where you came from, device and browser details, IP address, approximate location, clicks and scrolling, and page speed. Names, email addresses and messages from the contact form are never sent to Google Analytics.
             </p>
             <p className="mt-4">
-              If you choose &ldquo;Allow&rdquo;, Google Analytics may set cookies, and Microsoft Clarity and Strathmark&apos;s own visitor analytics are switched on. Between them they may process page addresses, where you came from, device and browser details, IP address, approximate location, clicks and scrolling, and page speed. Names, email addresses and messages from the contact form are never sent to Google Analytics.
-            </p>
-            <p className="mt-4">
-              This is used to understand which pages are useful and which marketing brings in enquiries, and to improve the site. If you choose &ldquo;No thanks&rdquo;, Clarity and Strathmark&apos;s own analytics never load.
+              This is used to understand which pages are useful and which marketing brings in enquiries, and to improve the site. If you choose &ldquo;Essential only&rdquo;, none of these analytics tools are loaded.
             </p>
             <div className="mt-6">
               <CookieResetButton />
@@ -77,7 +74,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className={heading}>Your choices and rights</h2>
             <p className="mt-4">
-              You can say no to analytics cookies, show the cookie notice again at any time, and ask Strathmark to give you, correct or delete personal information about you. You can also object to or restrict some processing, and raise a concern with the UK Information Commissioner&apos;s Office.
+              You can choose essential storage only, show the cookie notice again at any time, and ask Strathmark to give you, correct or delete personal information about you. You can also object to or restrict some processing, and raise a concern with the UK Information Commissioner&apos;s Office.
             </p>
           </section>
 

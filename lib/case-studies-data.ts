@@ -22,6 +22,7 @@ export interface CaseStudy {
   outcomes: string[];
   metrics: CaseStudyMetric[];
   services: string[];
+  anonymous?: boolean;
   image?: {
     src: string;
     width: number;
@@ -189,6 +190,7 @@ const allCaseStudies: CaseStudy[] = [
       { label: "Search clicks", value: "29.2K", context: "across the measured period in Search Console" },
     ],
     services: ["SEO audit", "Site structure fixes", "Lead and sales tracking"],
+    anonymous: true,
     image: {
       src: "/case-studies/organic-turnaround-gsc.png",
       width: 2276,
@@ -322,8 +324,8 @@ const allCaseStudies: CaseStudy[] = [
   },
 ];
 
-// Only results Graeme has confirmed are published. To bring one back, add its slug here
-// and remove its redirect from next.config.ts.
-const PUBLISHED_SLUGS = new Set(["organic-turnaround-uk-automotive"]);
-
-export const caseStudies: CaseStudy[] = allCaseStudies.filter((study) => PUBLISHED_SLUGS.has(study.slug));
+// The anonymised car leasing study, with its Search Console graph, leads the list.
+export const caseStudies: CaseStudy[] = [
+  ...allCaseStudies.filter((study) => study.image),
+  ...allCaseStudies.filter((study) => !study.image),
+];

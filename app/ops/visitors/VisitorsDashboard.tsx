@@ -130,7 +130,7 @@ function MetricCard({
     <div
       className={`border p-5 ${
         accent
-          ? "border-gold/35 bg-[linear-gradient(145deg,rgba(255,106,43,0.16),rgba(255,255,255,0.025))]"
+          ? "border-gold/35 bg-[linear-gradient(145deg,rgba(201,164,99,0.16),rgba(255,255,255,0.025))]"
           : "border-white/10 bg-white/[0.035]"
       }`}
     >
@@ -410,7 +410,7 @@ export function VisitorsDashboard({
   };
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_20%_0%,#1a2a42_0%,#0d1321_34%,#07101c_100%)] px-4 py-8 text-slate-200 md:px-8 md:py-10">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_20%_0%,#1a2a42_0%,#0b1624_34%,#07101c_100%)] px-4 py-8 text-slate-200 md:px-8 md:py-10">
       <div className="mx-auto max-w-[92rem] space-y-6">
         <header className="border-b border-white/10 pb-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
